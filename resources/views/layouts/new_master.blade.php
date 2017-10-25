@@ -40,7 +40,7 @@
    <script type="text/javascript">
     //timer
     var d = new Date();
-    var futuredate = new Date(2017,9,25,17,51,0);
+    var futuredate = new Date(2017,9,25,12,0,0);
     var n = d.getTime();
     var f = futuredate.getTime();
     if (f > n) {

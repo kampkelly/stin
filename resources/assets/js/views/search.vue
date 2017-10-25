@@ -8,7 +8,7 @@
               <div style="height:10px;"></div>
               <h3>Search Innovations</h3>
               <form action="/newsearch" method="POST" role="search" v-on:submit.prevent="search('/newsearch/' + query)">
-                  <div id="csval" ref="criteria">k</div>
+                  <div id="csval" ref="criteria"></div>
                   <div class="input-group">
                       <input type="text" class="form-control" name="q"
                           placeholder="Search innovations, people" v-model="query"> <span class="input-group-btn">

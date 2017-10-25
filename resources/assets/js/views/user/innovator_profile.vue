@@ -83,7 +83,7 @@
                     <p id="viewmore" class="text-center text-primary" style="background-color: lightgrey; border-bottom: 6px solid darkgrey; border-radius: 2%; cursor: pointer;">View More</p>
                     <p id="hidemore" class="text-center text-primary" style="background-color: lightgrey; border-bottom: 6px solid darkgrey; border-radius: 2%; cursor: pointer; display: none;">Hide</p>
                 </div>
-                <div id="expand_profile" style="display: none;">
+                <div id="expand_profile" style="disply: none;">
                     <h4>Address</h4>
                     <ul class="list-unstyled" style="padding-left: 40px;">
                         <div v-if="auth.is_permission == 4">
