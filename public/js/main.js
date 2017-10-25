@@ -21265,6 +21265,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -27035,7 +27036,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "padding-bottom": "60px"
     }
-  }, [_c('div', {
+  }, [_c('h1', [_vm._v("okay category")]), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",

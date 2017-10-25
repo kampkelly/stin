@@ -3,6 +3,7 @@
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
+            <h1>okay category</h1>
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
              <div class="container-fluid startups" v-show="loaded">
                     <h4 class="text-center">{{category.name}}</h4>
