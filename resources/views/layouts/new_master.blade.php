@@ -32,7 +32,7 @@
     var n = d.getTime();
     var f = futuredate.getTime();
     if (f > n) {
-        if(window.location.href == 'https://www.theinnovestors.com/' || window.location.href == 'https://www.theinnovestors.com/login' || window.location.href == 'https://www.theinnovestors.com/register' || window.location.href == 'https://www.theinnovestors.com/innovator/register') {
+        if(window.location.href == 'https://www.theinnovestors.com/' || window.location.href == 'https://www.theinnovestors.com/login' || window.location.href == 'https://www.theinnovestors.com/register' || window.location.href == 'https://www.theinnovestors.com/innovator/registerr') {
              window.location.href = 'http://theinnovestors.com/launchingsoon';    
         }else{
           //   check();
