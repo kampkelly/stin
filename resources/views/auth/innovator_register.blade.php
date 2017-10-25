@@ -64,7 +64,7 @@
                     <label for="password" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Password <span id="asterisks">*</span></label>
 
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
-                        <input id="password" type="password" class="form-control" name="password" placeholder="At least 8 characters" required>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="At least 6 characters" required>
 
                         @if ($errors->has('password'))
                             <span class="help-block">

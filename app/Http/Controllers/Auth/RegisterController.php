@@ -144,7 +144,7 @@ class RegisterController extends Controller
 
             $cookie_value = $request->username;
          //   $this->dispatch((new SendVerificationEmail($user)));
-            session()->flash('message', 'Welcome, Please login'); 
+            session()->flash('message', 'Welcome, Please login to your account'); 
              return redirect('/login');
            //  return redirect('/toverify_email');
     }
