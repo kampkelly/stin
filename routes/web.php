@@ -69,7 +69,7 @@ Route::group(['middleware'=>'auth'], function () {
   Route::post('/showconnections', function(){
    // $this_user = User::where('username', $username)->first();
     $this_user = Auth::user();
-    $user_for_friends = User::where('is_permission', '!=', 4)->where('id', '!=', Auth::user()->id)->inRandomOrder()->get();
+    $user_for_friends = User::where('is_permission', '!=', 4)->where('is_permission', '!=', 5)->where('id', '!=', Auth::user()->id)->inRandomOrder()->get();
     $friends = $this_user->getFriends();
     $requests = $this_user->getFriendRequests();
     $all_users = User::all();
