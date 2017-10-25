@@ -45,6 +45,9 @@
                                 </div>
                             @endforeach
                             @else
+                                @foreach($posts as $post)
+                                    <p style="color: white;">{{$post->body}}</p>
+                                @endforeach
                                 <p style="color: white;">Welcome to theinnovestors, we are glad to have you </p>
                             @endif
                            

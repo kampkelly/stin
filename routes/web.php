@@ -149,14 +149,7 @@ Route::group(['middleware'=>'auth'], function () {
 
 //real spa routes ends//////////////////////////////////////////////////////////
 
-Route::get('/news', function () {
-    return view('news');
 
-});
- Route::get('/maps', function () {
-    return view('maps');
-
-}); 
 Route::get('/features', function () {
     return view('features');
 });

@@ -7,6 +7,7 @@ use App\Mail\Sendcontact;
 use App\Http\Controllers\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
 use App\Startup;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,8 @@ class HomeController extends Controller
     public function home()
     {
      $startups =  Startup::where('status', 'pending')->orWhere('status', 'approved')->orderBy('id', 'desc')->take(5);
-      return view('home', compact('startups'));
+     $posts = Post::orderBy('id', 'desc')->simplePaginate(1);
+      return view('home', compact('startups', 'posts'));
     }
 
     public function authenticate()
