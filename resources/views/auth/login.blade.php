@@ -1,7 +1,7 @@
 @extends('layouts.new_master')
 
 @section('content')
-
+ 
 <div class="container">
     <div class="row login">
     <div style="height: 70px;"></div>
