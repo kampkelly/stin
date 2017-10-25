@@ -120,7 +120,7 @@
                 </div><br>
             </div>
         @else
-            <div class="row contaner-fluid panel panel-succes suggestions">
+            <div class="row contaner-fluid panel panel-succes suggestions" style="display: none;">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     @if($user->image != Null)
                     <img src="{{ asset('cranes.jpg') }}" class="img-responsive img-rounded" style="height: 56px;">
