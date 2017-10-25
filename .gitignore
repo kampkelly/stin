@@ -1,0 +1,12 @@
+/node_modules
+/public/static-pics/categories/
+/public/uploads/startup_photos/
+/storage/*.key
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+.env
+.htpasswd

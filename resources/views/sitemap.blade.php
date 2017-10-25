@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://www.theinnovestors.com/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/login</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/innovator/register</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/features</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/terms</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/about</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/investor/register</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/contact</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://www.theinnovestors.com/disclaimer</loc>
+  <changefreq>daily</changefreq>
+</url>
+</urlset>

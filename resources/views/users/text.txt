@@ -1,0 +1,6 @@
+ $( "#newconnect" ).append(
+                               '<li> <router-link tag="a" to="/innovator/profile/' + globalauth.username+'" class="small">\
+                                <a style="color: #003B7D !important;">'+globalauth.fullname+'</a>\
+                              </router-link> \
+                              <a :href="theurl" class="btn btn-info btn-xs small" v-on:click.prevent="acceptconnect($event, /accept_request/' + globalauth.username+')">Accept Request</a> <a :href="theurl" class="btn btn-warning btn-xs small" v-on:click.prevent="rejectconnect($event, /reject_request/' + globalauth.username+')">Reject Request</a></li>' 
+                               ); 
