@@ -7,11 +7,13 @@
              <div class="container-fluid startups" v-show="loaded">
                     <h4 class="text-center">{{category.name}}</h4>
                     <h4 class="text-center"><small>{{category.description}}</small></h4>
-                <p v-if="countstartups < 1">There are no innovations here. Be the first, 
-                    <router-link tag="a" to="/innovation/create">
-                        <a>Add one now</a>
-                      </router-link>
-                </p>
+                    <div v-if="countstartups < 1" style='height:90vh;'>
+                        <p >There are no innovations here. Be the first, 
+                            <router-link tag="a" to="/innovation/create">
+                                <a>Add one now</a>
+                              </router-link>
+                        </p>
+                     </div>
                     <div class="row" v-else v-for="(startup, index) in startups">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="row pan pan-success">

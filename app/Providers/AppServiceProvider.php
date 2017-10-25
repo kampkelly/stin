@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             $friends = Auth::user()->getFriends($perPage = 20);
             $user_for_friends = User::where('is_permission', '!=', 4)->where('is_permission', '!=', 1)->where('id', '!=', Auth::user()->id)->inRandomOrder()->take(3)->get();
             $investors = User::where('is_permission', '=', 1)->where('id', '!=', Auth::user()->id)->inRandomOrder()->take(30)->get();
-            $categories = \App\Category::all();
+            $categories = \App\Category::orderBy('id', 'desc')->get();
           #  $categories = \App\Category::has('startups')->get();
             $startsides = \App\Startup::where('status', 'pending')->orWhere('status', 'approved')->orderBy('id', 'desc')->take(5)->get();
            # $tags = \App\Tag::has('posts')->pluck('name');

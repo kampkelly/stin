@@ -21263,6 +21263,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -27064,12 +27066,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "text-center"
   }, [_vm._v(_vm._s(_vm.category.name))]), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
-  }, [_c('small', [_vm._v(_vm._s(_vm.category.description))])]), _vm._v(" "), (_vm.countstartups < 1) ? _c('p', [_vm._v("There are no innovations here. Be the first, \n                    "), _c('router-link', {
+  }, [_c('small', [_vm._v(_vm._s(_vm.category.description))])]), _vm._v(" "), (_vm.countstartups < 1) ? _c('div', {
+    staticStyle: {
+      "height": "90vh"
+    }
+  }, [_c('p', [_vm._v("There are no innovations here. Be the first, \n                            "), _c('router-link', {
     attrs: {
       "tag": "a",
       "to": "/innovation/create"
     }
-  }, [_c('a', [_vm._v("Add one now")])])], 1) : _vm._l((_vm.startups), function(startup, index) {
+  }, [_c('a', [_vm._v("Add one now")])])], 1)]) : _vm._l((_vm.startups), function(startup, index) {
     return _c('div', {
       staticClass: "row"
     }, [_c('div', {
