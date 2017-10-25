@@ -26,12 +26,13 @@ Route::get('/contact', function () {
     return view('home');
 }); */
 Route::get('/', 'HomeController@home');
+Route::get('/home', 'HomeController@home');
 //real spa routes begins//////////////////////////////////////////////////////////
 Route::group(['middleware'=>'auth'], function () {
 
   Route::get('/dashboard', function () {
       return view('homespa');
-  }); 
+  });
 
   Route::post('/categories', function(){
     return App\Category::with('startups')->inRandomOrder()->get();
