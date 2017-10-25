@@ -46,8 +46,8 @@
 //	border: 1px solid #ebebeb;
 //	border-radius: 7%;
 }
-$primaryold: #1AAF5D;
-$primary: #313a43;
+$primary: #1AAF5D;
+$primarynew: #313a43;
 $primary-light: #1BBB63;
 $secondary: #227FBB;
 $tertiary: #242525;
@@ -1282,8 +1282,8 @@ h4 {
 .deskheader, .new-head {
 	.is-active {
 	//	background-color: #E7E7E7 ;
-	//	background-color: #009100 ; //the green
-		background-color: #3f4b57;
+		background-color: #009100 ; //the green
+	//	background-color: #3f4b57;
 	}
 }
 
@@ -1365,9 +1365,9 @@ h4 {
 }
 
 .newbk {
-	background: #313a43 !important;
+	background: #1AAF5D !important;
 }
 
 .newcolor {
-	color: #313a43 !important;
+	color: #1AAF5D !important;
 }

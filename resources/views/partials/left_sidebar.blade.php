@@ -8,7 +8,7 @@
                     <a href="/investor/profile/edit/{{Auth::user()->username}}" class="small text-danger" id="notify_update">Please Update Your Profile!</a>
                 @else 
                 <router-link tag="a" to="/innovator/profile/edit/{{Auth::user()->username}}" class="small text-danger" id="notify_update">
-                    <a>Update Profile</a>
+                    <a>Please Update Profile</a>
                   </router-link>
                 @endif
             @endif
