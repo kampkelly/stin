@@ -46,9 +46,8 @@
                             @endforeach
                             @else
                                 @foreach($posts as $post)
-                                    <p style="color: white;">{{str_limit($post->body, $limit = 150)}}</p>
+                                    <p style="color: white;" class="text-justify">{{str_limit($post->body, $limit = 200)}}</p>
                                 @endforeach
-                                <p style="color: white;">Welcome to theinnovestors, we are glad to have you </p>
                             @endif
                            
                     </div>
