@@ -27068,7 +27068,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "text-center"
   }, [_c('small', [_vm._v(_vm._s(_vm.category.description))])]), _vm._v(" "), (_vm.countstartups < 1) ? _c('div', {
     staticStyle: {
-      "height": "90vh"
+      "height": "90vh",
+      "background-color": "green !important"
     }
   }, [_c('p', [_vm._v("There are no innovations here. Be the first, \n                            "), _c('router-link', {
     attrs: {

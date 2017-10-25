@@ -7,7 +7,7 @@
              <div class="container-fluid startups" v-show="loaded">
                     <h4 class="text-center">{{category.name}}</h4>
                     <h4 class="text-center"><small>{{category.description}}</small></h4>
-                    <div v-if="countstartups < 1" style='height:90vh;'>
+                    <div v-if="countstartups < 1" style="height:90vh; background-color:green !important;">
                         <p >There are no innovations here. Be the first, 
                             <router-link tag="a" to="/innovation/create">
                                 <a>Add one now</a>
