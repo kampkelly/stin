@@ -23,7 +23,7 @@
             <a>Threads</a>
           </router-link> 
       @endif
-      <router-link tag="li" to="/search">
+      <router-link tag="li" to="/search" style="display: none;">
         <a><span class="glyphicon glyphicon-search" style="color: white; font-size: 120%;"></span></a>
       </router-link>
       <router-link tag="li" to="{{ route('logout') }}">
