@@ -1,5 +1,4 @@
 /node_modules
-/public/static-pics/categories/
 !/public/uploads/startup_photos/.gitkeep
 /storage/*.key
 /vendor
