@@ -62,7 +62,7 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="/innovator/register">
                                     Register
                                 </a>
                                 <h4 class="text-center">Signin With</h4>
