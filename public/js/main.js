@@ -27076,7 +27076,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "tag": "a",
       "to": "/innovation/create"
     }
-  }, [_c('a', [_vm._v("Add one now")])])], 1)]) : _vm._l((_vm.startups), function(startup, index) {
+  }, [_c('a', [_vm._v("Add one noww")])])], 1)]) : _vm._l((_vm.startups), function(startup, index) {
     return _c('div', {
       staticClass: "row"
     }, [_c('div', {

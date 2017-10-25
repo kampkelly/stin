@@ -10,7 +10,7 @@
                     <div v-if="countstartups < 1" style="height:90vh; background-color:green !important;">
                         <p >There are no innovations here. Be the first, 
                             <router-link tag="a" to="/innovation/create">
-                                <a>Add one now</a>
+                                <a>Add one noww</a>
                               </router-link>
                         </p>
                      </div>
