@@ -96,7 +96,7 @@
 <div class="container">
     <h2 class="text-center">The Process</h2>
     <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-6 howitworks">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 howitworks">
             <ol>
                 <li style="background-clor: #1AAF5D; padding: 0px 10px 0px 10px; magin-bottom: 20px; bordr-radius: 2%;">
                     <h4 style="coor: white;">An innovator or startup (indidvidual/group) registers on theinnovestors.</h4>
@@ -116,7 +116,7 @@
                 </li>
             </ol>
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <img src="{{ asset('/homepage/illustration1.png') }}" class="img-responsive" style="filter: blur(0px) brightness(1) grayscale(0%); hight: 80vh; width: ; padding-eft: 50px;">
         </div>
     </div>
