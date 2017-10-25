@@ -80,7 +80,7 @@
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-2">
                         <button type="submit" class="btn btn-success btn-block">
-                            Signup as Innovator
+                            Register as Innovator
                         </button>
                     </div>
                 </div>
