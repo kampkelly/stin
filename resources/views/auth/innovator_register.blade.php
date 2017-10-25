@@ -7,7 +7,7 @@
 <div style="height: 70px;"></div>
 <div class="container">
     <div class="text-center">
-        <h2>Hi, signup to get access to innovations and startups around!</h2>
+        <h2>Hi, Register to get access to innovations and startups around!</h2>
     </div>
   <!--  <h4>Hello, register free below as an innovator and get access to our list of innovative activities happening around you.<br> You can also upload your own invention/startup when you are ready!</h4> -->
   <div style="height: 10px;"></div>
