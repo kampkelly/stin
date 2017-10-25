@@ -65,7 +65,7 @@
                                 <a class="btn btn-link" href="/innovator/register">
                                     Register
                                 </a>
-                                <h4 class="text-center">Signin With</h4>
+                                <h4 class="text-center">Login With</h4>
                                 <ul class="list-inline list-unstyled" style="display: flex;">
                                 <a href="/auth/facebook" class="btn btn-primary" :disabled="disabled" style="cursor: pointer; flex: 1; margin-right: 10px;"> Facebook</a>
                             <a href="{{ url('/auth/google') }}" class="btn btn-md btn-danger" :disabled="disabled" style="cursor: pointer; flex: 1; margin-left: 10px;">Google</a>

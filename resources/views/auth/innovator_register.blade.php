@@ -16,7 +16,7 @@
           
       </div>
       <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-        <p class="small">Signup as an investor instead, <a href="/investor/register">click here</a></p>
+        <p class="small" style="display: none;">Signup as an investor instead, <a href="/investor/register">click here</a></p>
           <form class="form-horizontal panel panel-footer" role="form" method="POST" action="/innovator/register" name="myForm" >
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}"> 
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </form>
-            <h4 class="text-center">or<br>Signup With</h4>
+            <h4 class="text-center">or<br>Register With</h4>
             <ul class="list-inline list-unstyled" style="display: flex;">
                 <a href="/auth/facebook" class="btn btn-primary" :disabled="disabled" style="cursor: pointer; flex: 1; margin-right: 10px;"> Facebook</a>
                 <a href="{{ url('/auth/google') }}" class="btn btn-md btn-danger" :disabled="disabled" style="cursor: pointer; flex: 1; margin-left: 10px;">Google</a>
