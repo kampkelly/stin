@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Mail\VerificationUser;
-use App\Mail\Welcome;
+use App\Mail\WelcomeToTheinnovestors;
 use App\Http\Controllers\Mail\Mailer;
 //use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
@@ -136,7 +136,7 @@ class RegisterController extends Controller
             'status' => 'pending'
            ]);
         //   \Mail::to($user)->send(new VerificationUser($user));
-           \Mail::to($user)->send(new Welcome($user));
+           \Mail::to($user)->send(new WelcomeToTheinnovestors($user));
 
         /*   \Mail::send('emails.verification-user', ['user' => $user], function ($message){
                 $message->to('kampkelly@live.com')->subject('Expertphp.in - Testing mail');

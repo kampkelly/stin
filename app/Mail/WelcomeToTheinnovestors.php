@@ -8,21 +8,19 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NewConnection extends Mailable
+class WelcomeToTheinnovestors extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $user;
-    public $auth;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user, $auth)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->auth = $auth;
     }
 
     /**
@@ -32,6 +30,6 @@ class NewConnection extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.newconnection');
+        return $this->markdown('emails.welcome');
     }
 }
