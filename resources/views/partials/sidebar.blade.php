@@ -64,7 +64,11 @@
     
         <h5 class="text-center" style="text-decoration: underline;">Latest Innovations</h5>
     @if(count($startsides) <= 0)
-            <p class="small">There are no innovations yet. Be the first, <a href="/startup/new">Add one now</a></p>
+            <p class="small">There are no innovations yet. Be the first,
+                <router-link tag="a" to="/innovation/create">
+                    <a>Add one now</a>
+                  </router-link>
+         </p>
     @else
         <div class="list-group">
             @foreach($startsides as $startside)
