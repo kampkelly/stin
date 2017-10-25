@@ -75,7 +75,7 @@
    <li><a href='/about'>About</a></li>
     <li><a id="log" href="/login">Signin</a></li>
     <li><a id="reg" href="/innovator/register">Signup as Innovator</a></li>
-    <li><a id="reg" href="/innovator/register">Signup as Investor</a></li>
+    <li style="display: none;"><a id="reg" href="/innovator/register">Signup as Investor</a></li>
 </ul>
 </div>
 @endif

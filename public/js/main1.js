@@ -22487,6 +22487,7 @@ function hashchange() {
         //   window.location.href == "http://www.theinnovestors.dev/dashboard#/";
         document.location.replace == "http://www.google.com";
     }
+    alert('slsk');
     $('.third-row').hide();
     $('.footer').hide();
     //    });
