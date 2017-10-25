@@ -1,11 +1,7 @@
-@component('mail::message', ['user' => $user])
-# Welcome {{$user->fullname}} - Thanks for signing up at Theinnovestors
+@component('mail::message', ['user' => $user, 'auth' => $auth])
+# Hi, you have a new connection request from {{$auth->fullname}}
 
-We hope to help you get funded
-
-- Pitch your innovation <a href="https://theinnovestors.com/innovation/create">here</a> 
-
-- You can see your profile <a href="https://theinnovestors.com/dashboard#/innovator/profile/{{$user->email}}">here</a> 
+- You can see your connections here <a href="https://theinnovestors.com/dashboard#/{{$user->email}}/connections">here</a> 
 
 
 @component('mail::button', ['url' => 'https://theinnovestors.com'])

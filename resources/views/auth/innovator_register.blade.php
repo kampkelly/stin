@@ -1,6 +1,7 @@
 @extends('layouts.new_master')
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <!--<div style="height: 40px;"></div> -->
 <div id="in_reg" ng-app="">
 <div style="height: 70px;"></div>

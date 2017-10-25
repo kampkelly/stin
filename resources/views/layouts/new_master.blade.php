@@ -21,19 +21,7 @@
     <link href="{{ asset('css/myiconstyle.css') }}" rel="stylesheet">
       
    
-<script type="text/javascript">
-//  var _paq = _paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */ //dont activate this lijn
- /* _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//srotsevonni-piwik.tk/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })(); */
-</script>
+@include('partials/_analytics')
 <!-- End Piwik Code -->
     </head>
 <body style="positin: relative;">

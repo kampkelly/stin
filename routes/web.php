@@ -322,7 +322,7 @@ $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 $this->get('signup', 'Auth\RegisterController@signup')->name('signup');
 $this->get('innovator/register', 'Auth\RegisterController@innovator')->name('register');
 #$this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-$this->get('investor/register', 'Auth\RegisterController@investor')->name('register');
+//$this->get('investor/register', 'Auth\RegisterController@investor')->name('register');
 $this->post('/innovator/register', 'Auth\RegisterController@signupinnovator');
 $this->post('/innovator/update/{id}', 'StartupController@postinnovator_update');
 #$this->post('register', 'Auth\RegisterController@register');

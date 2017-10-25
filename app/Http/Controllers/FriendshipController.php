@@ -14,6 +14,9 @@ use App\FriendFriendshipGroups;
 use LRedis;
 use App\Events\AcceptConnection;
 use App\Events\SendConnection;
+use App\Mail\NewConnection;
+use App\Http\Controllers\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
 
 class FriendshipController extends Controller
 {
@@ -33,6 +36,7 @@ class FriendshipController extends Controller
         }
         $data = ['request_id' => $request_id, 'receiver_request_id' => $receiver_request_id, 'fullname' => Auth::user()->fullname, 'username' => Auth::user()->username];
         event(new SendConnection($user, $auth));
+        \Mail::to($user)->send(new NewConnection($user, $auth));
         return 'Connection request sent!';
         }else{
             session()->flash('message', 'Unauthorized Operation!');

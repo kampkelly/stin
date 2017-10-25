@@ -31,7 +31,11 @@
                 <div  style="padding: 0px 40px 0px 40px;">
                     <div class="pael panel-default">
                         <div class="panel-heading">
+                             @if(count($startups) >= 10)
                             <h3 class="panel-title">Latest Innovations</h3>
+                            @else
+                            <h3 class="panel-title">News Updates</h3>
+                            @endif
                         </div>
                         <div class="panel-body" style="background-color: rgba(255, 255, 255, 0);">
                             @if(count($startups) >= 10)
@@ -54,7 +58,7 @@
 <div style="height: 0px;"></div>
 
 <!--insert-->
-<section id="secondview"  style="background-color: white; height: 100vh;">
+<section id="secondview"  style="background-color: white; height: 60vh;">
     <div class="" style="background-color: #227FBB; height: 60vh;">
         <div class="text-center container" style="padding-top: 50px;">
             <h1>Our Mission</h1>
@@ -65,7 +69,7 @@
             <a href="/about" class="btn btn-success btn-lg">Learn More</a>
         </div>
     </div>
-    <div style="height: 40vh; backgound-color: #2589c9;">
+    <div style="height: 40vh; display: none; backgound-color: #2589c9;">
         <div class="text-center">
             <h3 style="color: #242525; padding-top: 7px;">Partners</h3>
             <div class="row" style="padding: 0px 30px 0px 30px;">
@@ -119,7 +123,7 @@
 <section class="inbetween">
     <img src="{{ asset('/homepage/steve.jpg') }}" class="img-reponsive" style="filter: blur(0px) brightness(1) grayscale(0%); height: 50vh; paddng-left: 25%;">
 </section>
-<section id="fourthview" style="backgrund-color: #227FBB; height: 100vh;">
+<section id="fourthview" style="backgrund-color: #227FBB; height: 100vh; display: none;">
     <h3 class="text-center">What You Benefit from Theinnovestors</h3>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
