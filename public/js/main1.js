@@ -21265,7 +21265,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -27036,7 +27035,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "padding-bottom": "60px"
     }
-  }, [_c('h1', [_vm._v("okay category")]), _vm._v(" "), _c('div', {
+  }, [_c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -27069,8 +27068,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "text-center"
   }, [_c('small', [_vm._v(_vm._s(_vm.category.description))])]), _vm._v(" "), (_vm.countstartups < 1) ? _c('div', {
     staticStyle: {
-      "height": "90vh",
-      "background-color": "green !important"
+      "height": "90vh"
     }
   }, [_c('p', [_vm._v("There are no innovations here. Be the first, \n                            "), _c('router-link', {
     attrs: {

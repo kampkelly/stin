@@ -160,7 +160,7 @@
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
  <script type="text/javascript" src="/js/vue.js"></script>
-      <script type="text/javascript" src="/js/main.js"></script>
+      <script type="text/javascript" src="/js/main1.js"></script>
        <script src="{{ asset('js/bundle1.js') }}"></script>
      <!--  <script src="{{ asset('js/app.js') }}"></script> -->
        <!--for mobileheader slide in when logged in-->

@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-xs-3 col-sm-6 col-md-6 col-lg-6">
 				<ul class="list-unstyled list-inline">
-					<li><h6><a href="/">Homee</a></h6></li>
+					<li><h6><a href="/">Home</a></h6></li>
 					<li><h6><a href="/about">About</a></h6></li>
 					<li><h6><a href="/contact">Contact</a></h6></li>
 					<li><h6><a href="/terms">Terms</a></h6></li>
