@@ -276,7 +276,7 @@ Route::get('/investor/profile/edit/{username}', 'PersonController@investor_profi
 Route::post('/profile/image/{username}', 'PersonController@pic_update');
 //Route::get('/innovator/profile/edit/{id}', 'StartupController@innovator_profile_edit');function(){
 
-$this->get('getmeinside_yeah', 'Auth\LoginController@showLoginForm')->name('login');
+$this->get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 //$this->post('login', 'Auth\LoginController@login');
 /*Route::post('login',function(){
     $username = Input::get('email');
