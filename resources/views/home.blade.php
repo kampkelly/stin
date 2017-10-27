@@ -22,6 +22,7 @@
 
                     </li>
                 </ul>
+                <p>Dedicated to Promote Entrepreneurship by showcasing peoples’ creativity.</p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
@@ -60,7 +61,7 @@
 <div style="height: 0px;"></div>
 
 <!--insert-->
-<section id="secondview"  style="background-color: white; height: 60vh;">
+<section id="secondview"  style="background-color: white; height: 60vh; display: none;">
     <div class="" style="background-color: #227FBB; height: 60vh;">
         <div class="text-center container" style="padding-top: 50px;">
             <h1>Our Mission</h1>
@@ -122,7 +123,7 @@
     </div>
 </div>
 </section>
-<section class="inbetween">
+<section class="inbetween" style="display: none;">
     <img src="{{ asset('/homepage/steve.jpg') }}" class="img-reponsive" style="filter: blur(0px) brightness(1) grayscale(0%); height: 50vh; paddng-left: 25%;">
 </section>
 <section id="fourthview" style="backgrund-color: #227FBB; height: 100vh; display: none;">
@@ -223,13 +224,13 @@
             var scrollTop = $(window).scrollTop(); 
       //  var documentTop = $(document).scrollTop();
             if (scrollTop > 600) {
-                $('.deskheader').addClass('navbar-default');
-                $('.deskheader a').addClass('link');
-                $('.dsk-head').css("padding-right", '10em');
+           //     $('.deskheader').addClass('navbar-default');
+             //   $('.deskheader a').addClass('link');
+              //  $('.dsk-head').css("padding-right", '10em');
             }else{
-                $('.deskheader').removeClass('navbar-default');
-                $('.deskheader a').removeClass('link');
-                $('.dsk-head').css("padding-right", '10em');
+               // $('.deskheader').removeClass('navbar-default');
+               // $('.deskheader a').removeClass('link');
+               // $('.dsk-head').css("padding-right", '10em');
             }
         });
         $('#loads').load('map.html')
