@@ -122,7 +122,7 @@
     </div>
 </div>
 </section>
-<section class="inbetween">
+<section class="inbetween" style="display: none;">
     <img src="{{ asset('/homepage/steve.jpg') }}" class="img-reponsive" style="filter: blur(0px) brightness(1) grayscale(0%); height: 50vh; paddng-left: 25%;">
 </section>
 <section id="fourthview" style="backgrund-color: #227FBB; height: 100vh; display: none;">
@@ -223,13 +223,13 @@
             var scrollTop = $(window).scrollTop(); 
       //  var documentTop = $(document).scrollTop();
             if (scrollTop > 600) {
-                $('.deskheader').addClass('navbar-default');
-                $('.deskheader a').addClass('link');
-                $('.dsk-head').css("padding-right", '10em');
+           //     $('.deskheader').addClass('navbar-default');
+             //   $('.deskheader a').addClass('link');
+              //  $('.dsk-head').css("padding-right", '10em');
             }else{
-                $('.deskheader').removeClass('navbar-default');
-                $('.deskheader a').removeClass('link');
-                $('.dsk-head').css("padding-right", '10em');
+               // $('.deskheader').removeClass('navbar-default');
+               // $('.deskheader a').removeClass('link');
+               // $('.dsk-head').css("padding-right", '10em');
             }
         });
         $('#loads').load('map.html')
