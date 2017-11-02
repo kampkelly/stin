@@ -26824,9 +26824,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.title = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(3), _vm._v(" "), _c('div', {
+  }, [_vm._m(4), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     directives: [{
@@ -26854,7 +26854,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(4), _vm._v(" "), _c('div', {
+  }, [_vm._m(5), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('textarea', {
     directives: [{
@@ -26887,7 +26887,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group hide-all"
-  }, [_vm._m(5), _vm._v(" "), _c('div', {
+  }, [_vm._m(6), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('textarea', {
     directives: [{
@@ -26916,7 +26916,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.title = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(6), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_vm._m(7), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
@@ -27133,7 +27133,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "for": "fileupload"
     }
-  }, [_c('small', [_vm._v("Display Picture")])]), _vm._v(" "), _c('div', {
+  }, [_c('small', [_vm._v("Cover Photo")])]), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     staticClass: "btn btn-success",
@@ -27155,6 +27155,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "dPreview"
     }
   })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "fileupload"
+    }
+  }, [_c('small', [_vm._v("More photos (can attach more than one):")])]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-12 col-sm-offset-0"
+  }, [_c('input', {
+    staticClass: "btn btn-success",
+    attrs: {
+      "type": "file",
+      "name": "photos[]",
+      "multiple": ""
+    }
+  })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
     staticClass: "control-label",
@@ -27180,24 +27198,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('small', [_vm._v("Full Description")]), _c('span', {
     staticClass: "small text-muted"
   }, [_vm._v(" - discuss your idea")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "form-group"
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "fileupload"
-    }
-  }, [_c('small', [_vm._v("Product photos (can attach more than one):")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-sm-12 col-sm-offset-0"
-  }, [_c('input', {
-    staticClass: "btn btn-success",
-    attrs: {
-      "type": "file",
-      "name": "photos[]",
-      "multiple": ""
-    }
-  })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
     staticClass: "control-label",
@@ -28840,9 +28840,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.title = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(3), _vm._v(" "), _c('div', {
+  }, [_vm._m(4), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     directives: [{
@@ -28870,7 +28870,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(4), _vm._v(" "), _c('div', {
+  }, [_vm._m(5), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('textarea', {
     directives: [{
@@ -28901,7 +28901,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group hide-all"
-  }, [_vm._m(5), _vm._v(" "), _c('div', {
+  }, [_vm._m(6), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('textarea', {
     directives: [{
@@ -28930,7 +28930,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.full_desc = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(6), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_vm._m(7), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
@@ -29156,7 +29156,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "for": "fileupload"
     }
-  }, [_c('small', [_vm._v("Display Picture")])]), _vm._v(" "), _c('div', {
+  }, [_c('small', [_vm._v("Cover Photo")])]), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     staticClass: "btn btn-success",
@@ -29177,6 +29177,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "dPreview"
     }
   })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "fileupload"
+    }
+  }, [_c('small', [_vm._v("More photos (can attach more than one):")])]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-12 col-sm-offset-0"
+  }, [_c('input', {
+    staticClass: "btn btn-success",
+    attrs: {
+      "type": "file",
+      "name": "photos[]",
+      "multiple": ""
+    }
+  })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
     staticClass: "control-label",
@@ -29202,24 +29220,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('small', [_vm._v("Full Description")]), _c('span', {
     staticClass: "small text-muted"
   }, [_vm._v(" - discuss your idea")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "form-group"
-  }, [_c('label', {
-    staticClass: "control-label",
-    attrs: {
-      "for": "fileupload"
-    }
-  }, [_c('small', [_vm._v("Product photos (can attach more than one):")])]), _vm._v(" "), _c('div', {
-    staticClass: "col-sm-12 col-sm-offset-0"
-  }, [_c('input', {
-    staticClass: "btn btn-success",
-    attrs: {
-      "type": "file",
-      "name": "photos[]",
-      "multiple": ""
-    }
-  })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
     staticClass: "control-label",

@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="fileupload" class="control-label"><small>Display Picture</small></label>
+                        <label for="fileupload" class="control-label"><small>Cover Photo</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
                         <input type="file" name="startup_image" id="fileupload" placeholder="Enter Title" class="btn btn-success">
                         </div>
@@ -30,6 +30,12 @@
                         <br />
                         <br />
                         <div id="dPreview">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="fileupload" class="control-label"><small>More photos (can attach more than one):</small></label>
+                        <div class="col-sm-12 col-sm-offset-0">
+                         <input type="file" name="photos[]" class="btn btn-success" multiple />
                         </div>
                     </div>
                     <div class="form-group">
@@ -48,12 +54,6 @@
                         <label for="full_desc" class="control-label"><small>Full Description</small><span class="small text-muted"> - discuss your idea</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
                             <textarea name="full_desc" id="full_desc" class="form-control" rows="5" style="resize:none;" placeholder="Describe Fully" v-model="full_desc" required></textarea>
-                        </div>
-                    </div>
-                     <div class="form-group">
-                        <label for="fileupload" class="control-label"><small>Product photos (can attach more than one):</small></label>
-                        <div class="col-sm-12 col-sm-offset-0">
-                         <input type="file" name="photos[]" class="btn btn-success" multiple />
                         </div>
                     </div>
                     <div class="form-group">
