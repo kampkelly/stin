@@ -38,7 +38,7 @@
                                 <div class="row cntainer-fluid">
                                    
                                     <router-link tag="a" v-bind:to="'/innovation/' + startup.slug" class="col-xs-12 col-sm-4 col-md-4 col-lg-5">
-                                        <img v-bind:src="'uploads/' + startup.image" width="100%" class="img-responsive">
+                                        <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                     </router-link>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
                                          <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ startup.short_desc }} <br>

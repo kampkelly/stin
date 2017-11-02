@@ -10,10 +10,11 @@
             </div>
             <h4 class="text-center">Add Your Innovation</h4>
               <!--include partials errors-->
-          <form action="/startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
+          <form action="/create_startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
             <!--<form action="/startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data" v-on:submit.prevent="savestartup()"> -->
               <!--csrf_field-->
-              <div id="csval"></div>
+              <input type="hidden" name="_token" value="2HCfCW0UT1m1h5KdTjB0eTT2tT1l44DZfPDPQyja">
+              <div id="cs_vall"></div>
                     <div class="form-group">
                         <label for="startup_title" class="control-label"><small>Title of Innovation/Startup</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
@@ -48,7 +49,7 @@
                     <div class="form-group hide-all">
                         <label for="full_desc" class="control-label"><small>Full Description</small><span class="small text-muted"> - discuss your idea</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                            <textarea name="full_desc" id="full_desc" class="form-control" rows="5" style="resize:none;" placeholder="Describe Fully" v-model="full_desc" required></textarea>
+                            <textarea name="full_desc" id="full_desc" class="form-control" rows="5" style="resize:none;" placeholder="Describe Fully" v-model="title" required></textarea>
                         </div>
                     </div>
                      <div class="form-group">
@@ -164,7 +165,8 @@ var csr;
                 self.loaded = true,
                 responsive();
                 csr = document.getElementById('csrf').innerHTML;
-                document.getElementById('csval').innerHTML= csr;
+                document.getElementById('cs_val').innerHTML= csr;
+                console.log(csr);
                 }); 
         },
         methods: {

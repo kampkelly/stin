@@ -21622,6 +21622,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -21658,7 +21659,8 @@ var csr;
         .then(function (response) {
             self.categories = response.data, self.loading = false, self.loaded = true, responsive();
             csr = document.getElementById('csrf').innerHTML;
-            document.getElementById('csval').innerHTML = csr;
+            document.getElementById('cs_val').innerHTML = csr;
+            console.log(csr);
         });
     },
 
@@ -21856,6 +21858,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 var csr;
@@ -21890,7 +21893,8 @@ var csr;
         axios.post('/innovation/edit/' + this.$route.params.slug).then(function (response) {
             self.loading = false, self.loaded = true, self.categories = response.data[0], self.startup = response.data[1], self.title = self.startup.title, self.group_name = self.startup.group_name, self.short_desc = self.startup.short_desc, self.full_desc = self.startup.full_desc, self.aim = self.startup.aim, self.importance = self.startup.importance, self.achievements = self.startup.achievements, self.features = self.startup.features, self.category_id = self.startup.category_id, self.contacts = self.startup.contacts, responsive();
             csr = document.getElementById('csrf').innerHTML;
-            document.getElementById('csval').innerHTML = csr;
+            console.log(csr);
+            document.getElementById('c').innerHTML = csr;
         });
     },
 
@@ -25656,7 +25660,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "height": "300px"
     },
     attrs: {
-      "src": 'uploads/' + _vm.startup.image,
+      "src": 'uploads/startup_photos/' + _vm.startup.image,
       "width": "100%"
     }
   })])])])]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
@@ -26774,15 +26778,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Add Your Innovation")]), _vm._v(" "), _c('form', {
     staticClass: "form-horizontal",
     attrs: {
-      "action": "/startups",
+      "action": "/create_startups",
       "method": "POST",
       "role": "form",
       "files": "true",
       "enctype": "multipart/form-data"
     }
-  }, [_c('div', {
+  }, [_c('input', {
     attrs: {
-      "id": "csval"
+      "type": "hidden",
+      "name": "_token",
+      "value": "2HCfCW0UT1m1h5KdTjB0eTT2tT1l44DZfPDPQyja"
+    }
+  }), _vm._v(" "), _c('div', {
+    attrs: {
+      "id": "cs_vall"
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "form-group"
@@ -26883,8 +26893,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.full_desc),
-      expression: "full_desc"
+      value: (_vm.title),
+      expression: "title"
     }],
     staticClass: "form-control",
     staticStyle: {
@@ -26898,12 +26908,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": ""
     },
     domProps: {
-      "value": (_vm.full_desc)
+      "value": (_vm.title)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.full_desc = $event.target.value
+        _vm.title = $event.target.value
       }
     }
   })])]), _vm._v(" "), _vm._m(6), _vm._v(" "), _c('div', {
@@ -27378,7 +27388,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'uploads/' + startup.image,
+        "src": 'uploads/startup_photos/' + startup.image,
         "width": "100%"
       }
     })]), _vm._v(" "), _c('div', {
@@ -28535,7 +28545,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }, [_c('img', {
         staticClass: "img-responsive",
         attrs: {
-          "src": 'uploads/' + startup.image,
+          "src": 'uploads/startup_photos/' + startup.image,
           "width": "100%"
         }
       })]), _vm._v(" "), _c('div', {
@@ -28792,9 +28802,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "files": "true",
       "enctype": "multipart/form-data"
     }
-  }, [_c('div', {
+  }, [_c('input', {
     attrs: {
-      "id": "csval"
+      "type": "hidden",
+      "name": "_token",
+      "value": "2HCfCW0UT1m1h5KdTjB0eTT2tT1l44DZfPDPQyja"
+    }
+  }), _vm._v(" "), _c('div', {
+    attrs: {
+      "id": "cr"
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "form-group"
@@ -29671,7 +29687,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'uploads/' + startup.image,
+        "src": 'uploads/startup_photos/' + startup.image,
         "width": "100%"
       }
     })]), _vm._v(" "), _c('div', {
@@ -30512,7 +30528,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'uploads/' + startup.image,
+        "src": 'uploads/startup_photos/' + startup.image,
         "width": "100%"
       }
     })]), _vm._v(" "), _c('div', {

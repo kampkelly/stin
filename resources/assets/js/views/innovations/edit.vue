@@ -11,7 +11,8 @@
             <h4 class="text-center">Update {{startup.title}}</h4>
             <form :action="'/startup/' + startup.slug" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
               <!--csrf_field-->
-              <div id="csval"></div>
+              <input type="hidden" name="_token" value="2HCfCW0UT1m1h5KdTjB0eTT2tT1l44DZfPDPQyja">
+              <div id="cr"></div>
                     <div class="form-group">
                         <label for="startup_title" class="control-label"><small>Startup Name</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
@@ -168,8 +169,8 @@ var csr;
                 self.contacts = self.startup.contacts,
                 responsive();
                 csr = document.getElementById('csrf').innerHTML;
-                document.getElementById('csval').innerHTML= csr;
-
+                console.log(csr);
+                document.getElementById('c').innerHTML= csr;
                  }); 
         },
         methods: {

@@ -19,7 +19,7 @@
                         <a :href="'/startup/edit/' + startup.slug" class="pull-right small" style="color: #139DFD; display: none;">Edit</a><br><span class="small pull-right">{{ postedOn(startup) }}</span><span class="small pull-right"><div class="rw-ui-container" :data-title="startup.id"></div></span></h4>
                         <div id="startup_img" class="panel panel-body">
                             
-                            <img :src="'uploads/' + startup.image" class="img-responsive" width="100%" style="height:300px;">
+                            <img :src="'uploads/startup_photos/' + startup.image" class="img-responsive" width="100%" style="height:300px;">
                         </div>
                     </div>
                 </div>

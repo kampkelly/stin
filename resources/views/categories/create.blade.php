@@ -18,7 +18,7 @@
         <div class="container-fluid" style="padding-left: 30px">
             <h3 class="text-center">Make a New Category</h3>
             @include('/partials/errors')
-            <form action="/categories" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
+            <form action="/create_categories" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
             {{ csrf_field() }}
                     <div class="form-group">
                         <label for="name" class="control-label">Category Name</label>

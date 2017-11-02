@@ -184,7 +184,7 @@ Route::get('/dashboardold', 'StartupController@index');
 Route::get('/startups', 'StartupController@startups');
 Route::get('/show', 'StartupController@start');
 Route::get('/startup/new', 'StartupController@create');
-Route::post('/startups', 'StartupController@store');
+Route::post('/create_startups', 'StartupController@store');
 Route::get('/startup/{slug}', 'StartupController@show');
 Route::get('/startup/edit/{slug}', 'StartupController@edit');
 Route::post('/startup/{slug}', 'StartupController@update');
@@ -362,7 +362,7 @@ Route::group(['middleware' => 'check-permission:admin|superadmin'], function () 
   Route::post('/change_admin_role', 'AdminController@change_role');
   //categories
   Route::get('/category/new', 'CategoryController@create');
-  Route::post('/categories', 'CategoryController@create');
+  Route::post('/create_categories', 'CategoryController@create');
   Route::get('/category/remove/{remove}', 'CategoryController@destroy');
   Route::get('/category/edit/{edit}', 'CategoryController@edit');
 });

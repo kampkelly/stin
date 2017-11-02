@@ -21,7 +21,7 @@
                                     <hr>
                                     <div class="row cntainer-fluid">
                                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                            <img v-bind:src="'uploads/' + startup.image" width="100%" class="img-responsive">
+                                            <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                         </div>
                                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                                              <p class="text-center text-justify"><span style="text-decoration: underline;"> Brief description:</span> {{startup.short_desc}} <br>

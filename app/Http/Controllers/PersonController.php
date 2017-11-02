@@ -52,7 +52,7 @@ class PersonController extends Controller
         //requests logic
          if($user->is_permission == 0){
        //  if($user->is_permission == 0 OR checkPermission(['investor', 'admin'])){
-         $startups = $user->startups()->where('status', 'approved')->orderBy('id', 'desc')->get();
+         $startups = $user->startups()->where('status', 'approved')->orWhere('status', 'pending')->orderBy('id', 'desc')->get();
          $youtubevideos = $user->youtubevideos()->orderBy('id', 'desc')->get();
          $requests = $auth->getFriendRequests();
       //   \Mail::to($user)->send(new Welcome($user));
@@ -124,7 +124,7 @@ class PersonController extends Controller
     public function myinnovations($username)
     {
         $auth = Auth::user();
-        $startups = $auth->startups()->where('status', 'approved')->orderBy('id', 'desc')->get();
+        $startups = $auth->startups()->where('status', 'approved')->orWhere('status', 'pending')->orderBy('id', 'desc')->get();
         $youtubevideos = $auth->youtubevideos()->orderBy('id', 'desc')->get();
         $thedata = [$auth, $startups, $youtubevideos];
         return $thedata;

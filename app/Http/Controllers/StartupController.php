@@ -44,12 +44,12 @@ class StartupController extends Controller
             $file_ext = substr($dd, strripos($dd, '.')); // get file extension
             $t = date("i-s");
             $newfilename = md5($file_basename) . $t . $file_ext;
-            Image::make($file)->resize(300, 300)->save(public_path('/uploads/'. $newfilename));
+            Image::make($file)->resize(300, 300)->save(public_path('/uploads/startup_photos/'. $newfilename));
            // $file->move('uploads', $newfilename);
         }
         $slug_title = request('startup_title');
         $slug_username = Auth::user()->username;
-        $slug_date = date("Y-m-d");
+        $slug_date = date("Y-m-d-i-s-a");
         $slug_combine = $slug_title.' '.$slug_username.' '.$slug_date;
         $slug_format = strtr($slug_combine, ' ', '-');
         $slug = $slug_format;
@@ -114,6 +114,7 @@ class StartupController extends Controller
            'startup_title' => 'required|min:8'
            # 'startup_image'       => 'required|mimes:png,jpg,jpeg'
         ]); 
+        $startup = Startup::where('slug', $slug)->first();
         if(Input::hasFile('startup_image')){
             $file=Input::file('startup_image');
             $dd = $file->getClientOriginalName();
@@ -124,16 +125,20 @@ class StartupController extends Controller
            // Image::make($file)->resize(780, 350)->save(public_path('/uploads/'. $newfilename));
             Image::make($file)->resize(1500, null, function ($constraint) {
                     $constraint->aspectRatio();
-                })->save(public_path('/uploads/'. $newfilename));
+                })->save(public_path('/uploads/startup_photos/'. $newfilename));
            // $file->move('uploads', $newfilename);
+            if(file_exists( public_path('uploads/startup_photos/'. $startup->image) )) {
+                unlink(public_path('uploads/startup_photos/'. $startup->image));
+            }
+          //  File::delete();
         }
         
-         $startup = Startup::where('slug', $slug)->first();
+         
          //slug
           $slug_title = request('startup_title');
           $slug_username = Auth::user()->username;
           $slug_date = $startup->created_at;
-          $slug_date = date_format($slug_date,"Y-m-d");
+          $slug_date = date_format($slug_date,"Y-m-d-i-s-a");
           $slug_combine = $slug_title.' '.$slug_username.' '.$slug_date;
           $slug_format = strtr($slug_combine, ' ', '-');
           $slug = $slug_format;
