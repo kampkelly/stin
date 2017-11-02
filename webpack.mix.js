@@ -13,6 +13,6 @@ const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
 	.js('resources/assets/js/vue.js', 'public/js')
-	.js('resources/assets/js/main.js', 'public/js/main1.js')
+	.js('resources/assets/js/main.js', 'public/js/main.js')
 	.js('resources/assets/js/myscripts.js', 'public/js/bundle1.js')
    .sass('resources/assets/sass/style.scss', 'public/css/style.css');
