@@ -1266,7 +1266,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role1",
       "id": "role1",
-      "placeholder": "Member Role",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4",
       "required": ""
     }
@@ -1280,7 +1280,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_1",
       "id": "function_1",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4",
       "required": ""
     }
@@ -1294,7 +1294,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role2",
       "id": "role2",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -1307,7 +1307,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_2",
       "id": "function_2",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -1320,7 +1320,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role3",
       "id": "role3",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -1333,7 +1333,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_3",
       "id": "function_3",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -1355,7 +1355,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role4",
       "id": "role4",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -1368,7 +1368,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_4",
       "id": "function_4",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -1800,7 +1800,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role1",
       "id": "role1",
-      "placeholder": "Member Role",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4",
       "required": ""
     }
@@ -1814,7 +1814,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_1",
       "id": "function_1",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4",
       "required": ""
     }
@@ -1828,7 +1828,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role2",
       "id": "role2",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -1841,7 +1841,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_2",
       "id": "function_2",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -1854,7 +1854,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role3",
       "id": "role3",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -1867,7 +1867,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_3",
       "id": "function_3",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -1889,7 +1889,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role4",
       "id": "role4",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -1902,7 +1902,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_4",
       "id": "function_4",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -2335,7 +2335,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role1",
       "id": "role1",
-      "placeholder": "Member Role",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4",
       "required": ""
     }
@@ -2349,7 +2349,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_1",
       "id": "function_1",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4",
       "required": ""
     }
@@ -2363,7 +2363,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role2",
       "id": "role2",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -2376,7 +2376,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_2",
       "id": "function_2",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -2389,7 +2389,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role3",
       "id": "role3",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -2402,7 +2402,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_3",
       "id": "function_3",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -2427,7 +2427,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role4",
       "id": "role4",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -2440,7 +2440,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_4",
       "id": "function_4",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -2779,7 +2779,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role1",
       "id": "role1",
-      "placeholder": "Member Role",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4",
       "required": ""
     }
@@ -2793,7 +2793,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_1",
       "id": "function_1",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4",
       "required": ""
     }
@@ -2807,7 +2807,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role2",
       "id": "role2",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -2820,7 +2820,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_2",
       "id": "function_2",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -2833,7 +2833,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role3",
       "id": "role3",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -2846,7 +2846,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_3",
       "id": "function_3",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])
@@ -2868,7 +2868,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "role4",
       "id": "role4",
-      "placeholder": "Team member Position",
+      "placeholder": "Team member title e.g 'Developer'",
       "minlength": "4"
     }
   })])
@@ -2881,7 +2881,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "function_4",
       "id": "function_4",
-      "placeholder": "Member's role",
+      "placeholder": "Member's function",
       "minlength": "4"
     }
   })])

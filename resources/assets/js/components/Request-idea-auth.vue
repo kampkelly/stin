@@ -33,39 +33,39 @@
             <section class="row" style="margin-bottom: 10px;">
                 <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label"><a href="#" class="btn" v-on:click="addtwo()" style="color:#27ad60;">Add Team Member  <span class="glyphicon glyphicon-plus small" style="color:#27ad60;"></span></a></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="role1" id="role1" class="form-control" placeholder="Member Role" minlength="4" required>
+                    <input type="text" name="role1" id="role1" class="form-control" placeholder="Team member title e.g 'Developer'" minlength="4" required>
                 </div>
                  <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="function_1" id="function_1" class="form-control" placeholder="Member's role" minlength="4" required>
+                    <input type="text" name="function_1" id="function_1" class="form-control" placeholder="Member's function" minlength="4" required>
                 </div>
             </section>
             <section id="two" class="row two" style="margin-bottom: 10px; display: none;" v-show="two">
                 <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label"><a href="#" class="btn" v-on:click="addthree()" style="color:#27ad60;">Add Team Member <span class="glyphicon glyphicon-plus small" style="color:#27ad60;"></span></a></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="role2" id="role2" class="form-control" placeholder="Team member Position" minlength="4">
+                    <input type="text" name="role2" id="role2" class="form-control" placeholder="Team member title e.g 'Developer'" minlength="4">
                 </div>
                  <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="function_2" id="function_2" class="form-control" placeholder="Member's role" minlength="4">
+                    <input type="text" name="function_2" id="function_2" class="form-control" placeholder="Member's function" minlength="4">
                 </div>
                 <a href="#" style="color:red;" v-on:click="removetwo()"> <span class="glyphicon glyphicon-minus" style="color: red;"></span> remove</a>
             </section>
             <section id="three" class="row" style="margin-bottom: 10px; display: none;" v-show="three">
                 <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label"><a href="#" class="btn" v-on:click="addfour()" style="color:#27ad60;">Add Team Member <span class="glyphicon glyphicon-plus small" style="color:#27ad60;"></span></a></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="role3" id="role3" class="form-control" placeholder="Team member Position" minlength="4">
+                    <input type="text" name="role3" id="role3" class="form-control" placeholder="Team member title e.g 'Developer'" minlength="4">
                 </div>
                  <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="function_3" id="function_3" class="form-control" placeholder="Member's role" minlength="4">
+                    <input type="text" name="function_3" id="function_3" class="form-control" placeholder="Member's function" minlength="4">
                 </div>
                 <a href="#" style="color:red;" v-on:click="removethree()"> <span class="glyphicon glyphicon-minus" style="color: red;"></span> remove</a>
             </section>
             <section id="four" class="row" style="margin-bottom: 10px; display: none;" v-show="four">
                  <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label"><a href="#" class="btn">&nbsp;</a></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="role4" id="role4" class="form-control" placeholder="Team member Position" minlength="4">
+                    <input type="text" name="role4" id="role4" class="form-control" placeholder="Team member title e.g 'Developer'" minlength="4">
                 </div>
                  <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="function_4" id="function_4" class="form-control" placeholder="Member's role" minlength="4">
+                    <input type="text" name="function_4" id="function_4" class="form-control" placeholder="Member's function" minlength="4">
                 </div>
                 <a href="#" style="color:red;" v-on:click="removefour()"> <span class="glyphicon glyphicon-minus" style="color: red;"></span> remove</a>
             </section>
