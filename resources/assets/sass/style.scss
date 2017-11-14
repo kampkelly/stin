@@ -1387,4 +1387,7 @@ h4 {
 	label, h4 {
 		color: white;
 	}
+	@media #{$smartphone} {
+			height: 230vh;
+		}
 }
