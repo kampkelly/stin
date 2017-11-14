@@ -24,6 +24,8 @@
                   <router-link tag="a" :to="'/' + auth.username + '/threads'" class="list-group-item small">
                     <a>My Messages</a>
                   </router-link>
+                  <a href="/request_team" class="list-group-item small">Find Team Members</a>
+                  <a href="/team_requests" class="list-group-item small">Team Requests</a>
                   <router-link tag="a" to="/posts" class="list-group-item small">
                     <a>News Updates</a>
                   </router-link>
@@ -35,7 +37,7 @@
                   <a href="/logout"  
                           onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
-                          Signout
+                          Logout
                       </a>
                   </router-link>
                   <form id="logout-form" action="/logout" method="POST" style="display: none;">
@@ -92,7 +94,6 @@ var csr;
          //   window.location.href == "http://www.theinnovestors.dev/dashboard#/";
             document.location.replace == "http://www.google.com";
         }
-        alert('slsk');
            $('.third-row').hide();
            $('.footer').hide();
     //    });

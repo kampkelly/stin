@@ -76,8 +76,11 @@
    <li><a href='/features'>Features</a></li>
    <li><a href='/terms'>Terms and Conditions</a></li>
    <li><a href='/about'>About</a></li>
-    <li><a id="log" href="/login">Signin</a></li>
-    <li><a id="reg" href="/innovator/register">Signup as Innovator</a></li>
+   <li><a href='/about'>About</a></li>
+    <li><a href="/request_team">Find Team Members</a></li>
+    <li><a href="/team_requests">Team Requests</a></li>
+    <li><a id="log" href="/login">Login</a></li>
+    <li><a id="reg" href="/innovator/register">Register</a></li>
     <li style="display: none;"><a id="reg" href="/innovator/register">Signup as Investor</a></li>
 </ul>
 </div>

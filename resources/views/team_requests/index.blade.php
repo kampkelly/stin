@@ -25,7 +25,7 @@
          @endforeach
      @endif
      @if(count($request_teams) < 1)
-           <h2>There are no teamup requests at this time!<br> You may submit one <a href="/request_team">here</a></h2>
+           <h4>There are no teamup requests at this time!<br> You may submit one <a href="/request_team">here</a></h4>
       @endif
     <div style="height:200px;"></div>
 </div>

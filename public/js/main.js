@@ -22585,6 +22585,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 var csr;
@@ -22616,7 +22618,6 @@ function hashchange() {
         //   window.location.href == "http://www.theinnovestors.dev/dashboard#/";
         document.location.replace == "http://www.google.com";
     }
-    alert('slsk');
     $('.third-row').hide();
     $('.footer').hide();
     //    });
@@ -29950,7 +29951,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "tag": "a",
       "to": '/' + _vm.auth.username + '/threads'
     }
-  }, [_c('a', [_vm._v("My Messages")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("My Messages")])]), _vm._v(" "), _c('a', {
+    staticClass: "list-group-item small",
+    attrs: {
+      "href": "/request_team"
+    }
+  }, [_vm._v("Find Team Members")]), _vm._v(" "), _c('a', {
+    staticClass: "list-group-item small",
+    attrs: {
+      "href": "/team_requests"
+    }
+  }, [_vm._v("Team Requests")]), _vm._v(" "), _c('router-link', {
     staticClass: "list-group-item small",
     attrs: {
       "tag": "a",
@@ -29987,7 +29998,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "href": "/logout",
       "onclick": "event.preventDefault();\n                                   document.getElementById('logout-form').submit();"
     }
-  }, [_vm._v("\n                          Signout\n                      ")])]), _vm._v(" "), _vm._m(0)], 1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                          Logout\n                      ")])]), _vm._v(" "), _vm._m(0)], 1)]), _vm._v(" "), _c('div', {
     staticClass: "text-center"
   })])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
