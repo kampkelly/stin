@@ -20,7 +20,7 @@
                 <label for="company_name" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Category <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
                    <select class="form-control" name="category">
-                        <option value="Engineering" selected>Engineering</option>
+                        <option value="Engineering" selected>Engineering</option> 
                             <option value="Agriculture">Agriculture</option>
                             <option value="Power and Energy">Power and Energy</option>
                             <option value="Healthcare">Healthcare</option>
