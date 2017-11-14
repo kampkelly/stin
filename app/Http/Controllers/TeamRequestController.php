@@ -11,6 +11,7 @@ use App\RequestMember;
 use App\Mail\RequestTeamup;
 use App\Http\Controllers\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeToTheinnovestors;
 
 
 class TeamRequestController extends Controller
@@ -53,53 +54,55 @@ class TeamRequestController extends Controller
         $slug = $slug_format;
         //slug
         if(Auth::guest()){ 
-        $verification_token = str_random(20);
-        $random = (rand(100,999));
-        $username = substr($request->name,0,3) . $random;
-        if ($authUser = User::where('email', $request->email)->orWhere('username', $request->username)->first()) {
-            session()->flash('message', 'This user exists already, please login before requesting!');
-            return redirect()->back();
-        }
-        $user = User::create([
-            'fullname' => $request->name,
-            'username' => $username,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-          //  'is_permission'=> $request->permission,
-            'verification_token' => $verification_token,
-            'is_permission'=> '0',
-            'status' => 'pending'
-           ]);
+            $verification_token = str_random(20);
+            $random = (rand(100,999));
+            $username = substr($request->name,0,3) . $random;
+            $username = strtr($username, ' ', '_');
+            if ($authUser = User::where('email', $request->email)->orWhere('username', $username)->first()) {
+                session()->flash('message', 'This user exists already, please login before requesting!');
+                return redirect()->back();
+            }
+            $username = strtr($username, ' ', '_');
+            $user = User::create([
+                'fullname' => $request->name,
+                'username' => $username,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+              //  'is_permission'=> $request->permission,
+                'verification_token' => $verification_token,
+                'is_permission'=> '0',
+                'status' => 'pending'
+               ]);
 
-        $request_team = TeamRequest::create([
-            'type' => $request->type,
-            'title' => $request->title,
-            'description' => $request->description,
-            'category' => $request->category,
-            'user_id' => $user->id,
-            'additional' => $request->additional,
-  /*          'phone' => $request->phone,
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $username, */
-            'status' => 'active',
-            'slug' => $slug
-           ]);
+            $request_team = TeamRequest::create([
+                'type' => $request->type,
+                'title' => $request->title,
+                'description' => $request->description,
+                'category' => $request->category,
+                'user_id' => $user->id,
+                'additional' => $request->additional,
+      /*          'phone' => $request->phone,
+                'name' => $request->name,
+                'email' => $request->email,
+                'username' => $username, */
+                'status' => 'active',
+                'slug' => $slug
+               ]);
 
-        if($role1 = $request->role1){
-            $this->store_member($role1, $request->function_1, $request_team);
-        }if($role2 = $request->role2){
-            $this->store_member($role2, $request->function_2, $request_team);
-        }if($role3 = $request->role3){
-            $this->store_member($role3, $request->function_3, $request_team);
-        }if($role4 = $request->role4){
-            $this->store_member($role4, $request->function_4, $request_team);
-        }
-        
-        
-         \Mail::to($user)->send(new RequestTeamup($user));
-        session()->flash('message', 'Request Submitted, please login to manage and view profile!');
-              return redirect('/login');
+            if($role1 = $request->role1){
+                $this->store_member($role1, $request->function_1, $request_team);
+            }if($role2 = $request->role2){
+                $this->store_member($role2, $request->function_2, $request_team);
+            }if($role3 = $request->role3){
+                $this->store_member($role3, $request->function_3, $request_team);
+            }if($role4 = $request->role4){
+                $this->store_member($role4, $request->function_4, $request_team);
+            }
+            
+            \Mail::to($user)->send(new WelcomeToTheinnovestors($user));
+             \Mail::to($user)->send(new RequestTeamup($user));
+            session()->flash('message', 'Request Submitted, please login to manage and view profile!');
+                  return redirect('/login');
         }else{
              $request_team = TeamRequest::create([
                 'type' => $request->type,

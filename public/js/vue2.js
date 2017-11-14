@@ -1205,7 +1205,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "description",
       "id": "description",
-      "placeholder": "Team members specialization",
+      "placeholder": "Brief Decription",
       "minlength": "4",
       "required": ""
     }
@@ -2718,7 +2718,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "description",
       "id": "description",
-      "placeholder": "Team members specialization",
+      "placeholder": "Brief Description",
       "minlength": "4",
       "required": ""
     }

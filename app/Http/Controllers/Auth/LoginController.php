@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Redirect;
 use Socialite;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\WelcomeToTheinnovestors;
+use App\Http\Controllers\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
 
 class LoginController extends Controller
 {
@@ -83,7 +86,7 @@ class LoginController extends Controller
             $random_no = (rand(100,999));
           //  $random_no = "$random_no";
             $generated_username = substr($provideduser->name,0,6) . $random_no;
-            return User::create([
+           $user = User::create([
               //  'name' => $githubUser->nickname,  for github
                 'fullname' => $provideduser->name,
                 'username' => $generated_username,
@@ -95,7 +98,10 @@ class LoginController extends Controller
                 'is_permission'=> '0',
                 'status' => 'pending'
             ]);
+           \Mail::to($user)->send(new WelcomeToTheinnovestors($user));
+            return $user;
         }
+
         if($provider == 'github') {
             $random_no = (rand(100,999));
             $random_no = "$random_no";

@@ -125,9 +125,10 @@ class RegisterController extends Controller
                 'username'=>'required|min:1'
             ]);  
                $verification_token = str_random(20);
+               $username = strtr($request->username, ' ', '_');
            $user = User::create([
             'fullname' => $request->fullname,
-            'username' => $request->username,
+            'username' => $username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
           //  'is_permission'=> $request->permission,
