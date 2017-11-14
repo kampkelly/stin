@@ -244,7 +244,7 @@
               width: 500,
               background: '#d9d7d8',
           html: '<h3>Requesting for a team member?</h3> \
-<p>You make a request for a partner/developer, wait for suitable partners to get in touch with you.<br> We also show your request to innovators willing to collaborate.</p>',
+<p>You make a request for a team member and you get contacted by suitable persons to fill in that role for your idea/startup.</p>',
         confirmButtonText: 'Got It!',
         confirmButtonColor: 'grey',
         })
