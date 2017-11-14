@@ -139,7 +139,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
- <script type="text/javascript" src="/js/vue.js"></script>
+ <script type="text/javascript" src="/js/vue1.js"></script>
     <!--  <script type="text/javascript" src="/js/main.js"></script> -->
       <!--for mobileheader slide in when logged in-->
       <script src="{{ asset('js/slide.js') }}"></script>
