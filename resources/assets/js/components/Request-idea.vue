@@ -2,7 +2,7 @@
     <div>
     <form action="/request_team" method="POST" class="form-horizontal" role="form" id="idea" files="true" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="csrf">
-         <h4 class="text-center">Idea Team Member's Requests</h4>
+         <h4 class="text-center">An Idea Team Member's Requests</h4>
          <input type="text" name="type" value="Idea" hidden>
             <div class="form-group">
                 <label for="title" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">I have a working idea on: <span class="asterisks">*</span></label>

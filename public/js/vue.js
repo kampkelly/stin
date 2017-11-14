@@ -975,7 +975,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
-  }, [_vm._v("Startup Member Requests")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("A Startup Member Requests")]), _vm._v(" "), _c('input', {
     attrs: {
       "type": "text",
       "name": "type",
@@ -1495,7 +1495,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
-  }, [_vm._v("Idea Auth Team Member's Requests")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("An Idea Team Member's Requests")]), _vm._v(" "), _c('input', {
     attrs: {
       "type": "text",
       "name": "type",
@@ -2018,7 +2018,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
-  }, [_vm._v("Idea Team Member's Requests")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("An Idea Team Member's Requests")]), _vm._v(" "), _c('input', {
     attrs: {
       "type": "text",
       "name": "type",
@@ -2444,7 +2444,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
-  }, [_vm._v("Startup Member Requests")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("A Startup Member Requests")]), _vm._v(" "), _c('input', {
     attrs: {
       "type": "text",
       "name": "type",

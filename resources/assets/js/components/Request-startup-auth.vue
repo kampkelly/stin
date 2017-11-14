@@ -2,7 +2,7 @@
     <div>
     <form action="/request_team" method="POST" class="form-horizontal" role="form" id="startup" files="true" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="csrf">
-        <h4 class="text-center">Startup Member Requests</h4>
+        <h4 class="text-center">A Startup Member Requests</h4>
             <input type="text" name="type" value="Startup" hidden>
             <div class="form-group">
                 <label for="title" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Startup Name<span class="asterisks">*</span></label>
