@@ -137,7 +137,7 @@ var self = ''; //set self equal to empty string to be used in axios
 var app1 = new Vue({
   el: '#loginn',
   data: {
-    email: 'Jam663',
+    email: '',
     password: '',
     login: true, //normal login button
     loading: false, //loading login button
