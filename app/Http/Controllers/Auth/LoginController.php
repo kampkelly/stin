@@ -64,10 +64,10 @@ class LoginController extends Controller
         }
 
         $authUser = $this->findOrCreateUser($provideduser, $provider);
-        $user = $authUser;
+      //  $user = $authUser;
 
+      //  \Mail::to($user)->send(new WelcomeToTheinnovestors($user));
         Auth::login($authUser, true);
-        \Mail::to($user)->send(new WelcomeToTheinnovestors($user));
 
         
 
