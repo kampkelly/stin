@@ -10,7 +10,7 @@
 <body>
 
 <div class="container text-center">
-	<h1>You don't have permission to access this page <br/> Please contact your Superadmin!</h1>
+	<h1>You don't have permission to access this page <br/> Please contact us!</h1>
 </div>
 
 </body>
