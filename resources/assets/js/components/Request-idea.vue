@@ -7,13 +7,13 @@
             <div class="form-group">
                 <label for="title" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">I have a working idea on: <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="title" id="title" class="form-control" placeholder="Idea Description" minlength="4" value="Good Stuffs" required>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Idea Description" minlength="4" required>
                 </div>
             </div> 
             <div class="form-group">
                 <label for="description" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Brief Description: <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="description" id="description" class="form-control" placeholder="Idea Description" minlength="4" value="Making the world a better place" required>
+                    <input type="text" name="description" id="description" class="form-control" placeholder="Idea Description" minlength="4" required>
                 </div>
             </div>
              <div class="form-group">

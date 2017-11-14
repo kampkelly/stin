@@ -1164,7 +1164,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "title",
       "placeholder": "Startup Name",
       "minlength": "4",
-      "value": "Self",
       "required": ""
     }
   })])])
@@ -1188,7 +1187,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "description",
       "placeholder": "Team members specialization",
       "minlength": "4",
-      "value": "Describe Startup",
       "required": ""
     }
   })])])
@@ -1372,8 +1370,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "phone",
       "required": "",
       "placeholder": "We only use it, people don’t get to see it!",
-      "required": "true",
-      "value": "012334567"
+      "required": ""
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1396,9 +1393,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "name",
       "required": "",
       "placeholder": "Name",
-      "required": "true",
-      "minlength": "4",
-      "value": "James Bolton"
+      "required": "",
+      "minlength": "4"
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1421,8 +1417,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "email",
       "required": "",
       "placeholder": "Email Address",
-      "required": "true",
-      "value": "jamesbolt@yahko.com"
+      "required": "true"
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1445,8 +1440,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "password",
       "required": "",
       "placeholder": "Type password (at least 6 letters)",
-      "required": "true",
-      "value": "password"
+      "required": "true"
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1682,9 +1676,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "title",
       "id": "title",
-      "placeholder": "Idea Description",
+      "placeholder": "Name of Idea",
       "minlength": "4",
-      "value": "Good Stuffs",
       "required": ""
     }
   })])])
@@ -1708,7 +1701,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "description",
       "placeholder": "Idea Description",
       "minlength": "4",
-      "value": "Making the world a better place",
       "required": ""
     }
   })])])
@@ -1750,8 +1742,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "role1",
       "placeholder": "Member Role",
       "minlength": "4",
-      "required": "",
-      "value": "Developer"
+      "required": ""
     }
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1765,8 +1756,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "function_1",
       "placeholder": "Member's role",
       "minlength": "4",
-      "required": "",
-      "value": "Effienct in Php, Javascript and Python"
+      "required": ""
     }
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1874,7 +1864,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "additional",
       "minlength": "15"
     }
-  }, [_vm._v("I want this idea to change the face of computing!")])])])
+  })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"
@@ -1895,8 +1885,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "phone",
       "required": "",
       "placeholder": "We only use it, people don’t get to see it!",
-      "required": "",
-      "value": "012334567"
+      "required": ""
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1920,8 +1909,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "",
       "placeholder": "Name",
       "required": "",
-      "minlength": "4",
-      "value": "James Bolton"
+      "minlength": "4"
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1944,8 +1932,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "email",
       "required": "",
       "placeholder": "Email Address",
-      "required": "true",
-      "value": "jamesbolt@yahko.com"
+      "required": "true"
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1968,8 +1955,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "password",
       "required": "",
       "placeholder": "Type password (at least 6 letters)",
-      "required": "true",
-      "value": "password"
+      "required": "true"
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -2207,7 +2193,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "title",
       "placeholder": "Idea Description",
       "minlength": "4",
-      "value": "Good Stuffs",
       "required": ""
     }
   })])])
@@ -2231,7 +2216,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "description",
       "placeholder": "Idea Description",
       "minlength": "4",
-      "value": "Making the world a better place",
       "required": ""
     }
   })])])
@@ -2633,7 +2617,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "title",
       "placeholder": "Startup Name",
       "minlength": "4",
-      "value": "Self",
       "required": ""
     }
   })])])
@@ -2657,7 +2640,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "description",
       "placeholder": "Team members specialization",
       "minlength": "4",
-      "value": "Describe Startup",
       "required": ""
     }
   })])])

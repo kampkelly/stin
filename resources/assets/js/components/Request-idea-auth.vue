@@ -7,13 +7,13 @@
             <div class="form-group">
                 <label for="title" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">I have a working idea on: <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="title" id="title" class="form-control" placeholder="Idea Description" minlength="4" value="Good Stuffs" required>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Name of Idea" minlength="4" required>
                 </div>
             </div> 
             <div class="form-group">
                 <label for="description" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Brief Description: <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="description" id="description" class="form-control" placeholder="Idea Description" minlength="4" value="Making the world a better place" required>
+                    <input type="text" name="description" id="description" class="form-control" placeholder="Idea Description" minlength="4" required>
                 </div>
             </div>
              <div class="form-group">
@@ -28,10 +28,10 @@
             <section class="row" style="margin-bottom: 10px;">
                 <label class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label"><a href="#" class="btn" v-on:click="addtwo()" style="color:#27ad60;">Add Team Member  <span class="glyphicon glyphicon-plus small" style="color:#27ad60;"></span></a></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="role1" id="role1" class="form-control" placeholder="Member Role" minlength="4" required value="Developer">
+                    <input type="text" name="role1" id="role1" class="form-control" placeholder="Member Role" minlength="4" required>
                 </div>
                  <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="function_1" id="function_1" class="form-control" placeholder="Member's role" minlength="4" required value="Effienct in Php, Javascript and Python">
+                    <input type="text" name="function_1" id="function_1" class="form-control" placeholder="Member's role" minlength="4" required>
                 </div>
             </section>
             <section id="two" class="row two" style="margin-bottom: 10px; display: none;" v-show="two">
@@ -67,31 +67,31 @@
              <div class="form-group">
                 <label for="additional" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Additional Info</label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                   <textarea placeholder="Additional Information" name="additional" id="additional" class="form-control" minlength="15">I want this idea to change the face of computing!</textarea>
+                   <textarea placeholder="Additional Information" name="additional" id="additional" class="form-control" minlength="15"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="phone" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Phone <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="phone" id="phone" class="form-control" required placeholder="We only use it, people don’t get to see it!" required value="012334567">
+                    <input type="text" name="phone" id="phone" class="form-control" required placeholder="We only use it, people don’t get to see it!" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="contactname" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Name <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="name" id="name" class="form-control" required placeholder="Name" required minlength="4" value="James Bolton">
+                    <input type="text" name="name" id="name" class="form-control" required placeholder="Name" required minlength="4">
                 </div>
             </div>
              <div class="form-group">
                 <label for="email" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Email <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="email" id="email" class="form-control" required placeholder="Email Address" required="true" value="jamesbolt@yahko.com">
+                    <input type="text" name="email" id="email" class="form-control" required placeholder="Email Address" required="true">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Password <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="password" name="password" id="password" class="form-control" required placeholder="Type password (at least 6 letters)" required="true" value="password">
+                    <input type="password" name="password" id="password" class="form-control" required placeholder="Type password (at least 6 letters)" required="true">
                 </div>
             </div>
              <div class="form-group">

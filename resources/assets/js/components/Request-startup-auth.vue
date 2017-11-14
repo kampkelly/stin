@@ -7,13 +7,13 @@
             <div class="form-group">
                 <label for="title" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Startup Name<span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="title" id="title" class="form-control" placeholder="Startup Name" minlength="4" value="Self" required>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Startup Name" minlength="4" required>
                 </div>
             </div>
              <div class="form-group">
                 <label for="description" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Brief Description <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                     <input type="text" name="description" id="description" class="form-control" placeholder="Team members specialization" minlength="4" value="Describe Startup" required>
+                     <input type="text" name="description" id="description" class="form-control" placeholder="Team members specialization" minlength="4" required>
                 </div>
             </div>
             <div class="form-group">
@@ -73,25 +73,25 @@
             <div class="form-group">
                 <label for="phone" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Phone <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="phone" id="phone" class="form-control" required placeholder="We only use it, people don’t get to see it!" required="true" value="012334567">
+                    <input type="text" name="phone" id="phone" class="form-control" required placeholder="We only use it, people don’t get to see it!" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="contactname" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Name <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="name" id="name" class="form-control" required placeholder="Name" required="true" minlength="4" value="James Bolton">
+                    <input type="text" name="name" id="name" class="form-control" required placeholder="Name" required minlength="4">
                 </div>
             </div>
              <div class="form-group">
                 <label for="email" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Email <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="text" name="email" id="email" class="form-control" required placeholder="Email Address" required="true" value="jamesbolt@yahko.com">
+                    <input type="text" name="email" id="email" class="form-control" required placeholder="Email Address" required="true">
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-xs-12 col-sm-2 col-md-2 col-lg-3 control-label">Password <span class="asterisks">*</span></label>
                 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-5">
-                    <input type="password" name="password" id="password" class="form-control" required placeholder="Type password (at least 6 letters)" required="true" value="password">
+                    <input type="password" name="password" id="password" class="form-control" required placeholder="Type password (at least 6 letters)" required="true">
                 </div>
             </div>
              <div class="form-group">
