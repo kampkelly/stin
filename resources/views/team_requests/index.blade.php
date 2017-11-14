@@ -23,10 +23,10 @@
               @endif
           </div>
          @endforeach
-     @else
-        <h2>There are no teamup requests at this time!<br> You may submit one <a href="/request_team">here</a></h2>
      @endif
-          
+     @if(count($request_teams) < 1)
+           <h2>There are no teamup requests at this time!<br> You may submit one <a href="/request_team">here</a></h2>
+      @endif
     <div style="height:200px;"></div>
 </div>
 @endsection

@@ -65,7 +65,7 @@
         <h5 class="text-center" style="text-decoration: underline;">Requests For Partners</h5>
          @if(count($request_teams) <= 0)
             <p class="small">No team requests yet.
-                    <a href="/requestpartner">Find a Team Member</a>
+                    <a href="/request_team">Find a Team Member</a>
          </p>
         @else
              @foreach($request_teams as $request)
