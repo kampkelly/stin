@@ -8,5 +8,6 @@
   "/js/bundle1.js": "/js/bundle1.js",
   "/js/main1.js": "/js/main1.js",
   "/js/vue1.js": "/js/vue1.js",
-  "/js/vue2.js": "/js/vue2.js"
+  "/js/vue2.js": "/js/vue2.js",
+  "/js/vue3.js": "/js/vue3.js"
 }
