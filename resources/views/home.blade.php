@@ -46,7 +46,7 @@
                             @endif
                         </div>
                         <div class="panel-body" style="background-color: rgba(255, 255, 255, 0);">
-                            @if(count($startups) >= 10)
+                            @if(count($startups) >= 5)
                             @foreach($startups as $startup)
                                 <div class="list-group">
                                     <a href="#" class="list-group-item">{{str_limit($startup->title, $limit = 30)}}</a>
@@ -56,10 +56,6 @@
                                 @foreach($posts as $post)
                                     <p style="color: white;" class="text-justify">{{str_limit($post->body, $limit = 400)}}</p>
                                 @endforeach
-                                <p style="color: white; text-shadow: 1px 1px #000000;">We the team at Theinnovestors are pleased to have all of you welcome here. <br><br>
-                                    New Changes: Added form to request for a team member which is available before logging in and also when they are logged in. Then another user can connect to them. Then the threads can kick in.<br>
-                                     Also made changes to connecting to a new user, there is now an optional message that can be sent to a user when sending a request. This can be used to describe why you want the person to accept or what you want to do for the person! The design of the pages may not be looking that good yet, but the idea and implementation is good.</p>
-
                             @endif
                            
                     </div>
