@@ -50,6 +50,7 @@
                     </ul>
                       <form :action="'/threads/' + user.username + '/' + thread.slug" method="POST" value="PUT" class="form-horizontal" role="form" v-on:submit.prevent="sendMessage('/threads/' + user.username + '/' + thread.slug)">
                       <!--csrf field-->
+                       <input type="hidden" name="_token" :value="csrf">
                           <div class="form-group">
                               <label for="message" class="control-label" style="display:none;">Reply</label>
                             <div class="input-group col-sm-10 col-sm-offset-2">
@@ -81,7 +82,7 @@
 
 <script>
 import moment from 'moment';
-var csrf_token = $('meta[name="csrf-token"]').attr('content');
+//var csrf_token = $('meta[name="csrf-token"]').attr('content');
 var myid;
 var threadd_id;
 let date = Date();
@@ -127,6 +128,9 @@ let date = Date();
             toggleallthreads();
             this.fetchData();     
         },
+        mounted(){
+            this.csrf = window.Laravel.csrfToken
+        },
         methods: {
             fetchData () {
                 axios.post('/thisthread/' + this.$route.params.username + '/' + this.$route.params.slug)
@@ -141,7 +145,7 @@ let date = Date();
               //  response => this.categories = response.data,
                 self.loading = false,
                 self.loaded = true,
-                self.csrf = csrf_token,
+            //    self.csrf = csrf_token,
                 myid = self.auth_id;
                 threadd_id = self.thread_id;
                 responsive();

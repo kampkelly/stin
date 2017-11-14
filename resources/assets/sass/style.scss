@@ -215,6 +215,10 @@ h1,h2,h3,h4,h5,h6,p,label,span {
 			}
 			ol > li {
 				padding: 0px 10px 0px 10px;
+				margin: 0px 0px 30px 0px;
+				h4 {
+					font-size: 21px;
+				}
 			}
 			ul {
 				padding-left: 20px;
@@ -1370,4 +1374,17 @@ h4 {
 
 .newcolor {
 	color: #1AAF5D !important;
+}
+.asterisks {
+	color: red;
+}
+.teamup {
+	background-image: -webkit-linear-gradient(left, rgba(23, 22, 22, 0.6), rgba(23, 22, 22, 0.6)), url("/homepage/teamup.jpg");
+	height: 150vh;
+	background-position: center;
+	background-size: cover;
+	filter: grayscale(50%);
+	label, h4 {
+		color: white;
+	}
 }

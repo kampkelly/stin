@@ -80,4 +80,8 @@ class HomeController extends Controller
               return 'cool';
     }
 
+    public function request_partner(Request $request) {
+      
+    }
+
 }

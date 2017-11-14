@@ -4,15 +4,16 @@ Vue.use(VueTruncate)
 
 let self = ''; //set self equal to empty string to be used in axios
 var app1 = new Vue({
-  el: '#login',
+  el: '#loginn',
   data: {
-    email: '',
+    email: 'Jam663',
     password: '',
   	login: true,  //normal login button
     loading: false,  //loading login button
   	disabled: false,  //disable buttons
     request_status: '',
     message: '',
+    type: 'Choose what you want to request for',
     styleObject: {  //this is for styling the message in login view
         color: ''
       }
@@ -56,6 +57,11 @@ var app1 = new Vue({
       }
     }
 });
+
+Vue.component('startup', require('./components/Request-startup.vue'));
+Vue.component('startup-auth', require('./components/Request-startup-auth.vue'));
+Vue.component('idea', require('./components/Request-idea.vue'));
+Vue.component('idea-auth', require('./components/Request-idea-auth.vue'));
 
 
 

@@ -27,7 +27,12 @@ class StartupController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['']]);
+        $this->middleware('auth', ['except' => ['briefing']]);
+    }
+
+    public function briefing() {
+        $innovations = Startup::where('status', 'pending')->orWhere('status', 'approved')->with('user')->orderBy('id', 'desc')->get();
+        return view('briefing', compact('innovations'));
     }
 
     public function store(Request $request)

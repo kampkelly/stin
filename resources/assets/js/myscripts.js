@@ -139,6 +139,7 @@ $(document).ready(function(){
     function myFnction() {
         setTimeout(function(){ 
            $("#reques_modal").fadeOut(4000)
+           $(".notifications_panel").fadeOut(4000)
         }, 3000);
     }
     //connection requests

@@ -9,6 +9,7 @@ use App\User;
 use App\Post;
 use App\Friendship;
 use App\FriendFriendshipGroups;
+use App\TeamRequest;
 use Laravel\Dusk\DuskServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,8 +32,9 @@ class AppServiceProvider extends ServiceProvider
             $categories = \App\Category::orderBy('id', 'desc')->get();
           #  $categories = \App\Category::has('startups')->get();
             $startsides = \App\Startup::where('status', 'pending')->orWhere('status', 'approved')->orderBy('id', 'desc')->take(5)->get();
+            $request_teams = \App\TeamRequest::where('status', 'active')->orderBy('id', 'desc')->take(5)->get();
            # $tags = \App\Tag::has('posts')->pluck('name');
-            $view->with(compact('categories', 'startsides', 'friends', 'user_for_friends', 'investors', 'news'));
+            $view->with(compact('categories', 'startsides', 'friends', 'user_for_friends', 'investors', 'news', 'request_teams'));
             });    
 
         view()->composer('/partials/left_sidebar', function ($view) {

@@ -27,6 +27,27 @@ Route::get('/contact', function () {
 }); */
 Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@home');
+Route::get('/innovations/briefing', 'StartupController@briefing');
+Route::get('/request_team', function () {
+    return view('team_requests/request');
+}); 
+Route::post('/request_team', 'TeamRequestController@store');
+Route::post('/request_team/update/{slug}', 'TeamRequestController@update');
+Route::get('/team_requests', 'TeamRequestController@index');
+Route::get('/myrequests', 'TeamRequestController@mine');
+Route::get('/request_team/{slug}', 'TeamRequestController@show');
+Route::get('/request_team/update/{slug}', 'TeamRequestController@edit');
+
+//check auth for request teamup
+  Route::post('/checkauth', function(){
+    if(Auth::check()) {
+      $auth = 1;
+    }else {
+      $auth = 0;
+    }
+    return $auth;
+  });
+//check auth for request teamup
 //real spa routes begins//////////////////////////////////////////////////////////
 Route::group(['middleware'=>'auth'], function () {
 
@@ -218,7 +239,7 @@ Route::delete('/comment/{delete}', 'CommentsController@destroy');
 //comments
 
 //Friendships Begins
-Route::post('/connect/{username}', 'FriendshipController@addfriend');
+Route::post('/connect/{username}/{message}', 'FriendshipController@addfriend');
 Route::post('/accept_request/{username}', 'FriendshipController@acceptfriend');
 Route::post('/reject_request/{username}', 'FriendshipController@rejectfriend');
 Route::post('/unconnect_friend/{username}', 'FriendshipController@unfollowfriend');
@@ -306,6 +327,7 @@ Route::post('login', array(
     }
        // 'Auth\LoginController@Login'
 )); */
+
 $this->post('login', 'Auth\LoginController@login');
 $this->post('/test_ajax', 'Auth\LoginController@test_ajax');
 //$this->post('login', 'LognController@autheicate');
@@ -382,5 +404,16 @@ Route::get('/sendevent', 'ThreadController@sendevent');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+//Route::get('auth/{provider}/callback', 'VerificationController@handleProviderCallback');
+
+/*Route::group(['middleware'=>'guest'], function () {
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+}); */
+
+
+//connect google
+Route::get('connect/{provider}', 'Auth\LoginController@redirectToProvider');
+//Route::get('connect/{provider}/callback', 'VerificationController@handleProviderCallback');
+
 
 

@@ -77,6 +77,14 @@ let routes = [
 	{
 		path: '/search',
 		component: require('./views/search')
+	},
+	{
+		path: '/findpartners',
+		component: require('./views/findpartners')
+	},
+	{
+		path: '/find/:slug',
+		component: require('./views/showfindpartner')
 	}
 	/*{
 		path: '/plans',

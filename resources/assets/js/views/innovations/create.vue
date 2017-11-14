@@ -13,7 +13,7 @@
           <form action="/create_startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
             <!--<form action="/startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data" v-on:submit.prevent="savestartup()"> -->
               <!--csrf_field-->
-              <input type="hidden" name="_token" value="2HCfCW0UT1m1h5KdTjB0eTT2tT1l44DZfPDPQyja">
+              <input type="hidden" name="_token" :value="csrf">
               <div id="cs_vall"></div>
                     <div class="form-group">
                         <label for="startup_title" class="control-label"><small>Title of Innovation/Startup</small></label>
@@ -151,6 +151,7 @@ var csr;
                 updateloading: false,
                 message: '',
                 status: false,
+                csrf: ''
             }
         },
         created() {  //fire off ajax request]
@@ -168,6 +169,9 @@ var csr;
                 document.getElementById('cs_val').innerHTML= csr;
                 console.log(csr);
                 }); 
+        },
+        mounted(){
+            this.csrf = window.Laravel.csrfToken
         },
         methods: {
              savestartup() {  //save location method

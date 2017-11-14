@@ -23,6 +23,7 @@
             <a>Threads</a>
           </router-link> 
       @endif
+          <li><a href="/team_requests">Team Requests</a></li>
       <router-link tag="li" to="/search" style="display: none;">
         <a><span class="glyphicon glyphicon-search" style="color: white; font-size: 120%;"></span></a>
       </router-link>
@@ -30,7 +31,7 @@
         <a href="{{ route('logout') }}"  
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
-                Signout
+                Logout
             </a>
         </router-link>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

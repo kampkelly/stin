@@ -10,18 +10,26 @@
     <div class="row containe">
         <div style="height: 70px;"></div>
         <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
-                <h2 class="text-center" style="color: white; text-shadow: 1px 1px #000000;">Hello, Have an Idea? Pitch it. Get Invested!</h2>
+                <h2 class="text-center" style="color: white; text-shadow: 1.2px 1.2px #000000; font-size: 36px;"><b>Hello, Have an Idea? Pitch it. Get Invested!</b></h2>
             <div class="text-ceter" style="padding: 0px 0px 0px 40px;">
-                <h3 style="color: white; text-shadow: 1px 1px #000000;" class="text-center"> <span style="font-size: 18px; color: white; text-shadow: 0.8px 0.8px #000000;"> Connecting Creative Minds With Investors</span></h3>
-                <div style="height: 40px;"></div>
+                <h3 style="color: white; text-shadow: 1.2px 1.2px #000000;" class="text-center"> <span style="font-size: 18px; color: white; text-shadow: 0.8px 0.8px #000000; font-size: 24px;"><b> Connecting Creative Minds With Investors</b></span></h3>
+                <div style="height: 20px;"></div>
                 <ul class="list-unstyled list-inline text-center">
-                    <li><a href="/startups" class="btn btn-success btn-lg" style="background-color: #227FBB;">See Innovations</a></li>
-                    <li>
+                    <li><a href="/innovations/briefing" class="btn btn-success btn-lg" style="background-color: #227FBB; font-size: 28px;">See Innovations</a></li> 
+                    <li><a href="/request_team" class="btn btn-default btn-lg" style="font-size: 17px;">Request to teamup</a>
+                    <span title="snnsls" style="color: white; cursor: pointer; text-decoration: underline;" onclick="requestpartner_info()">What is this?</span></li>
+                    <li style="display: none;">
                         <p class="small" style="color: white; text-shadow: 0.7px 0.7px #000000;">Want to invest?</p>
-                        <a href="/contact" class="btn btn-primary btn-lg">Click Here</a>
+                        <a href="/contact" class="btn btn-primary btn-lg" style=" font-siz: 36px;">Click Here</a>
 
                     </li>
                 </ul>
+                 <div style="height: 40px;"></div>
+                
+                <div class="text-center" style="display: none;">
+                    <a href="/request_team" class="btn btn-default btn-lg btn-bock" style="padding: 12px 50px 12px 50px">Request to teamup</a>
+                    <span title="snnsls" style="color: white; cursor: pointer; text-decoration: underline;" onclick="requestpartner_info()">What is this?</span>
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
@@ -48,6 +56,10 @@
                                 @foreach($posts as $post)
                                     <p style="color: white;" class="text-justify">{{str_limit($post->body, $limit = 400)}}</p>
                                 @endforeach
+                                <p style="color: white; text-shadow: 1px 1px #000000;">We the team at Theinnovestors are pleased to have all of you welcome here. <br><br>
+                                    New Changes: Added form to request for a team member which is available before logging in and also when they are logged in. Then another user can connect to them. Then the threads can kick in.<br>
+                                     Also made changes to connecting to a new user, there is now an optional message that can be sent to a user when sending a request. This can be used to describe why you want the person to accept or what you want to do for the person! The design of the pages may not be looking that good yet, but the idea and implementation is good.</p>
+
                             @endif
                            
                     </div>
@@ -98,21 +110,17 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 howitworks">
             <ol>
-                <li style="background-clor: #1AAF5D; padding: 0px 10px 0px 10px; magin-bottom: 20px; bordr-radius: 2%;">
-                    <h4 style="coor: white;">An innovator or startup (indidvidual/group) registers on theinnovestors.</h4>
+                <li>
+                    <h4 style="coor: white;">An Innovator registers on Theinnovestors.</h4>
                 </li>
                 <li>
-                    <h4>An innovator: </h4>
-                    <ul class="list-unstyled">
-                        <li>(a) uploads a brief description of his project, invention, startup.</li> <p class="text-center">Or</p>
-                        <li>(b) and other innovators connect to make a better improved version of their projects. They uploads a brief description of his project, invention, startup.</li>
-                    </ul>
+                    <h4>An Innovator uploads a project, invention or startup.</h4>
                 </li>
                 <li>
-                   <h4 style="colr: gray;"> The invention/startup gets published to investors who view it and makes contact with the innovator, startup.</h4>
+                   <h4 style="colr: gray;"> One or more Innovators may connect to make a better improved version of their innovations.</h4>
                 </li>
                 <li>
-                    <h4 style="coor: white;">The investor gets funded, acquired, enters partnership or absorbed into the investor's company.</h4>
+                    <h4 style="coor: white;">The Innovator gets funded, acquired, enters partnership or absorbed into the Investor's company.</h4>
                 </li>
             </ol>
         </div>
@@ -179,7 +187,7 @@
 </section>
 <div style="height: 20px;"></div>
 <section id="fifthview" class="container">
-    <h4 class="text-center">Have a question, contact us here:</h4>
+    <h4 class="text-center">Contact us below</h4>
     <form action="/contact" method="POST" class="form-horizontal" role="form">
          {{ csrf_field() }}
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -191,7 +199,7 @@
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                  <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Email</label>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4">
-                    <input id="username" type="email" class="form-control" name="contact_email" value="{{ old('lastname') }}" placeholder="Enter Email" required autofocus ng-model="username">
+                    <input id="username" type="email" class="form-control" name="contact_email" value="{{ old('lastname') }}" placeholder="Enter Email Address" required autofocus ng-model="username">
                 </div>
             </div>
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -235,5 +243,16 @@
         $('#loads').load('map.html')
         $('footer').show();
     });
+    function requestpartner_info() {
+        swal({
+      //      title: 'How it works?',
+              width: 500,
+              background: '#d9d7d8',
+          html: '<h3>Requesting for a team member?</h3> \
+<p>You make a request for a partner/developer, wait for suitable partners to get in touch with you.<br> We also show your request to innovators willing to collaborate.</p>',
+        confirmButtonText: 'Got It!',
+        confirmButtonColor: 'grey',
+        })
+    }
 </script>
 @endsection

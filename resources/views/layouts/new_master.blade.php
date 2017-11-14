@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="d7gBnkn0v6wNn7JAf3526WxiqQQdDXr8q0w7VGwRXUU" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/slide.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -20,6 +21,12 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="{{ asset('css/myiconstyle.css') }}" rel="stylesheet">
       
+       <script>
+        // rename myToken as you like
+        window.Laravel =  <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+        </script>
    
 @include('partials/_analytics')
 <!-- End Piwik Code -->
@@ -67,7 +74,7 @@
 
 </script>
     
- <div id="app" style="position: relative; width: 100%;">
+ <div id="loginn" style="position: relative; width: 100%;">
     <!--REQUESTS-->
     @include('partials/_requests_notifier_in_header')
     <!--REQUESTS-->
@@ -77,6 +84,11 @@
         <div id="csrf">{{ csrf_field() }}</div>
         @if($flash = session('message'))
             <div class="alert alert-success notifications_panel" role="alert" style="position: fixed; top: 40px; width: 30%; z-index: 60;">
+                {{$flash}}
+            </div>
+        @endif
+        @if($flash = session('error'))
+            <div class="alert alert-danger notifications_panel" role="alert" style="position: fixed; top: 40px; width: 30%; z-index: 60;">
                 {{$flash}}
             </div>
         @endif
@@ -122,6 +134,7 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue"></script>

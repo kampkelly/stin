@@ -19,7 +19,7 @@
                         
                             <li>
                                <router-link tag="a" :to="'/innovator/profile/' + user.username" class="small">
-                                <a style="color: #003B7D !important;">{{user.fullname}}</a>
+                                <a style="color: #003B7D !important;">{{user.fullname}}</a> <span class="smal">message: {{request.message}}</span>
                               </router-link> 
                               <a :href="theurl" class="btn btn-info btn-xs small" v-on:click.prevent="acceptconnect($event, '/accept_request/' + user.username)">Accept Request</a> <a :href="theurl" class="btn btn-warning btn-xs small" v-on:click.prevent="rejectconnect($event, '/reject_request/' + user.username)">Reject Request</a></li>
                         
@@ -83,7 +83,8 @@
                         <div class="pull-right">
                         <ul class="list-unstyled">
                             <li>
-                            <a class="btn btn-success btn-xs pul-right" :href="theurl" v-on:click.prevent="sendconnect($event, '/connect/' + friend.username)" style="text-transform: none; color: white !important; margin-right: 2px;">Connect</a>
+                            <a class="btn btn-success btn-xs pul-right" :href="theurl" v-on:click.prevent="sendconnect($event, '/connect/' + friend.username)" style="text-transform: none; color: white !important; margin-right: 2px; display:none;">Connect</a>
+                             <a class="btn btn-success btn-xs pul-right" :href="theurl" v-on:click.prevent="show($event, friend.username, friend.fullname)" style="text-transform: none; color: white !important; margin-right: 2px; cursor:pointer;">Connect with</a>
                             </li>
                         </ul>
                         </div>
@@ -140,27 +141,51 @@ import moment from 'moment';
                 self.countrequests = response.data[2].length
                 self.all_users = response.data[3],
                 responsive();
-                realtimerequest();
+             //   realtimerequest();
                 }); 
         },
         methods: {
             sendconnect(e, connecturl) {
             let clickedElement;
             clickedElement = e.currentTarget;  //set clickedelement to the element that trigerred this function
+            clickedElement = e;  //set clickedelement to the element that trigerred this function
                 self = this,
                axios({ 
                   method: 'post',
                   url: connecturl
                 })
                .then(function(response) { 
-                  self.sent = 'Connection Request Sent!',
+               //   self.sent = 'Connection Request Sent!',
+                  self.sent = response.data,
                   self.showrequestmessage = true,
                   $(clickedElement).text('request sent');
-                  $(clickedElement).attr("disabled", true);  
+                  $(clickedElement).attr("disabled", true); 
+                  $('#messa').val() == ''; 
                   setTimeout(function(){   //timeout
                        self.showrequestmessage = false
                     }, 7000);
                }); 
+            },
+            show(e, theusername, thefullname) {
+                let clickedElement;
+                clickedElement = e.currentTarget;
+                var connectform_message;
+                self = this,
+                    swal({
+                              background: '#FAFAFA',
+                          html: `<h3>Connect with ${thefullname}</h3>
+                          <h4>Send a message (optional)</h4>
+                <textarea name="messa" id="messa" resize="none" rows="2" class="form-control"></textarea>`,
+                        confirmButtonText: 'Send Connect!',
+                        confirmButtonColor: 'green',
+                        showCloseButton: true,
+                        focusConfirm: false,
+                        })
+                    .then(function () {
+                        connectform_message = $('#messa').val();
+                    var connecturl = `/connect/${theusername}/${connectform_message}`; 
+                    self.sendconnect(clickedElement, connecturl);
+              })
             },
             acceptconnect(e, connecturl) {
             let clickedElement;
@@ -239,7 +264,7 @@ import moment from 'moment';
     }
     import Pusher from 'pusher-js'
     import Echo from "laravel-echo"
-// function realtimerequest() {
+ //function realtimerequest() {
                 var globalauthid = document.getElementById('globalauthid').value;
                 let globalauth = jQuery.parseJSON(globalauthid);
                 
@@ -302,7 +327,7 @@ import moment from 'moment';
                             
                         }
                     });
-      //      }
+         //   }
 
     function responsive() {
       if ($(window).width() > 1199) {

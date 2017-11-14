@@ -9,7 +9,8 @@ use App\User;
 use App\Startup;
 use App\Category;
 use App\StartupsPhoto;
-use App\Friendship;
+//use App\Friendship;
+use Hootlex\Friendships\Models\Friendship;
 use App\FriendFriendshipGroups;
 use LRedis;
 use App\Events\AcceptConnection;
@@ -22,22 +23,26 @@ class FriendshipController extends Controller
 {
    
 
-    public function addfriend($username)
+    public function addfriend($username, $message)
     {
+      //  return $message;
         $user = User::where('username', $username)->first();
         $auth = Auth::user();
         if($user->id != Auth::user()->id){
-        Auth::user()->befriend($user);
-        $receiver_request_id = $user->id;
-        if(count( $user->getFriendRequests() ) >= 1){
-            $request_id = 1;
-        }else{
-            $request_id = 0;
-        }
-        $data = ['request_id' => $request_id, 'receiver_request_id' => $receiver_request_id, 'fullname' => Auth::user()->fullname, 'username' => Auth::user()->username];
-        event(new SendConnection($user, $auth));
-        \Mail::to($user)->send(new NewConnectionOnTheinnovestors($user, $auth));
-        return 'Connection request sent!';
+            Auth::user()->befriend($user);
+            $selected = Friendship::where('sender_id', Auth::user()->id)->where('recipient_id', $user->id)->where('status', 0)->first();
+             $selected->message = $message;
+             $selected->save();
+            $receiver_request_id = $user->id;
+            if(count( $user->getFriendRequests() ) >= 1){
+                $request_id = 1;
+            }else{
+                $request_id = 0;
+            }
+            $data = ['request_id' => $request_id, 'receiver_request_id' => $receiver_request_id, 'fullname' => Auth::user()->fullname, 'username' => Auth::user()->username];
+            event(new SendConnection($user, $auth));
+            \Mail::to($user)->send(new NewConnectionOnTheinnovestors($user, $auth));
+            return 'Connection request sentt!';
         }else{
             session()->flash('message', 'Unauthorized Operation!');
             return redirect()->back();

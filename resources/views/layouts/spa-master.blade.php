@@ -34,6 +34,12 @@
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();  */
 </script>
+<script>
+        // rename myToken as you like
+        window.Laravel =  <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+        </script>
 @include('partials/_analytics')
 <!-- End Piwik Code -->
     </head>
@@ -155,6 +161,7 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue"></script>

@@ -40,7 +40,7 @@
             <a href="{{ route('logout') }}"  
                 onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();" class="link">
-                Signout
+                Logout
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -48,6 +48,9 @@
             </form>
         </li>
       @else
+        <li class="mobilehide">
+          <a href="/team_requests" class="link">Team Requests</a>
+        </li>
         <li class="mobilehide">
           <a href="/contact" class="link">Contact</a>
         </li>

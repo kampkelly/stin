@@ -62,6 +62,17 @@
     </form>
     <!-- FORM 2 -->
     
+        <h5 class="text-center" style="text-decoration: underline;">Requests For Partners</h5>
+         @if(count($request_teams) <= 0)
+            <p class="small">No team requests yet.
+                    <a href="/requestpartner">Find a Team Member</a>
+         </p>
+        @else
+             @foreach($request_teams as $request)
+                        <a href="/request_team/{{$request->slug}}" class="list-group-item small">{{$request->user->fullname}} working on "{{$request->title}}" needs <span style="color: #27AD60;">{{count($request->requestmembers)}} innovators</span> {{ str_limit($request->description, 20) }}</a>
+                @endforeach
+        @endif
+
         <h5 class="text-center" style="text-decoration: underline;">Latest Innovations</h5>
     @if(count($startsides) <= 0)
             <p class="small">There are no innovations yet. Be the first,

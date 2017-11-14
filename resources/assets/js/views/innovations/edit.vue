@@ -11,7 +11,7 @@
             <h4 class="text-center">Update {{startup.title}}</h4>
             <form :action="'/startup/' + startup.slug" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
               <!--csrf_field-->
-              <input type="hidden" name="_token" value="2HCfCW0UT1m1h5KdTjB0eTT2tT1l44DZfPDPQyja">
+             <input type="hidden" name="_token" :value="csrf">
               <div id="cr"></div>
                     <div class="form-group">
                         <label for="startup_title" class="control-label"><small>Startup Name</small></label>
@@ -145,6 +145,7 @@ var csr;
                 updateloading: false,
                 message: '',
                 status: false,
+                 csrf: ''
             }
         },
         created() {  //fire off ajax request]
@@ -172,6 +173,9 @@ var csr;
                 console.log(csr);
                 document.getElementById('c').innerHTML= csr;
                  }); 
+        },
+         mounted(){
+            this.csrf = window.Laravel.csrfToken
         },
         methods: {
              updatestartup() {  //save location method

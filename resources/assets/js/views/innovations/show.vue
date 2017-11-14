@@ -175,9 +175,9 @@
 
 <script>
 import moment from 'moment';
-var csr;
+/*var csr;
 csr = document.getElementById('csrf').innerHTML;
-var csrf_token = $('meta[name="csrf-token"]').attr('content');
+var csrf_token = $('meta[name="csrf-token"]').attr('content'); */
     export default {
         data() {
             return {
@@ -204,6 +204,9 @@ var csrf_token = $('meta[name="csrf-token"]').attr('content');
             self = this,
             this.fetchData()
         },
+         mounted(){
+            this.csrf = window.Laravel.csrfToken
+        },
         methods: {
             fetchData () {
                 axios.post('/innovation/' + this.$route.params.slug)
@@ -217,7 +220,7 @@ var csrf_token = $('meta[name="csrf-token"]').attr('content');
                 self.youtubevideos = response.data[3],
                 self.youtubevideoslen = response.data[3].length,
                 self.auth = response.data[4],
-                self.csrf = csrf_token;
+             //   self.csrf = csrf_token;
                 responsive();
                 }); 
             },

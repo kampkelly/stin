@@ -46,28 +46,42 @@ class LoginController extends Controller
      public function handleProviderCallback($provider)
     {
         try {
-            $provideduser = Socialite::driver($provider)->user();
+            $provideduser = Socialite::driver($provider)->stateless()->user();
         } catch (Exception $e) {
             return Redirect::to('auth/'.$provider);
         }
 
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user->website = $provideduser->name;
+            $user->save(); 
+            $k = $provideduser;
+        //    dd($k);
+        //    return Redirect::to('/dashboard#//innovations');
+        }
+
         $authUser = $this->findOrCreateUser($provideduser, $provider);
-    //    $authUser = $this->findOrCreateUser($githubUser);
 
         Auth::login($authUser, true);
 
+        
+
         return Redirect::to('/');
+    }
+
+     public function ConnectUser($provideduser, $provider) {
+     
     }
 
      private function findOrCreateUser($provideduser, $provider)
     {
         if ($authUser = User::where('provider_id', $provideduser->id)->first()) {
-            return $authUser;
+             return $authUser;
         }
         $verification_token = str_random(20);
         if($provider == 'google' || $provider == 'facebook') {
             $random_no = (rand(100,999));
-            $random_no = "$random_no";
+          //  $random_no = "$random_no";
             $generated_username = substr($provideduser->name,0,6) . $random_no;
             return User::create([
               //  'name' => $githubUser->nickname,  for github
@@ -100,6 +114,8 @@ class LoginController extends Controller
         }
     }
 
+   
+
     //socialite login
 
     //TO CHANGE LOGOUT ENDS
@@ -118,7 +134,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout', 'redirectToProvider', 'ConnectUser', 'handleProviderCallback', 'findOrCreateUser');
     }
 
      public function test_ajax()

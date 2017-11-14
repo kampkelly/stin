@@ -72,7 +72,8 @@
                         <span class="text-warning">You have sent a friend request to {{user.fullname}}</span>
                     </div>
                     <div v-else>
-                        <a class="btn btn-success btn-xs pul-right" :href="theurl" v-on:click.prevent="sendconnect($event, '/connect/' + user.username)" style="text-transform: none; color: white !important; margin-right: 2px; cursor:pointer;">Connect with {{user.fullname}}</a>
+                        <a class="btn btn-success btn-xs pul-right" :href="theurl" v-on:click.prevent="show($event)" style="text-transform: none; color: white !important; margin-right: 2px; cursor:pointer;">Connect With {{user.fullname}}</a>
+                        <a class="btn btn-success btn-xs pul-right" :href="theurl" v-on:click.prevent="sendconnect($event, '/connect/' + user.username + '/' + connectform_message)" style="text-transform: none; color: white !important; margin-right: 2px; cursor:pointer; display: none;">Send Connect</a>
                   </div>
                   <!--request-->
                 </div> 
@@ -203,6 +204,7 @@ var csr;
                 countmutualfriends: '',
                 countyoutubevideos: '',
                 showrequestmessage: false,
+                connectform_message: 'the message',
                 sent: ''
 
             }
@@ -259,9 +261,33 @@ var csr;
                 }); 
             },
             //connection events
+            show(e) {
+                let clickedElement;
+                clickedElement = e.currentTarget;
+                var connectform_message;
+                self = this,
+                    swal({
+                              //width: 500,
+                              background: '#FAFAFA',
+                             // input: 'text',
+                          html: `<h3>Connect with ${self.user.fullname} ${self.connectform_message}</h3>
+                          <h4>Send a message (optional)</h4>
+                <textarea name="messa" id="messa" resize="none" rows="2" class="form-control"></textarea>`,
+                        confirmButtonText: 'Send Connect!',
+                        confirmButtonColor: 'green',
+                        showCloseButton: true,
+                        focusConfirm: false,
+                        })
+                    .then(function () {
+                        connectform_message = $('#messa').val();
+                    var connecturl = `/connect/${self.user.username}/${connectform_message}`; 
+                    self.sendconnect(clickedElement, connecturl);
+              })
+            },
             sendconnect(e, connecturl) {
                 let clickedElement;
                 clickedElement = e.currentTarget;  //set clickedelement to the element that trigerred this function
+                clickedElement = e;  //set clickedelement to the element that trigerred this function
                 self = this,
                axios({ 
                   method: 'post',
@@ -269,12 +295,14 @@ var csr;
                 })
                .then(function(response) { 
                   self.sent = 'Connection Request Sent!',
+               //   self.sent = response.data,
                   self.showrequestmessage = true,
                   $(clickedElement).text('request sent');
                   $(clickedElement).attr("disabled", true);  
+                  $('#messa').val() == '';
                   setTimeout(function(){   //timeout
                        self.showrequestmessage = false
-                    }, 7000);
+                    }, 7000); 
                }); 
             },
             acceptconnect(e, connecturl) {

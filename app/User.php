@@ -41,6 +41,10 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    public function findpartners(){
+        return $this->hasMany(FindPartner::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

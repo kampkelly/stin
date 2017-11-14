@@ -7,7 +7,7 @@
 <div style="height: 70px;"></div>
 <div class="container">
     <div class="text-center">
-        <h2>Hi, Register to get access to innovations and startups around!</h2>
+        <h2>Hi, Register to get access to all innovations!</h2>
     </div>
   <!--  <h4>Hello, register free below as an innovator and get access to our list of innovative activities happening around you.<br> You can also upload your own invention/startup when you are ready!</h4> -->
   <div style="height: 10px;"></div>
@@ -80,12 +80,12 @@
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-2">
                         <button type="submit" class="btn btn-success btn-block">
-                            Register as Innovator
+                            Register Now
                         </button>
                     </div>
                 </div>
             </form>
-            <h4 class="text-center">or<br>Register With</h4>
+            <h4 class="text-center">or use</h4>
             <ul class="list-inline list-unstyled" style="display: flex;">
                 <a href="/auth/facebook" class="btn btn-primary" :disabled="disabled" style="cursor: pointer; flex: 1; margin-right: 10px;"> Facebook</a>
                 <a href="{{ url('/auth/google') }}" class="btn btn-md btn-danger" :disabled="disabled" style="cursor: pointer; flex: 1; margin-left: 10px;">Google</a>

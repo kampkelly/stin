@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 218);
+/******/ 	return __webpack_require__(__webpack_require__.s = 247);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 134:
+/***/ 136:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
@@ -213,6 +213,7 @@ $(document).ready(function () {
     function myFnction() {
         setTimeout(function () {
             $("#reques_modal").fadeOut(4000);
+            $(".notifications_panel").fadeOut(4000);
         }, 3000);
     }
     //connection requests
@@ -231,10 +232,10 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 218:
+/***/ 247:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(134);
+module.exports = __webpack_require__(136);
 
 
 /***/ })
