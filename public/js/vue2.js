@@ -166,7 +166,7 @@ var app1 = new Vue({
         console.log(response);
         if (response.status == 200) {
           self.message = 'Logged in successful, redirecting to dashboard...'; //set message in vue data
-          self.styleObject.color = 'blue'; //set style color in vue data
+          self.styleObject.color = '#52a6d5'; //set style color in vue data
           self.disabled = true; //set disabled in view data
           setTimeout(function () {
             //redirect to dashboard after certain seconds
