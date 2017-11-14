@@ -88,7 +88,7 @@ class LoginController extends Controller
             $random_no = (rand(100,999));
           //  $random_no = "$random_no";
             $generated_username = substr($provideduser->name,0,6) . $random_no;
-           $user = User::create([
+            return User::create([
               //  'name' => $githubUser->nickname,  for github
                 'fullname' => $provideduser->name,
                 'username' => $generated_username,
@@ -100,7 +100,6 @@ class LoginController extends Controller
                 'is_permission'=> '0',
                 'status' => 'pending'
             ]);
-            return $user;
         }
 
         if($provider == 'github') {
