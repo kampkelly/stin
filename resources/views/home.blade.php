@@ -36,7 +36,7 @@
             <div class="text-center">
                 <a href="/innovator/register" class="btn btn-success btn-md">Pitch Your Innovation</a>
                 <hr>
-                <div  style="padding: 0px 40px 0px 40px;">
+                <div  style="padding: 0px 40px 0px 40px;" class="hide-smartphone">
                     <div class="pael panel-default">
                         <div class="panel-heading">
                              @if(count($startups) >= 10)
@@ -56,8 +56,7 @@
                                 @foreach($posts as $post)
                                     <p style="color: white;" class="text-justify">{{str_limit($post->body, $limit = 400)}}</p>
                                 @endforeach
-                            @endif
-                           
+                            @endif 
                     </div>
                 </div>
             </div>
