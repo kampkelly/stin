@@ -6,7 +6,9 @@
    &nbsp; &nbsp; <input type="radio" name="featured" value="all" v-model="featured" id="featuredall"> <label for="featuredall" style="cursor:pointer;">All</label> &nbsp; &nbsp;
     <input type="radio" name="featured" value="1" v-model="featured" id="featured1"> <label for="featured1" style="cursor:pointer;">Featured</label> &nbsp; &nbsp;
     <input type="radio" name="featured" value="0" v-model="featured" id="featured0"> <label for="featured0" style="cursor:pointer;">Uploaded</label> &nbsp; &nbsp;
-
+@if( count($innovations) <= 1)
+    <h4 class="text-center">No innovations yet</h4>
+@endif
 	@foreach($innovations as $innovation)
     <div v-if="featured == 'all'">
         @if($innovation->featured == 'yes')
