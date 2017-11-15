@@ -101,9 +101,9 @@ import moment from 'moment';
                 axios.post('/person/' + this.$route.params.username)
                 .then(function(response) { 
                 self.auth = response.data[0],
-                self.startups = response.data[1],
+                self.startups = self.auth.startups,
                 self.youtubevideos = response.data[2],
-                self.countstartups = response.data[1].length,
+                self.countstartups = self.auth.startups.length,
                 self.countyoutubevideos = response.data[2].length,
                 self.loading = false,
                 self.loaded = true,

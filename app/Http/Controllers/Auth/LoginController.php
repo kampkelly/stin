@@ -131,7 +131,8 @@ class LoginController extends Controller
      * @var string
      */
    // session()->flash('message', 'Please complete your profile!'); 
-    protected $redirectTo = '/dashboard';
+   // protected $redirectTo = '/dashboard#/innovations';
+    protected $redirectTo = '/dashboard#';
 
     /**
      * Create a new controller instance.

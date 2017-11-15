@@ -8,8 +8,8 @@
             <div class="alert alert-success notifications_panel" role="alert" v-show="status" style="position: fixed; top: 80px; width: 30%; z-index: 60;">
                 {{message}}
             </div>
-            <h4 class="text-center">Add Your Innovation</h4>
-              <!--include partials errors-->
+            <h4 class="text-center">Add Your Innovation</h4>  
+              <!--include partials errors--> 
           <form action="/create_startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
             <!--<form action="/startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data" v-on:submit.prevent="savestartup()"> -->
               <!--csrf_field-->
@@ -46,10 +46,16 @@
                             <input type="text" name="startup_company" id="startup_company" class="form-control" placeholder="Enter Company or Group/Team Name" v-model="group_name" required>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" v-if="auth.is_permission == 0">
                         <label for="short_desc" class="control-label"><small>Brief Description</small><span class="small text-muted"> sell your idea here (not more than 250 characters)</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
                             <textarea name="short_desc" id="short_desc" class="form-control" rows="2" style="resize:none;" placeholder="Briefly descrbie your product" v-model="short_desc" required maxlength="300" minlength="50"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group" v-else>
+                        <label for="short_desc" class="control-label"><small>Full Description</small><span class="small text-muted"> sell your idea here</span></label>
+                        <div class="col-sm-12 col-sm-offset-0">
+                            <textarea name="short_desc" id="short_desc" class="form-control" rows="2" style="resize:none;" placeholder="Briefly descrbie your product" v-model="short_desc" required minlength="50"></textarea>
                         </div>
                     </div>
                     <div class="form-group hide-all">
@@ -151,7 +157,8 @@ var csr;
                 updateloading: false,
                 message: '',
                 status: false,
-                csrf: ''
+                csrf: '',
+                auth: ''
             }
         },
         created() {  //fire off ajax request]
@@ -161,7 +168,8 @@ var csr;
             axios.post('/categories_dashboard')
          //   .then(({data}) => this.categories = data);  //object desturcturing syntax in ecma 6(ES2015)
             .then(function(response) {
-                self.categories = response.data,
+                self.categories = response.data[0],
+                self.auth = response.data[1],
                 self.loading = false,
                 self.loaded = true,
                 responsive();

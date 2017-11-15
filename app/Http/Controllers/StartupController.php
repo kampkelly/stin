@@ -76,6 +76,11 @@ class StartupController extends Controller
             'slug' => $slug
         ]); 
 
+       if(checkPermission(['admin', 'superadmin'])) {
+           $startup->featured = 'yes';
+           $startup->save();
+       }
+
        if(Input::hasFile('photos')){
              foreach (request('photos') as $photo) {
                 //uploading photo starts
@@ -182,7 +187,6 @@ class StartupController extends Controller
             }
         }
         $user = Auth::user();
-        event(new InnovationCreated($user, $startup));
         session()->flash('message', 'Innovation Updated');
         return redirect('/dashboard#/'.Auth::user()->username.'/innovations');
     }  

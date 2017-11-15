@@ -1,7 +1,7 @@
 @component('mail::message', ['user' => $user])
 # Welcome {{$user->fullname}} - Thanks for signing up at Theinnovestors
 
-We hope to help you get funded
+You can get started from the links below
 
 - Pitch your innovation <a href="https://theinnovestors.com/innovation/create">here</a> 
 

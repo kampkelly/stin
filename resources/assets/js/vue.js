@@ -14,6 +14,7 @@ var app1 = new Vue({
     request_status: '',
     message: '',
     type: 'Choose what you want to request for',
+    featured: 'all', 
     styleObject: {  //this is for styling the message in login view
         color: ''
       }

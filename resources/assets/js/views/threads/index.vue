@@ -11,7 +11,7 @@
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-4 allthreads">
                      <ul class="list-group thread" style="height: 80vh; background-color:#227FBB; width:250px; position:fixed;">
                         <h4 class="text-center" style="color:white;">Threads</h4>
-                      <div v-if="count_threads >= 133">
+                      <div v-if="count_threads >= 1">
                         <div v-for="thread in threads">
                             <span v-if="auth.id == thread.receiver_id">
                                 <li class="list-group-item smal" style="border: none !important;background-color: #227FBB !important; padding-bottom: 0px;" v-for="user in users" v-if="user.id == thread.user_id">

@@ -21447,7 +21447,7 @@ console.log(globalauth.id);
         //    .then(
         //     response => this.categories = response.data,
         .then(function (response) {
-            self.categories = response.data, self.loading = false, self.loaded = true, self.auth = globalauth, responsive();
+            self.categories = response.data[0], self.loading = false, self.loaded = true, self.auth = globalauth, responsive();
             //  console.log(this.categories)
         });
     },
@@ -21736,6 +21736,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -21762,7 +21768,8 @@ var csr;
             updateloading: false,
             message: '',
             status: false,
-            csrf: ''
+            csrf: '',
+            auth: ''
         };
     },
     created: function created() {
@@ -21771,7 +21778,7 @@ var csr;
         axios.post('/categories_dashboard')
         //   .then(({data}) => this.categories = data);  //object desturcturing syntax in ecma 6(ES2015)
         .then(function (response) {
-            self.categories = response.data, self.loading = false, self.loaded = true, responsive();
+            self.categories = response.data[0], self.auth = response.data[1], self.loading = false, self.loaded = true, responsive();
             csr = document.getElementById('csrf').innerHTML;
             document.getElementById('cs_val').innerHTML = csr;
             console.log(csr);
@@ -22179,6 +22186,118 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -22188,7 +22307,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             startups: [],
             loading: '',
             loaded: '',
-            countstartups: ''
+            countstartups: '',
+            featured: 'all'
         };
     },
     created: function created() {
@@ -22212,8 +22332,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 //require('jquery')
 function innovation_notification() {
+    window.Echo = new __WEBPACK_IMPORTED_MODULE_2_laravel_echo___default.a({
+        broadcaster: 'pusher',
+        key: 'ddc158fa13ebad9c3fdf',
+        cluster: 'us2',
+        encrypted: true
+    });
     window.Echo.channel('innovationadded').listen('InnovationCreated', function (e) {
-        $("#shownewinnovation").prepend('<div class="row" id="' + e.innovation.slug + '" style="display:none;">\n                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">\n                                <div class="row pan pan-success">\n                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">\n                                        <h4 class="text-ceter">\n                                        <router-link tag="a" to="/dashboard#/innovation/' + e.innovation.slug + '">\n                                            <a>' + e.innovation.title + '</a>\n                                          </router-link>\n                                        <span class="small"> by ' + e.innovation.group_name + ' </span>\n                                            <br><span class="smallest-font">Uploaded by: \n                                             <router-link tag="a" to="/innovator/profile/' + e.user.username + '">\n                                              <a>' + e.user.fullname + '</a>\n                                            </router-link> \n                                            </span>\n                                        <span class="small pull-right"><b class="text-success">New</b> ' + __WEBPACK_IMPORTED_MODULE_0_moment___default()(e.innovation.created_at).fromNow() + '</span><br><span class="small pull-right"><div class="rw-ui-container" data-title="' + e.innovation.id + '"></div></span></h4>\n                                        \n                                        <div class="row cntainer-fluid">\n                                            <a href="/dashboard#/innovation/' + e.innovation.slug + '" class="col-xs-12 col-sm-4 col-md-4 col-lg-5">\n                                                <img src="uploads/' + e.innovation.image + '" width="100%" class="img-responsive">\n                                            </a>\n                                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">\n                                                 <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> ' + e.innovation.short_desc + ' <br>\n                                                  <router-link tag="a" to="/dashboard#/innovation/' + e.innovation.slug + '">\n                                                    <a>More...</a>\n                                                  </router-link>\n                                                  </p>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div> \n                        </div>\n                    ');
+        $("#shownewinnovation").prepend('<div class="row" id="' + e.innovation.slug + '" style="display:none;">\n                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">\n                                <div class="row pan pan-success">\n                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">\n                                        <h4 class="text-ceter">\n                                        <router-link tag="a" to="/dashboard#/innovation/' + e.innovation.slug + '">\n                                            <a>' + e.innovation.title + '</a>\n                                          </router-link>\n                                        <span class="small"> by ' + e.innovation.group_name + ' </span>\n                                            <br><span class="smallest-font">Uploaded by: \n                                             <router-link tag="a" to="/innovator/profile/' + e.user.username + '">\n                                              <a>' + e.user.fullname + '</a>\n                                            </router-link> \n                                            </span>\n                                        <span class="small pull-right"><b class="text-success">New</b> ' + __WEBPACK_IMPORTED_MODULE_0_moment___default()(e.innovation.created_at).fromNow() + '</span><br><span class="small pull-right"><div class="rw-ui-container" data-title="' + e.innovation.id + '"></div></span></h4>\n                                        \n                                        <div class="row cntainer-fluid">\n                                            <a href="/dashboard#/innovation/' + e.innovation.slug + '" class="col-xs-12 col-sm-4 col-md-4 col-lg-5">\n                                                <img src="uploads/startup_photos/' + e.innovation.image + '" width="100%" class="img-responsive">\n                                            </a>\n                                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">\n                                                 <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> ' + e.innovation.short_desc + ' <br>\n                                                  <router-link tag="a" to="/dashboard#/innovation/' + e.innovation.slug + '">\n                                                    <a>More...</a>\n                                                  </router-link>\n                                                  </p>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div> \n                        </div>\n                    ');
         $('#' + e.innovation.slug).fadeIn(4000);
     });
 }
@@ -24429,6 +24555,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 var csr;
@@ -24448,7 +24578,7 @@ var csr;
             mutual_friends: '',
             startups: '',
             youtubevideos: ''
-        }, _defineProperty(_ref, 'threads', ''), _defineProperty(_ref, 'requests', ''), _defineProperty(_ref, 'isfriend', ''), _defineProperty(_ref, 'friendrequestfrom', ''), _defineProperty(_ref, 'sentfriendrequest', ''), _defineProperty(_ref, 'countrequests', ''), _defineProperty(_ref, 'countstartups', ''), _defineProperty(_ref, 'countauthfriends', ''), _defineProperty(_ref, 'countuserfriends', ''), _defineProperty(_ref, 'countmutualfriends', ''), _defineProperty(_ref, 'countyoutubevideos', ''), _defineProperty(_ref, 'showrequestmessage', false), _defineProperty(_ref, 'connectform_message', 'the message'), _defineProperty(_ref, 'sent', ''), _ref;
+        }, _defineProperty(_ref, 'threads', ''), _defineProperty(_ref, 'requests', ''), _defineProperty(_ref, 'isfriend', ''), _defineProperty(_ref, 'friendrequestfrom', ''), _defineProperty(_ref, 'sentfriendrequest', ''), _defineProperty(_ref, 'countrequests', ''), _defineProperty(_ref, 'countstartups', ''), _defineProperty(_ref, 'countauthfriends', ''), _defineProperty(_ref, 'countuserfriends', ''), _defineProperty(_ref, 'countmutualfriends', ''), _defineProperty(_ref, 'countyoutubevideos', ''), _defineProperty(_ref, 'countthreads', ''), _defineProperty(_ref, 'showrequestmessage', false), _defineProperty(_ref, 'connectform_message', 'the message'), _defineProperty(_ref, 'sent', ''), _defineProperty(_ref, 'csrf', ''), _ref;
     },
 
     beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
@@ -24463,11 +24593,18 @@ var csr;
         //     showmore();
         this.fetchData();
     },
+    mounted: function mounted() {
+        this.csrf = window.Laravel.csrfToken;
+    },
 
     methods: {
         fetchData: function fetchData() {
             axios.post('/myprofile/' + this.$route.params.username).then(function (response) {
-                console.log(response.data[1]), self.threads = response.data[0], self.auth = response.data[0], self.user = response.data[1], self.users = response.data[2], self.authfriends = response.data[3], self.userfriends = response.data[4], self.mutual_friends = response.data[5], self.startups = response.data[6], self.youtubevideos = response.data[7], self.threads = response.data[8], self.requests = response.data[9], self.isfriend = response.data[10], self.friendrequestfrom = response.data[11], self.sentfriendrequest = response.data[12], self.countstartups = response.data[6].length, self.countauthfriends = response.data[3].length, self.countuserfriends = response.data[4].length, self.countmutualfriends = response.data[5].length, self.countyoutubevideos = response.data[7].length, self.countrequests = response.data[9].length, console.log(response.data[11]), console.log(response.data[12]),
+                console.log(response.data[1]), self.threads = response.data[0], self.auth = response.data[0], self.user = response.data[1], self.users = response.data[2], self.authfriends = response.data[3], self.userfriends = response.data[4], self.mutual_friends = response.data[5],
+                //   self.startups = response.data[6],
+                self.startups = self.user.startups, self.youtubevideos = response.data[7], self.threads = response.data[8], self.requests = response.data[9], self.isfriend = response.data[10], self.friendrequestfrom = response.data[11], self.sentfriendrequest = response.data[12],
+                //  self.countstartups = response.data[6].length,
+                self.countstartups = self.user.startups.length, self.countauthfriends = response.data[3].length, self.countuserfriends = response.data[4].length, self.countmutualfriends = response.data[5].length, self.countyoutubevideos = response.data[7].length, self.countthreads = response.data[8].length, self.countrequests = response.data[9].length, console.log(response.data[11]), console.log(response.data[12]),
                 //  response => this.categories = response.data,
                 self.loading = false, self.loaded = true, responsive();
                 csr = document.getElementById('csrf').innerHTML, console.log(csr), document.getElementById('csval').innerHTML = csr, document.getElementById('csvalone').innerHTML = csr, console.log(document.getElementById('csvalone').innerHTML);
@@ -24886,7 +25023,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         fetchData: function fetchData() {
             axios.post('/person/' + this.$route.params.username).then(function (response) {
-                self.auth = response.data[0], self.startups = response.data[1], self.youtubevideos = response.data[2], self.countstartups = response.data[1].length, self.countyoutubevideos = response.data[2].length, self.loading = false, self.loaded = true, responsive();
+                self.auth = response.data[0], self.startups = self.auth.startups, self.youtubevideos = response.data[2], self.countstartups = self.auth.startups.length, self.countyoutubevideos = response.data[2].length, self.loading = false, self.loaded = true, responsive();
             });
         },
         postedOn: function postedOn(thread) {
@@ -26569,7 +26706,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Edit")]), _c('br'), _c('span', {
     staticClass: "small pull-right"
-  }, [_vm._v(_vm._s(_vm.postedOn(_vm.startup)))]), _c('span', {
+  }, [(_vm.startup.featured == 'yes') ? _c('span', {
+    staticStyle: {
+      "color": "#27AD60",
+      "font-size": "15px"
+    }
+  }, [_vm._v("Featured")]) : _vm._e(), _vm._v(" " + _vm._s(_vm.postedOn(_vm.startup)))]), _c('span', {
     staticClass: "small pull-right"
   }, [_c('div', {
     staticClass: "rw-ui-container",
@@ -27160,7 +27302,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.group_name = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), (_vm.auth.is_permission == 0) ? _c('div', {
     staticClass: "form-group"
   }, [_vm._m(5), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
@@ -27193,9 +27335,41 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.short_desc = $event.target.value
       }
     }
+  })])]) : _c('div', {
+    staticClass: "form-group"
+  }, [_vm._m(6), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-12 col-sm-offset-0"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.short_desc),
+      expression: "short_desc"
+    }],
+    staticClass: "form-control",
+    staticStyle: {
+      "resize": "none"
+    },
+    attrs: {
+      "name": "short_desc",
+      "id": "short_desc",
+      "rows": "2",
+      "placeholder": "Briefly descrbie your product",
+      "required": "",
+      "minlength": "50"
+    },
+    domProps: {
+      "value": (_vm.short_desc)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.short_desc = $event.target.value
+      }
+    }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group hide-all"
-  }, [_vm._m(6), _vm._v(" "), _c('div', {
+  }, [_vm._m(7), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('textarea', {
     directives: [{
@@ -27226,7 +27400,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(7), _vm._v(" "), _c('div', {
+  }, [_vm._m(8), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     directives: [{
@@ -27254,7 +27428,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(8), _vm._v(" "), _c('div', {
+  }, [_vm._m(9), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     directives: [{
@@ -27282,7 +27456,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(9), _vm._v(" "), _c('div', {
+  }, [_vm._m(10), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     directives: [{
@@ -27310,7 +27484,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(10), _vm._v(" "), _c('div', {
+  }, [_vm._m(11), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     directives: [{
@@ -27338,7 +27512,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(11), _vm._v(" "), _c('div', {
+  }, [_vm._m(12), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('select', {
     directives: [{
@@ -27372,7 +27546,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v(_vm._s(category.name))])
   }))])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
-  }, [_vm._m(12), _vm._v(" "), _c('div', {
+  }, [_vm._m(13), _vm._v(" "), _c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
   }, [_c('input', {
     directives: [{
@@ -27398,7 +27572,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.contacts = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(13), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _vm._m(14), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-sm-12 col-sm-offset-0"
@@ -27497,6 +27671,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('small', [_vm._v("Brief Description")]), _c('span', {
     staticClass: "small text-muted"
   }, [_vm._v(" sell your idea here (not more than 250 characters)")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('label', {
+    staticClass: "control-label",
+    attrs: {
+      "for": "short_desc"
+    }
+  }, [_c('small', [_vm._v("Full Description")]), _c('span', {
+    staticClass: "small text-muted"
+  }, [_vm._v(" sell your idea here")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
     staticClass: "control-label",
@@ -29463,7 +29646,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "z-index": "10"
     }
   }, [_vm._v(_vm._s(_vm.sent))]), _vm._v(" "), (_vm.auth.id != _vm.user.id) ? _c('div', [(_vm.isfriend === true) ? _c('div', [_c('router-link', {
-    staticClass: "btn btn-primary btn-xs",
+    staticClass: "btn btn-primary btn-xs hidden",
     attrs: {
       "tag": "a",
       "to": '/innovator/profile/' + _vm.user.username
@@ -29507,6 +29690,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_vm._v("Block")]), _vm._v(" "), (_vm.isfriend === true) ? _c('a', {
+    staticClass: "hidden",
     staticStyle: {
       "text-transform": "none",
       "color": "green !important",
@@ -29516,10 +29700,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "showthread_form"
     }
-  }, [_vm._v("Create new thread with " + _vm._s(_vm.user.fullname))]) : _vm._e(), _vm._v(" "), _c('form', {
+  }, [_vm._v("Create new thread with " + _vm._s(_vm.user.fullname))]) : _vm._e(), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _c('form', {
     staticClass: "form-horizontal",
     staticStyle: {
-      "display": "none"
+      "disply": "none"
     },
     attrs: {
       "action": "/messages",
@@ -29527,16 +29711,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "role": "form",
       "id": "threadformshow"
     }
-  }, [(_vm.threads >= 1) ? _c('p', [_vm._v("You have an open thread with " + _vm._s(_vm.user.fuulname) + ", message with it \n                             "), _c('router-link', {
+  }, [_c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "_token"
+    },
+    domProps: {
+      "value": _vm.csrf
+    }
+  }), _vm._v(" "), (_vm.countthreads >= 1) ? _c('p', [_vm._v("You have an open thread with " + _vm._s(_vm.user.fullname) + ", continue conversation with it \n                             "), _c('router-link', {
     attrs: {
       "tag": "a",
-      "to": _vm.user.username + '/threads'
+      "to": '/' + _vm.auth.username + '/threads'
     }
-  }, [_c('a', [_vm._v("here")])]), _vm._v(",\n                            or create a new one below")], 1) : _vm._e(), _vm._v(" "), _c('div', {
-    attrs: {
-      "id": "csvalone"
+  }, [_c('a', {
+    staticClass: "text-primary",
+    staticStyle: {
+      "text-decoration": "underline"
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('input', {
+  }, [_vm._v("here")])]), _vm._v(",\n                            or open a new one below")], 1) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('input', {
     attrs: {
       "type": "text",
       "name": "user_id",
@@ -29545,7 +29738,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.user.id
     }
-  }), _vm._v(" "), _vm._m(2)])], 1) : _c('div', [(_vm.friendrequestfrom === true) ? _c('div', [_vm._v("\n                        " + _vm._s(_vm.user.fullname) + " sent you a request\n                                "), _c('a', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-sm-10 col-sm-offset-2"
+  }, [_c('button', {
+    staticClass: "btn btn-primary btn-block",
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Open new thread with " + _vm._s(_vm.user.fullname))])])])])], 1) : _c('div', [(_vm.friendrequestfrom === true) ? _c('div', [_vm._v("\n                        " + _vm._s(_vm.user.fullname) + " sent you a request\n                                "), _c('a', {
     staticClass: "btn btn-info btn-xs small",
     attrs: {
       "href": _vm.theurl
@@ -29608,7 +29810,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "height": "40px"
     }
-  }), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('hr'), _vm._v(" "), _c('div', {
     staticStyle: {
       "disply": "none"
     },
@@ -29747,7 +29949,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "to": '/innovation/' + startup.slug
       }
     }, [_c('a', [_vm._v("More...")])])], 1)])])])])])])
-  })) : _vm._e(), _vm._v(" "), _c('h4', {
+  })) : _vm._e(), _vm._v(" "), (_vm.user.id == _vm.auth.id) ? _c('div', {
+    directives: [{
+      name: "else",
+      rawName: "v-else"
+    }]
+  }, [_vm._v("You have no innovations yet!")]) : _vm._e(), _vm._v(" "), (_vm.user.id != _vm.auth.id) ? _c('div', {
+    directives: [{
+      name: "else",
+      rawName: "v-else"
+    }]
+  }, [_vm._v(_vm._s(_vm.user.fullname) + " has no innovations yet!")]) : _vm._e(), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
   }, [_vm._v("Videos")]), _vm._v(" "), (_vm.countyoutubevideos >= 1) ? _c('div', {
     staticClass: "row"
@@ -29811,23 +30023,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "name": "message",
       "id": "message",
-      "rows": "5",
+      "rows": "2",
       "placeholder": "Enter Message"
     }
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "form-group"
-  }, [_c('div', {
-    staticClass: "col-sm-10 col-sm-offset-2"
-  }, [_c('button', {
-    staticClass: "btn btn-primary btn-block",
-    attrs: {
-      "type": "submit"
-    }
-  }, [_vm._v("Send")])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+    staticClass: "hidden",
     attrs: {
       "id": "viewmore_div"
     }
@@ -30400,7 +30602,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('h4', {
     staticClass: "text-center"
-  }, [_vm._v("All Recent Startups")]), _vm._v(" "), _c('h4', {
+  }, [_vm._v("All Innovations")]), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
   }, [_vm._v("Explore Our Innovations: See What Is Happenning Right Now")]), _vm._v(" "), _c('div', {
     directives: [{
@@ -30431,7 +30633,91 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "container-fluid startups"
   }, [_c('div', {
     staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
-  }), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _vm._v("\n                     "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.featured),
+      expression: "featured"
+    }],
+    attrs: {
+      "type": "radio",
+      "name": "featured",
+      "value": "all",
+      "id": "featuredall"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.featured, "all")
+    },
+    on: {
+      "change": function($event) {
+        _vm.featured = "all"
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    staticStyle: {
+      "cursor": "pointer"
+    },
+    attrs: {
+      "for": "featuredall"
+    }
+  }, [_vm._v("All")]), _vm._v("    \n    "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.featured),
+      expression: "featured"
+    }],
+    attrs: {
+      "type": "radio",
+      "name": "featured",
+      "value": "1",
+      "id": "featured1"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.featured, "1")
+    },
+    on: {
+      "change": function($event) {
+        _vm.featured = "1"
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    staticStyle: {
+      "cursor": "pointer"
+    },
+    attrs: {
+      "for": "featured1"
+    }
+  }, [_vm._v("Featured")]), _vm._v("    \n    "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.featured),
+      expression: "featured"
+    }],
+    attrs: {
+      "type": "radio",
+      "name": "featured",
+      "value": "0",
+      "id": "featured0"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.featured, "0")
+    },
+    on: {
+      "change": function($event) {
+        _vm.featured = "0"
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    staticStyle: {
+      "cursor": "pointer"
+    },
+    attrs: {
+      "for": "featured0"
+    }
+  }, [_vm._v("Uploaded")]), _vm._v("    \n               "), _c('div', {
     attrs: {
       "id": "shownewinnovation"
     }
@@ -30443,7 +30729,70 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('a', [_vm._v("Add one now")])])], 1) : _vm._l((_vm.startups), function(startup, index) {
     return _c('div', {
       staticClass: "row"
+    }, [(_vm.featured == 'all') ? _c('div', [(startup.featured == 'yes') ? _c('div', [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
     }, [_c('div', {
+      staticClass: "row pan pan-success"
+    }, [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('h4', {
+      staticClass: "text-ceter"
+    }, [_c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
+      staticClass: "small"
+    }, [_vm._v(" by " + _vm._s(startup.group_name) + " ")]), _vm._v(" "), _c('br'), _c('span', {
+      staticClass: "smallest-font"
+    }, [_vm._v("Uploaded by: \n                                     "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovator/profile/' + startup.user.username
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.user.fullname))])])], 1), _vm._v(" "), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('span', {
+      staticStyle: {
+        "color": "#27AD60"
+      }
+    }, [_vm._v("Featured")]), _vm._v(" " + _vm._s(_vm.postedOn(startup)))]), _c('br'), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('div', {
+      staticClass: "rw-ui-container",
+      attrs: {
+        "data-title": startup.id
+      }
+    })])], 1), _vm._v(" "), _c('div', {
+      staticClass: "row cntainer-fluid"
+    }, [_c('router-link', {
+      staticClass: "col-xs-12 col-sm-4 col-md-4 col-lg-5",
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('img', {
+      staticClass: "img-responsive",
+      attrs: {
+        "src": 'uploads/startup_photos/' + startup.image,
+        "width": "100%"
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-12 col-sm-8 col-md-8 col-lg-7"
+    }, [_c('p', {
+      staticClass: "text-center text-justify lead"
+    }, [_c('span', {
+      staticStyle: {
+        "text-decoration": "underline",
+        "colr": "gray !important"
+      }
+    }, [_vm._v(" Brief description:")]), _vm._v(" " + _vm._s(startup.short_desc) + " "), _c('br'), _vm._v(" "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e(), _vm._v(" "), (startup.featured == 'no') ? _c('div', [_c('div', {
       staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
     }, [_c('div', {
       staticClass: "row pan pan-success"
@@ -30502,7 +30851,129 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "tag": "a",
         "to": '/innovation/' + startup.slug
       }
-    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])])
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.featured == 1 && startup.featured == 'yes') ? _c('div', [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('div', {
+      staticClass: "row pan pan-success"
+    }, [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('h4', {
+      staticClass: "text-ceter"
+    }, [_c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
+      staticClass: "small"
+    }, [_vm._v(" by " + _vm._s(startup.group_name) + " ")]), _vm._v(" "), _c('br'), _c('span', {
+      staticClass: "smallest-font"
+    }, [_vm._v("Uploaded by: \n                                     "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovator/profile/' + startup.user.username
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.user.fullname))])])], 1), _vm._v(" "), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('span', {
+      staticStyle: {
+        "color": "#27AD60"
+      }
+    }, [_vm._v("Featured")]), _vm._v(" " + _vm._s(_vm.postedOn(startup)))]), _c('br'), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('div', {
+      staticClass: "rw-ui-container",
+      attrs: {
+        "data-title": startup.id
+      }
+    })])], 1), _vm._v(" "), _c('div', {
+      staticClass: "row cntainer-fluid"
+    }, [_c('router-link', {
+      staticClass: "col-xs-12 col-sm-4 col-md-4 col-lg-5",
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('img', {
+      staticClass: "img-responsive",
+      attrs: {
+        "src": 'uploads/startup_photos/' + startup.image,
+        "width": "100%"
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-12 col-sm-8 col-md-8 col-lg-7"
+    }, [_c('p', {
+      staticClass: "text-center text-justify lead"
+    }, [_c('span', {
+      staticStyle: {
+        "text-decoration": "underline",
+        "colr": "gray !important"
+      }
+    }, [_vm._v(" Brief description:")]), _vm._v(" " + _vm._s(startup.short_desc) + " "), _c('br'), _vm._v(" "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e(), _vm._v(" "), (_vm.featured == 0 && startup.featured == 'no') ? _c('div', [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('div', {
+      staticClass: "row pan pan-success"
+    }, [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('h4', {
+      staticClass: "text-ceter"
+    }, [_c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
+      staticClass: "small"
+    }, [_vm._v(" by " + _vm._s(startup.group_name) + " ")]), _vm._v(" "), _c('br'), _c('span', {
+      staticClass: "smallest-font"
+    }, [_vm._v("Uploaded by: \n                                     "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovator/profile/' + startup.user.username
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.user.fullname))])])], 1), _vm._v(" "), _c('span', {
+      staticClass: "small pull-right"
+    }, [_vm._v(_vm._s(_vm.postedOn(startup)))]), _c('br'), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('div', {
+      staticClass: "rw-ui-container",
+      attrs: {
+        "data-title": startup.id
+      }
+    })])], 1), _vm._v(" "), _c('div', {
+      staticClass: "row cntainer-fluid"
+    }, [_c('router-link', {
+      staticClass: "col-xs-12 col-sm-4 col-md-4 col-lg-5",
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('img', {
+      staticClass: "img-responsive",
+      attrs: {
+        "src": 'uploads/startup_photos/' + startup.image,
+        "width": "100%"
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-12 col-sm-8 col-md-8 col-lg-7"
+    }, [_c('p', {
+      staticClass: "text-center text-justify lead"
+    }, [_c('span', {
+      staticStyle: {
+        "text-decoration": "underline",
+        "colr": "gray !important"
+      }
+    }, [_vm._v(" Brief description:")]), _vm._v(" " + _vm._s(startup.short_desc) + " "), _c('br'), _vm._v(" "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e()])
   }), _vm._v(" "), _c('hr'), _vm._v(" "), _c('div', {
     staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
   }), _vm._v(" "), _c('div', {
@@ -30954,7 +31425,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "white"
     }
-  }, [_vm._v("Threads")]), _vm._v(" "), (_vm.count_threads >= 133) ? _c('div', _vm._l((_vm.threads), function(thread) {
+  }, [_vm._v("Threads")]), _vm._v(" "), (_vm.count_threads >= 1) ? _c('div', _vm._l((_vm.threads), function(thread) {
     return _c('div', [(_vm.auth.id == thread.receiver_id) ? _c('span', _vm._l((_vm.users), function(user) {
       return (user.id == thread.user_id) ? _c('li', {
         staticClass: "list-group-item smal",

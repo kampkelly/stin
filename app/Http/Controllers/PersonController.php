@@ -32,7 +32,7 @@ class PersonController extends Controller
        public function myprofile($username)
     {
         $auth = Auth::user();
-        $user = User::where('username', $username)->first();
+        $user = User::where('username', $username)->with('startups')->first();
      //   $threads = Startup::where( ('user_id', Auth::user()->id) )->orWhere('status', 'approved')->orderBy('id', 'desc')->paginate(6);
         $threads = DB::select("SELECT * FROM threads WHERE (user_id = '".Auth::user()->id."' AND receiver_id = '".$user->id."') OR (user_id = '".$user->id."' AND receiver_id = '".Auth::user()->id."') Order BY id desc");
         $authfriends = Auth::user()->getFriends();
@@ -123,11 +123,17 @@ class PersonController extends Controller
 
     public function myinnovations($username)
     {
-        $auth = Auth::user();
-        $startups = $auth->startups()->where('status', 'approved')->orWhere('status', 'pending')->orderBy('id', 'desc')->get();
-        $youtubevideos = $auth->youtubevideos()->orderBy('id', 'desc')->get();
-        $thedata = [$auth, $startups, $youtubevideos];
-        return $thedata;
+        if($username == Auth::user()->username) {
+          //  $auth = Auth::user();
+            $auth = User::where('username', $username)->with('startups')->first();
+            $startups = $auth->startups()->where('status', 'approved')->orWhere('status', 'pending')->orderBy('id', 'desc')->get();
+            $youtubevideos = $auth->youtubevideos()->orderBy('id', 'desc')->get();
+            $thedata = [$auth, $startups, $youtubevideos];
+            return $thedata;
+        }else {
+            $thedata = [];
+            return $thedata;
+        }
     }
 
     public function destroy($id)

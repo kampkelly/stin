@@ -30,18 +30,19 @@
                   <p class="text-center sent-message btn btn-success btn-md" v-show="showrequestmessage" style="color: white; visibility: visible; position: fixed; top: 100px; left: 10%; z-index: 10;">{{sent}}</p> <!--connection sent message-->
                  <div v-if="auth.id != user.id">
                   <div v-if="isfriend === true">
-                        <router-link tag="a" :to="'/innovator/profile/' + user.username" class="btn btn-primary btn-xs">
+                        <router-link tag="a" :to="'/innovator/profile/' + user.username" class="btn btn-primary btn-xs hidden" >
                         <a  style="text-transform: none; color: white !important; margin-right: 2px;">Message</a>
                         </router-link>
                         <a class="btn btn-warning btn-xs pul-right" href="#" style="text-transform: none; color: white !important; margin-right: 2px;" v-on:click.prevent="removeconnect($event, '/unconnect_friend/' + friend.username)">Unconnect</a><a class="btn btn-danger btn-xs pull-riht" href="/unfollow_friend/username" style="text-transform: none; color: white !important; display:none;" v-on:click.prevent="blockconnect($event, '/block_friend/' + friend.username)">Block</a>
-                        <a  style="text-transform: none; color: green !important; margin-right: 2px; cursor:pointer;" id="showthread_form" v-if="isfriend === true">Create new thread with {{user.fullname}}</a>
-                        <form action="/messages" method="POST" class="form-horizontal" role="form" style="display:none;" id="threadformshow">
-                            <p v-if="threads >= 1">You have an open thread with {{user.fuulname}}, message with it 
-                             <router-link tag="a" :to="user.username +'/threads'">
-                                <a>here</a>
+                        <a  style="text-transform: none; color: green !important; margin-right: 2px; cursor:pointer;" id="showthread_form" v-if="isfriend === true" class="hidden">Create new thread with {{user.fullname}}</a>
+                        <br><br>
+                        <form action="/messages" method="POST" class="form-horizontal" role="form" style="disply:none;" id="threadformshow">
+                             <input type="hidden" name="_token" :value="csrf">
+                            <p v-if="countthreads >= 1">You have an open thread with {{user.fullname}}, continue conversation with it 
+                             <router-link tag="a" :to="'/'+ auth.username +'/threads'">
+                                <a class="text-primary" style="text-decoration:underline;">here</a>
                             </router-link>,
-                            or create a new one below</p>
-                        <div id="csvalone"></div>
+                            or open a new one below</p>
                          <div class="form-group">
                                 <label for="title" class="control-label">Thread Title</label>
                                 <div class="col-sm-10 col-sm-offset-2">
@@ -51,13 +52,13 @@
                             <div class="form-group">
                                 <label for="message" class="control-label">Message</label>
                                 <div class="col-sm-10 col-sm-offset-2">
-                                    <textarea name="message" id="message" class="form-control" rows="5" style="resize:none;" placeholder="Enter Message"></textarea>
+                                    <textarea name="message" id="message" class="form-control" rows="2" style="resize:none;" placeholder="Enter Message"></textarea>
                                 </div>
                             </div>
                             <input type="text" name="user_id" :value="user.id" hidden="true">
                             <div class="form-group">
                                 <div class="col-sm-10 col-sm-offset-2">
-                                    <button type="submit" class="btn btn-primary btn-block">Send</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Open new thread with {{user.fullname}}</button>
                                 </div>
                             </div>
                         </form>
@@ -80,10 +81,11 @@
             </div>
             <div style="height:40px;"></div>
                 
-                <div id="viewmore_div">  <!--view more-->
+                <div id="viewmore_div" class="hidden">  <!--view more-->
                     <p id="viewmore" class="text-center text-primary" style="background-color: lightgrey; border-bottom: 6px solid darkgrey; border-radius: 2%; cursor: pointer;">View More</p>
                     <p id="hidemore" class="text-center text-primary" style="background-color: lightgrey; border-bottom: 6px solid darkgrey; border-radius: 2%; cursor: pointer; display: none;">Hide</p>
                 </div>
+                <hr>
                 <div id="expand_profile" style="disply: none;">
                     <h4>Address</h4>
                     <ul class="list-unstyled" style="padding-left: 40px;">
@@ -127,7 +129,7 @@
             <div v-else>
                 <h4>You have ({{countuserfriends}}) connections</h4> 
             </div>                          
-                 <h4 class="text-center">Innovations</h4>       <!--innovations-->
+                 <h4 class="text-center">Innovations</h4>    <!--innovations-->
                  <div v-if="countstartups >= 1">
                     <div class="row" v-for="startup in startups">
                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 oe">
@@ -156,7 +158,9 @@
                             </div>
                         </div> 
                     </div>
-                </div>                                               <!--innovations-->
+                </div>     
+                <div v-else v-if="user.id == auth.id">You have no innovations yet!</div>
+                <div v-else v-if="user.id != auth.id">{{user.fullname}} has no innovations yet!</div>                                          <!--innovations-->
                 <h4 class="text-center">Videos</h4> 
                 <div class="row" v-if="countyoutubevideos >= 1">
                      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" v-for="video in youtubevideos">
@@ -203,9 +207,11 @@ var csr;
                 countuserfriends: '',
                 countmutualfriends: '',
                 countyoutubevideos: '',
+                countthreads: '',
                 showrequestmessage: false,
                 connectform_message: 'the message',
-                sent: ''
+                sent: '',
+                csrf: ''
 
             }
         },
@@ -222,6 +228,9 @@ var csr;
        //     showmore();
             this.fetchData();
         },
+        mounted(){
+            this.csrf = window.Laravel.csrfToken
+        },
         methods: {
              fetchData () {
                 axios.post('/myprofile/' + this.$route.params.username)
@@ -234,18 +243,21 @@ var csr;
                 self.authfriends = response.data[3],
                 self.userfriends = response.data[4],
                 self.mutual_friends = response.data[5],
-                self.startups = response.data[6],
+             //   self.startups = response.data[6],
+                self.startups = self.user.startups,
                 self.youtubevideos = response.data[7],
                 self.threads = response.data[8],
                 self.requests = response.data[9],
                 self.isfriend = response.data[10],
                 self.friendrequestfrom = response.data[11],
                 self.sentfriendrequest = response.data[12],
-                self.countstartups = response.data[6].length,
+              //  self.countstartups = response.data[6].length,
+                self.countstartups = self.user.startups.length,
                 self.countauthfriends = response.data[3].length,
                 self.countuserfriends = response.data[4].length,
                 self.countmutualfriends = response.data[5].length,
                 self.countyoutubevideos = response.data[7].length,
+                self.countthreads = response.data[8].length,
                 self.countrequests = response.data[9].length,
                 console.log(response.data[11]),
                 console.log(response.data[12]),

@@ -60,7 +60,10 @@ Route::group(['middleware'=>'auth'], function () {
   });
 
   Route::post('/categories_dashboard', function(){
-    return App\Category::with('startups')->orderBy('id', 'desc')->get();
+    $auth = Auth::user();
+    $categories = App\Category::with('startups')->orderBy('id', 'desc')->get();
+    $thedata = [$categories, $auth];
+    return $thedata;
   });
 
   Route::post('/innovations', function(){

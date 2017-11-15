@@ -78,12 +78,27 @@
         @endforeach
         {{$friends->links()}}
      @else
+      <router-link tag="a" to="/innovation/create" class="list-group-item">
+        <small><a>Pitch an Innovation</a></small>
+      </router-link>
+      <router-link tag="a" to="/{{Auth::user()->username}}/innovations" class="list-group-item">
+          <small><a>My Innovations</a></small>
+        </router-link> 
      <router-link tag="a" to="/innovator/profile/edit/{{Auth::user()->username}}" class="list-group-item small">
         <a>Update Profile</a>
      </router-link>
     @endif
     </ul>
       <div class="list-group" style="margin-top: -20px;">
+        <a href="/myrequests" class="list-group-item active">
+              <p class="list-group-item-text small">My Team Request</p>
+        </a>
+        <a href="/team_requests" class="list-group-item active">
+              <p class="list-group-item-text small">All Team Requests</p>
+        </a>
+        <a href="/request_team" class="list-group-item active">
+              <p class="list-group-item-text small">Find Team Members</p>
+        </a>
         <router-link tag="a" to="/posts" class="list-group-item active">
           <p class="list-group-item-text small">Posts</p>
         </router-link> 
@@ -104,15 +119,7 @@
               <p class="list-group-item-text small">Admin</p>
         </a>
         @endif
-        <a href="/myrequests" class="list-group-item active">
-              <p class="list-group-item-text small">My Team Request</p>
-        </a>
-        <a href="/team_requests" class="list-group-item active">
-              <p class="list-group-item-text small">All Team Requests</p>
-        </a>
-        <a href="/request_team" class="list-group-item active">
-              <p class="list-group-item-text small">Find Team Members</p>
-        </a>
+        
         <router-link tag="a" to="{{ route('logout') }}" class="list-group-item active">
         <p href="{{ route('logout') }}"  
                 onclick="event.preventDefault();
@@ -123,12 +130,6 @@
         <a href="https://www.facebook.com/teaminnovestors/" class="list-group-item active" target="blank">
               <p class="list-group-item-text small" style="color: #2980B8 !important;">Like us on facebook</p>
         </a>
-        <a href="https://www.twitter.com" class="list-group-item active" target="blank" style="display: none;">
-              <p class="list-group-item-text small" style="color: #2980B8 !important;">Follow us on twitter</p>
-        </a>
-        <a href="#" class="list-group-item active">
-              <p class="list-group-item-text small" style="color: #E8453C !important;">Connect google account</p>
-        </a> 
       </div>
 </div>
 
