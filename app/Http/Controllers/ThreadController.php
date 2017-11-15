@@ -12,12 +12,14 @@ use App\StartupsPhoto;
 use App\YoutubeVideo;
 use App\Thread;
 use App\Message;
-use App\Mail\Welcome;
 use Dawson\Youtube\Facades\Youtube;
 use Illuminate\Support\Facades\DB;
 use Image;
 //use LRedis;
 use App\Events\NewThreadMessage;
+use App\Mail\NewMessage;
+use App\Http\Controllers\Mail\Mailer;
+use Illuminate\Support\Facades\Mail;
 
 class ThreadController extends Controller
 {
@@ -40,7 +42,6 @@ class ThreadController extends Controller
         $slug = $slug_format;
         //
     $receive_id = request('user_id');
-    $receiver_id = User::find($receive_id);
        $thread = Thread::create([
             'title' => request('title'),
             'user_id' => Auth::user()->id,
@@ -53,6 +54,9 @@ class ThreadController extends Controller
             'user_id' => Auth::user()->id,
             'thread_id' => $thread->id
         ]);
+       $receiver = User::find($receive_id);
+       $sender = Auth::user();
+       \Mail::to($receiver)->send(new NewMessage($sender, $receiver));
         session()->flash('message', 'Thread Created, view in messages');
         return redirect('/dashboard#/'.Auth::user()->username.'/threads');
     }
@@ -60,7 +64,7 @@ class ThreadController extends Controller
  
     public function update(Request $request, $username, $slug)
     {
-        $user = User::where('username', $username)->first();
+        $user = User::where('username', $username)->first();  //sender ==  authenticated user
         $thread = Thread::where('slug', $slug)->first();
        $message = Message::create([
             'body' => request('message'),
@@ -70,6 +74,14 @@ class ThreadController extends Controller
         $data = ['auth_id' => Auth::user()->id, 'user_id' => $user->id, 'body' => request('message'), 'thread_id' => request('thread_id'), 'created_at' => $message->created_at, 'username' => Auth::user()->username];
         $message = 'gameboy';
         event(new NewThreadMessage($data));
+        if(Auth::user()->id == $thread->sender_id) { //1 == 1
+            $sender = User::find($thread->sender_id);
+            $receiver = User::find($thread->receiver_id);
+        }else{
+             $sender = User::find($thread->receiver_id);
+             $receiver = User::find($thread->sender_id);
+        }
+        \Mail::to($receiver)->send(new NewMessage($sender, $receiver)); 
         return 'Message Sent';
     }
 

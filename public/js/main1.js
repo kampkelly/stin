@@ -24559,6 +24559,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 var csr;
@@ -29742,12 +29743,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-sm-10 col-sm-offset-2"
-  }, [_c('button', {
+  }, [(_vm.countthreads >= 1) ? _c('button', {
     staticClass: "btn btn-primary btn-block",
     attrs: {
       "type": "submit"
     }
-  }, [_vm._v("Open new thread with " + _vm._s(_vm.user.fullname))])])])])], 1) : _c('div', [(_vm.friendrequestfrom === true) ? _c('div', [_vm._v("\n                        " + _vm._s(_vm.user.fullname) + " sent you a request\n                                "), _c('a', {
+  }, [_vm._v("Open new thread with " + _vm._s(_vm.user.fullname))]) : _vm._e(), _vm._v(" "), (_vm.countthreads < 1) ? _c('button', {
+    staticClass: "btn btn-primary btn-block",
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Message " + _vm._s(_vm.user.fullname))]) : _vm._e()])])])], 1) : _c('div', [(_vm.friendrequestfrom === true) ? _c('div', [_vm._v("\n                        " + _vm._s(_vm.user.fullname) + " sent you a request\n                                "), _c('a', {
     staticClass: "btn btn-info btn-xs small",
     attrs: {
       "href": _vm.theurl
@@ -30305,7 +30311,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "color": "white"
     }
   }), _vm._v(" Threads")])]), _vm._v(" "), _c('h4', {
-    staticClass: "small text-info",
+    staticClass: "small text-info hidden",
     staticStyle: {
       "cursor": "pointer"
     },
@@ -30416,6 +30422,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.csrf
     }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "text",
+      "name": "user_id",
+      "hidden": "true"
+    },
+    domProps: {
+      "value": _vm.user.id
+    }
   }), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('label', {
@@ -30491,16 +30506,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": "/Ellipsis.svg"
     }
-  })])])])]), _vm._v(" "), _c('input', {
-    attrs: {
-      "type": "text",
-      "name": "user_id",
-      "hidden": "true"
-    },
-    domProps: {
-      "value": _vm.user.id
-    }
-  })]), _vm._v(" "), _c('input', {
+  })])])])])]), _vm._v(" "), _c('input', {
     attrs: {
       "type": "text",
       "name": "myid",

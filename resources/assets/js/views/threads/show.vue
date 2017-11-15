@@ -11,7 +11,7 @@
                     <router-link tag="a" :to="'/' + auth.username + '/threads'" class="btn btn-primary btn-xs">
                     <a style="color:white; cursor:pointer;"><span class="glyphicon glyphicon-th-list" style="color:white;"></span> Threads</a>
                   </router-link>
-                    <h4 class="small text-info" id="viewnewthread" style="cursor: pointer;">Create new thread with {{user.fullname}}<span class="small-font"> (click to show)</span></h4>
+                    <h4 class="small text-info hidden" id="viewnewthread" style="cursor: pointer;">Create new thread with {{user.fullname}}<span class="small-font"> (click to show)</span></h4>
                     <h4 class="small text-warning" id="hidenewthread" style="cursor: pointer; display: none;">Create new thread with this {{user.fullname}}<span class="small-font"> (click to hide)</span></h4>
                     <div id="expand_thread" style="display: none;">
                         <form action="/messages" method="POST" class="form-horizontal" role="form">
@@ -51,6 +51,7 @@
                       <form :action="'/threads/' + user.username + '/' + thread.slug" method="POST" value="PUT" class="form-horizontal" role="form" v-on:submit.prevent="sendMessage('/threads/' + user.username + '/' + thread.slug)">
                       <!--csrf field-->
                        <input type="hidden" name="_token" :value="csrf">
+                       <input type="text" name="user_id" :value="user.id" hidden="true">
                           <div class="form-group">
                               <label for="message" class="control-label" style="display:none;">Reply</label>
                             <div class="input-group col-sm-10 col-sm-offset-2">
@@ -66,7 +67,6 @@
                             </div>
 
                           </div>
-                          <input type="text" name="user_id" :value="user.id" hidden="true">
                       </form>
                     <input type="text" name="myid" :value="thread.id" id="myid" hidden="true" />
                     <input type="text" name="myid" :value="auth.id" id="thid" hidden="true" />

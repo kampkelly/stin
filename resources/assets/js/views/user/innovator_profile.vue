@@ -58,7 +58,8 @@
                             <input type="text" name="user_id" :value="user.id" hidden="true">
                             <div class="form-group">
                                 <div class="col-sm-10 col-sm-offset-2">
-                                    <button type="submit" class="btn btn-primary btn-block">Open new thread with {{user.fullname}}</button>
+                                    <button type="submit" class="btn btn-primary btn-block" v-if="countthreads >= 1">Open new thread with {{user.fullname}}</button>
+                                    <button type="submit" class="btn btn-primary btn-block" v-if="countthreads < 1">Message {{user.fullname}}</button>
                                 </div>
                             </div>
                         </form>
