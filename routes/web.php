@@ -27,7 +27,7 @@ Route::get('/contact', function () {
 }); */
 Route::get('/', 'HomeController@home');
 Route::get('/home', 'HomeController@home');
-Route::get('/innovations/briefing', 'StartupController@briefing');
+Route::get('/innovations', 'StartupController@briefing');
 Route::get('/request_team', function () {
     return view('team_requests/request');
 }); 
@@ -204,14 +204,15 @@ Route::group(['middleware'=>'auth'], function () {
 });
 
 //Route::get('/home', 'HomeController@index')->name('home');
+/*
 Route::get('/dashboardold', 'StartupController@index');
 Route::get('/startups', 'StartupController@startups');
 Route::get('/show', 'StartupController@start');
 Route::get('/startup/new', 'StartupController@create');
 Route::post('/create_startups', 'StartupController@store');
 Route::get('/startup/{slug}', 'StartupController@show');
-Route::get('/startup/edit/{slug}', 'StartupController@edit');
-Route::post('/startup/{slug}', 'StartupController@update');
+Route::get('/startup/edit/{slug}', 'StartupController@edit'); */
+Route::post('/startup/{slug}', 'StartupController@update'); 
 Route::post('/startup/{slug}/photo_added', 'StartupController@startupsphotoupdate');
 Route::post('/startup/{id}/image-deleted', 'StartupsPhotoController@destroy');
 

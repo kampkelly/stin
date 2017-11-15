@@ -27,7 +27,8 @@ class StartupController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['briefing']]);
+     //   $this->middleware('auth', ['except' => ['briefing']]);
+        $this->middleware('guest')->only('briefing');
     }
 
     public function briefing() {

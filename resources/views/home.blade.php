@@ -15,7 +15,7 @@
                 <h3 style="color: white; text-shadow: 1.2px 1.2px #000000;" class="text-center"> <span style="font-size: 18px; color: white; text-shadow: 0.8px 0.8px #000000; font-size: 24px;"><b> Connecting Creative Minds With Investors</b></span></h3>
                 <div style="height: 20px;"></div>
                 <ul class="list-unstyled list-inlne text-center">
-                    <li><a href="/innovations/briefing" class="btn btn-success btn-lg" style="background-color: #227FBB; font-size: 28px;">See Innovations</a></li> <br>
+                    <li><a href="/innovations" class="btn btn-success btn-lg" style="background-color: #227FBB; font-size: 28px;">See Innovations</a></li> <br>
                     <li class="hidden-xs hidden-sm hidden-md"><a href="/request_team" class="btn btn-default btn-lg" style="font-size: 14px;">Request to teamup</a>
                     <span title="snnsls" style="color: white; cursor: pointer; text-decoration: underline;" onclick="requestpartner_info()">What is this?</span></li>
                     <li class="hidden-lg">
