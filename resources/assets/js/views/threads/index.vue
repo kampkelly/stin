@@ -99,7 +99,7 @@ import moment from 'moment';
          $('footer').hide();
          if ($(window).width() < 768) {
             $('.third-column').hide();
-            $('footer').hide();
+            $('footer').hide(); 
         }
          window.addEventListener("resize", myFunction);
           function myFunction() {

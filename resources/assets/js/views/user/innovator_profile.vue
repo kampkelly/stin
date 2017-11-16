@@ -148,7 +148,7 @@
                                             <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                         </div>
                                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                                             <p class="text-center text-justify"><span style="text-decoration: underline;"> Brief description:</span> {{startup.short_desc}} <br>
+                                             <p class="text-center text-justify"><span style="text-decoration: underline;"> Brief description:</span> <span v-html="startup.short_desc"></span><br>
                                              <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                                 <a>More...</a>
                                               </router-link>
@@ -217,7 +217,6 @@ var csr;
             }
         },
         beforeRouteUpdate: function(to, from, next) {
-            console.log("beforeRouteCreate");
             next();
         //    showmore();
             this.fetchData();
@@ -236,6 +235,7 @@ var csr;
              fetchData () {
                 axios.post('/myprofile/' + this.$route.params.username)
                 .then(function(response) { 
+                $(document).scrollTop(1);
                 console.log(response.data[1]),
                 self.threads = response.data[0],
                 self.auth = response.data[0],

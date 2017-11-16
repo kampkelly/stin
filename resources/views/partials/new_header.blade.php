@@ -73,12 +73,11 @@
 <div id='cssmenu' class="mobilehead" style="position: fixed; color: white; top: 0%; z-index: 2; width: 100%;">
 <ul>
    <li><a href='/'>Home</a></li>
-   <li><a href='/features'>Features</a></li>
+   <li><a href="/request_team">Find Team Members</a></li>
+    <li><a href="/team_requests">Team Requests</a></li>
    <li><a href='/terms'>Terms and Conditions</a></li>
    <li><a href='/about'>About</a></li>
-   <li><a href='/about'>About</a></li>
-    <li><a href="/request_team">Find Team Members</a></li>
-    <li><a href="/team_requests">Team Requests</a></li>
+   <li><a href='/contact'>Contact</a></li>
     <li><a id="log" href="/login">Login</a></li>
     <li><a id="reg" href="/innovator/register">Register</a></li>
     <li style="display: none;"><a id="reg" href="/innovator/register">Signup as Investor</a></li>
@@ -90,7 +89,7 @@
 <!--NEW HEADER 
 <a href="#" data-icon="gear" class="ui-btn-right">MENU</a> -->
 @if (Auth::check()) 
-  <div class="row new-head">
+  <div class="row new-head" style="width: 104.5%;">
       <div class="col-xs-2">
       <a href="/dashboard#" class="btn btn-default btn-sm">
         <span style="font-size: 260%;" class="icon-innovestors text-center"></span>
@@ -101,33 +100,41 @@
             <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Innovations</span>
           </a>
       </div>
-      <div class="col-xs-2">
-      @if(checkPermission(['innovator', 'admin']))
-        <a href="/dashboard#/innovator/profile/{{Auth::user()->username}}" class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-user"></span><div style="height: 5px;"></div><span class="smallest-font pull-rght">My Profile</span>
-          </a>
+      @if(checkPermission(['innovator']))
+              <div class="col-xs-2">
+                <a href="/dashboard#/{{Auth::user()->username}}/connections" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-stats"></span><div style="height: 5px;"></div><span class="smallest-font pull-rght">Connections
+                    @if( count(Auth::user()->getFriendRequests()) >+ 1)
+                    ({{ count(Auth::user()->getFriendRequests()) }})
+                    @endif</span>
+                  </a>
+                </div>
+            <div class="col-xs-2">
+                  <a href="/dashboard#/{{Auth::user()->username}}/threads" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div><span class="smallest-font pull-rght">Messages</span>
+                  </a>
+            </div>
+           <div class="col-xs-2">
+              <a href="/dashboard#/my-feeds/{{Auth::user()->username}}" class="btn btn-default btn-sm" id="feeeds">
+                  <span class="glyphicon glyphicon-tasks"></span><div style="height: 5px;"></div> <span class="smallest-font pull-lft" >My Feeds</span>
+                </a>
+            </div>
         @else
-          <a href="/dashboard#/investor/profile/{{Auth::user()->username}}" class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-user"></span><div style="height: 5px;"></div> <span class="smallest-font pull-rght">My Profile</span>
-          </a>
+            <div class="col-xs-2">
+              <a href="/dashboard#/innovation/create" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-user"></span><div style="height: 5px;"></div> <span class="smallest-font pull-rght">Pitch Innova</span>
+              </a>
+          </div><div class="col-xs-2">
+              <a href="/dashboard#/innovator/profile/edit/{{Auth::user()->username}}" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-user"></span><div style="height: 5px;"></div> <span class="smallest-font pull-rght">Update Profile</span>
+              </a>
+          </div><div class="col-xs-2">
+              <a href="/team_requests" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-user"></span><div style="height: 5px;"></div> <span class="smallest-font pull-rght">Team Reque</span>
+              </a>
+          </div>
         @endif
-      </div>
-      @if (Auth::check()) 
-      <div class="col-xs-2">
-      <a href="/dashboard#/{{Auth::user()->username}}/connections" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-stats"></span><div style="height: 5px;"></div> <span class="smallest-font pull-lft">Connections
-            @if( count(Auth::user()->getFriendRequests()) >+ 1)
-            ({{ count(Auth::user()->getFriendRequests()) }})
-            @endif
-          </span>
-        </a>
-      </div>
-      @endif
-      <div class="col-xs-2">
-        <a href="/dashboard#/my-feeds/{{Auth::user()->username}}" class="btn btn-default btn-sm" id="feeeds">
-            <span class="glyphicon glyphicon-tasks"></span><div style="height: 5px;"></div> <span class="smallest-font pull-lft" >My Feeds</span>
-          </a>
-      </div>
+     
       <div class="col-xs-2">
         <a href="/dashboard#/listitems" class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-menu-hamburger"></span>

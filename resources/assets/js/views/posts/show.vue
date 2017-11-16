@@ -37,6 +37,10 @@ import moment from 'moment';
                 post: ''
             }
         },
+         beforeRouteUpdate: function(to, from, next) {
+            next();
+            this.fetchData();
+        },
         created() {  //fire off ajax request]
             this.loading = true,
             this.loaded = false,
@@ -47,6 +51,7 @@ import moment from 'moment';
             fetchData () {
                 axios.post('/post/' + this.$route.params.slug)
                 .then(function(response) { 
+                $(document).scrollTop(1);
                 self.post = response.data,
                 self.loading = false,
                 self.loaded = true,

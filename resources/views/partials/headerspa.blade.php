@@ -50,36 +50,56 @@
           <span style="font-size: 260%;" class="icon-innovestors text-center"></span>
         </router-link>
       </div>
-      <div class="col-xs-2">
-      @if(checkPermission(['innovator', 'admin']))
-        <router-link tag="a" to="/innovations" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Innovations</span>
-      </router-link>
+      
+      @if(checkPermission(['innovator']))
+          <div class="col-xs-2">
+            <router-link tag="a" to="/innovations" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Innovations</span>
+          </router-link>
+          </div>
+          <div class="col-xs-2">
+           <router-link tag="a" to="/{{Auth::user()->username}}/connections" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-stats"></span><div style="height: 5px;"></div> <span class="smallest-font pull-lft">Connections
+                @if( count(Auth::user()->getFriendRequests()) >+ 1)
+                ({{ count(Auth::user()->getFriendRequests()) }})
+                @endif
+              </span>
+          </router-link>
+          </div>
+          <div class="col-xs-2">
+             <router-link tag="a" to="/{{Auth::user()->username}}/threads" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Messages</span>
+            </router-link>  
+          </div>
+          <div class="col-xs-2">
+             <router-link tag="a" to="/my-feeds/{{Auth::user()->username}}" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-tasks"></span><div style="height: 5px;"></div> <span class="smallest-font pull-lft" >My Feeds</span>
+            </router-link>
+          </div>
         @else
-           <router-link tag="a" to="/innovations" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Innovations</span>
-        </router-link>
+            <div class="col-xs-2">
+               <router-link tag="a" to="/innovations" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Innovations</span>
+            </router-link>
+            </div>
+            <div class="col-xs-2">
+               <router-link tag="a" to="/innovation/create" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Pitch Innovat</span>
+            </router-link>
+            </div>
+            <div class="col-xs-2">
+               <router-link tag="a" to="/innovator/profile/edit/{{Auth::user()->username}}" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Update Prof</span>
+            </router-link>
+            </div>
+            <div class="col-xs-2">
+               <router-link tag="a" to="/{{Auth::user()->username}}/innovations" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">My Innovations</span>
+            </router-link>
+            </div>
         @endif
-      </div>
-      <div class="col-xs-2">
-       <router-link tag="a" to="/{{Auth::user()->username}}/connections" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-stats"></span><div style="height: 5px;"></div> <span class="smallest-font pull-lft">Connections
-            @if( count(Auth::user()->getFriendRequests()) >+ 1)
-            ({{ count(Auth::user()->getFriendRequests()) }})
-            @endif
-          </span>
-      </router-link>
-      </div>
-      <div class="col-xs-2">
-         <router-link tag="a" to="/{{Auth::user()->username}}/threads" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-list"></span><div style="height: 5px;"></div> <span class="smallest-font pull-eft">Messages</span>
-        </router-link>  
-      </div>
-      <div class="col-xs-2">
-         <router-link tag="a" to="/my-feeds/{{Auth::user()->username}}" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-tasks"></span><div style="height: 5px;"></div> <span class="smallest-font pull-lft" >My Feeds</span>
-        </router-link>
-      </div>
+      
+      
       <!--list items link-->
       <div class="col-xs-2">
          <router-link tag="a" to="/listitems" class="btn btn-default btn-sm">

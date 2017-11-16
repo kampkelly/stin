@@ -26,6 +26,7 @@
     "pusher-js": "^4.1.0",
     "redis": "^2.8.0",
     "socket.io": "^2.0.3",
-    "vue-truncate-filter": "^1.1.7"
+    "vue-tinymce": "^1.0.5",
+    "vue-truncate": "^1.0.0"
   }
 }

@@ -8,6 +8,7 @@
     <input type="radio" name="featured" value="0" v-model="featured" id="featured0"> <label for="featured0" style="cursor:pointer;">Uploaded</label> &nbsp; &nbsp;
 @if( count($innovations) <= 1)
     <h4 class="text-center">No innovations yet</h4>
+    <div style="height: 80vh;"></div>
 @endif
 	@foreach($innovations as $innovation)
     <div v-if="featured == 'all'">
@@ -28,7 +29,7 @@
                                         <img src="/uploads/startup_photos/{{$innovation->image}}" width="100%" class="img-responsive">
                                     </a>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ $innovation->short_desc }} <br>
+                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {!! str_limit($innovation->short_desc, $limit = 240) !!} <br> 
                                           <a href="/dashboard#/innovation/{{$innovation->slug}}">More...</a>
                                          </p>
                                     </div>
@@ -85,7 +86,7 @@
                                         <img src="/uploads/startup_photos/{{$innovation->image}}" width="100%" class="img-responsive">
                                     </a>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ $innovation->short_desc }} <br>
+                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {!! str_limit($innovation->short_desc, $limit = 150) !!} <br>
                                           <a href="/dashboard#/innovation/{{$innovation->slug}}">More...</a>
                                          </p>
                                     </div>

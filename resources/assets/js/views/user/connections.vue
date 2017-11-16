@@ -131,6 +131,7 @@ import moment from 'moment';
             self = this 
             axios.post('/showconnections')
             .then(function(response) { 
+               $(document).scrollTop(1);
                 response => this.connections = response.data,
                 self.loading = false,
                 self.loaded = true

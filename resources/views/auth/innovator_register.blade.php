@@ -7,7 +7,7 @@
 <div style="height: 70px;"></div>
 <div class="container">
     <div class="text-center">
-        <h2>Hi, Register to get access to all innovations!</h2>
+        <h2>Hi, Register to get access to all our innovations!</h2>
     </div>
   <!--  <h4>Hello, register free below as an innovator and get access to our list of innovative activities happening around you.<br> You can also upload your own invention/startup when you are ready!</h4> -->
   <div style="height: 10px;"></div>
@@ -90,6 +90,8 @@
                 <a href="/auth/facebook" class="btn btn-primary" :disabled="disabled" style="cursor: pointer; flex: 1; margin-right: 10px;"> Facebook</a>
                 <a href="{{ url('/auth/google') }}" class="btn btn-md btn-danger" :disabled="disabled" style="cursor: pointer; flex: 1; margin-left: 10px;">Google</a>
             </ul>
+            <div class="text-center">
+            <a href="/login" style="color: #1269D3">Login instead</a></div>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
           

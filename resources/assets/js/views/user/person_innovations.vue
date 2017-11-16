@@ -24,7 +24,7 @@
                                             <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                         </div>
                                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                                             <p class="text-center text-justify"><span style="text-decoration: underline;"> Brief description:</span> {{startup.short_desc}} <br>
+                                             <p class="text-center text-justify"><span style="text-decoration: underline;"> Brief description:</span> <span v-html="$options.filters.truncate(startup.short_desc, 100)"></span><br>
                                              <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                                 <a>More...</a>
                                               </router-link>
@@ -100,6 +100,7 @@ import moment from 'moment';
              fetchData () {
                 axios.post('/person/' + this.$route.params.username)
                 .then(function(response) { 
+                $(document).scrollTop(1);
                 self.auth = response.data[0],
                 self.startups = self.auth.startups,
                 self.youtubevideos = response.data[2],

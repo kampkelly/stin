@@ -34,7 +34,7 @@
         </div>
         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
             <div class="text-center">
-                <a href="/innovator/register" class="btn btn-success btn-md">Pitch Your Innovation</a>
+                <a href="/dashboard#/innovation/create" class="btn btn-success btn-md">Pitch Your Innovation</a>
                 <hr>
                 <div  style="padding: 0px 40px 0px 40px;" class="hide-smartphone">
                     <div class="pael panel-default">

@@ -12,16 +12,16 @@
                   <router-link tag="a" to="/innovation/create" class="list-group-item small">
                     <a>Pitch Innovation</a>
                   </router-link>
-                  <router-link tag="a" :to="'/innovator/profile/' + auth.username" class="list-group-item small">
+                  <router-link tag="a" :to="'/innovator/profile/' + auth.username" class="list-group-item small" v-if="auth.is_permission == 1">
                     <a>My Profile</a>
                   </router-link> 
                   <router-link tag="a" :to="'/innovator/profile/edit/' + auth.username" class="list-group-item small">
                     <a>Update Profile</a>
                   </router-link>
                   <router-link tag="a" :to="'/' + auth.username + '/innovations'" class="list-group-item small">
-                    <a>My Inovations</a>
+                    <a>My Innovations</a>
                   </router-link>
-                  <router-link tag="a" :to="'/' + auth.username + '/threads'" class="list-group-item small">
+                  <router-link tag="a" :to="'/' + auth.username + '/threads'" class="list-group-item small" v-if="auth.is_permission == 1">
                     <a>My Messages</a>
                   </router-link>
                   <a href="/request_team" class="list-group-item small">Find Team Members</a>
@@ -76,10 +76,11 @@ var csr;
             hashchange();
             axios.post('/list-items')
             .then(function(response) { 
+               $(document).scrollTop(1);
                 self.auth = response.data,
                 self.loading = false,
                 self.loaded = true,
-                hashchange();
+              //  hashchange();
                 csr = document.getElementById('csrf').innerHTML;
                 document.getElementById('logout_csrf').innerHTML= csr;
                 }); 
@@ -90,6 +91,8 @@ var csr;
     }
 
     function hashchange() {
+       $('.third-row').hide();
+        $('footer').hide();
         if ($(window).width() > 768) {
          //   window.location.href == "http://www.theinnovestors.dev/dashboard#/";
             document.location.replace == "http://www.google.com";

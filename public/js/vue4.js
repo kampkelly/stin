@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 248);
+/******/ 	return __webpack_require__(__webpack_require__.s = 249);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -130,8 +130,9 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 //import router from './routes';
-var VueTruncate = __webpack_require__(243);
-Vue.use(VueTruncate);
+//var VueTruncate = require('vue-truncate-filter')
+//Vue.use(VueTruncate)
+Vue.use(__webpack_require__(244));
 
 var self = ''; //set self equal to empty string to be used in axios
 var app1 = new Vue({
@@ -3068,59 +3069,30 @@ module.exports = function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 243:
+/***/ 244:
 /***/ (function(module, exports, __webpack_require__) {
 
-;(function () {
+"use strict";
 
-  var vueTruncate = {};
 
-  vueTruncate.install = function (Vue) {
-    
-    /**
-     * 
-     * @param {String} text
-     * @param {Number} length
-     * @param {String} clamp
-     * 
-     */
+exports.install = function (Vue, opts) {
 
-    Vue.filter('truncate', function (text, length, clamp) {
-      clamp = clamp || '...';
-      length = length || 30;
-      
-      if (text.length <= length) return text;
+  var filter = function(text, length, clamp){
+    clamp = clamp || '...';
+    var node = document.createElement('div');
+    node.innerHTML = text;
+    var content = node.textContent;
+    return content.length > length ? content.slice(0, length) + clamp : content;
+  };
 
-      var tcText = text.slice(0, length - clamp.length);
-      var last = tcText.length - 1;
-      
+  Vue.filter('truncate', filter);
 
-      while (last > 0 && tcText[last] !== ' ' && tcText[last] !== clamp[0]) last -= 1;
-
-      // Fix for case when text dont have any `space`
-      last = last || length - clamp.length;
-
-      tcText =  tcText.slice(0, last);
-
-      return tcText + clamp;
-    });
-  }
-
-  if (true) {
-    module.exports = vueTruncate;
-  } else if (typeof define == "function" && define.amd) {
-    define([], function(){ return vueTruncate });
-  } else if (window.Vue) {
-    window.VueTruncate = vueTruncate;
-    Vue.use(VueTruncate);
-  }
-
-})()
+};
 
 
 /***/ }),
 
-/***/ 248:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(137);

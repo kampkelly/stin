@@ -47,7 +47,7 @@
                                         <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                     </router-link>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ startup.short_desc }} <br>
+                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> <span v-html="$options.filters.truncate(startup.short_desc, 150)"></span><br>
                                           <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                             <a>More...</a>
                                           </router-link>
@@ -116,7 +116,7 @@
                                         <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                     </router-link>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ startup.short_desc }} <br>
+                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span>  <span v-html="$options.filters.truncate(startup.short_desc, 150)"></span> <br>
                                           <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                             <a>More...</a>
                                           </router-link>

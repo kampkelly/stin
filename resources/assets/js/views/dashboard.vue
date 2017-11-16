@@ -101,6 +101,7 @@ console.log(globalauth.id);
         //    .then(
            //     response => this.categories = response.data,
             .then(function(response) { 
+               $(document).scrollTop(1);
                 self.categories = response.data[0],
                 self.loading = false,
                 self.loaded = true,

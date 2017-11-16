@@ -1391,3 +1391,15 @@ h4 {
 			height: 230vh;
 		}
 }
+.innovation_description {
+	//color: $tertiary;
+	font-size: 130% !important;
+	font-family: 'Raleway', sans-serif !important;
+	//@extend %spc;
+	@media #{$smartphone} {
+		line-height: 25px;
+	}
+	@media #{$mini-laptop} {
+		line-height: 25px + 3;
+	}
+}

@@ -78,6 +78,7 @@ import moment from 'moment';
             self = this 
             axios.post('/my-feeds/username')
             .then(function(response) {
+                 $(document).scrollTop(1);
                 response => this.thedata = response.data,
                 self.friends = response.data[0],
                 self.startups = response.data[1],

@@ -1,4 +1,6 @@
 import router from './routes';
+import VueTinymce from 'vue-tinymce';
+Vue.use(VueTinymce)
 
 
 var globalauthid = document.getElementById('globalauthid').value;

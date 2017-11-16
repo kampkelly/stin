@@ -27,7 +27,7 @@
             <!--STARTUP FIRST-BOX ENDS-->
             <hr>
             <h4 class="text-center" style="text-decoration: underline;">Description On {{startup.title}}</h4>
-            <p style="color: #525252 !important;">{{startup.short_desc}}</p>
+            <p style="color: #525252 !important;" v-html="startup.short_desc"></p>
             <hr>
             <h4 class="text-center" style="text-decoration: underline;">Aim:</h4>
             <p class="text-justify">{{startup.aim}}</p>
@@ -211,6 +211,7 @@ var csrf_token = $('meta[name="csrf-token"]').attr('content'); */
             fetchData () {
                 axios.post('/innovation/' + this.$route.params.slug)
                 .then(function(response) { 
+                $(document).scrollTop(1);
                 self.loading = false,
                 self.loaded = true,
                 self.startup = response.data[0],

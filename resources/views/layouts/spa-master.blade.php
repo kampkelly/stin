@@ -40,6 +40,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
         </script>
+        
 @include('partials/_analytics')
 <!-- End Piwik Code -->
     </head>
@@ -160,6 +161,7 @@
     <script src="https://use.fontawesome.com/fa2b05ef33.js"></script>  
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>

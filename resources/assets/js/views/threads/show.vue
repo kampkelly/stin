@@ -135,6 +135,7 @@ let date = Date();
             fetchData () {
                 axios.post('/thisthread/' + this.$route.params.username + '/' + this.$route.params.slug)
                 .then(function(response) { 
+                  $(document).scrollTop(1);
                 self.game = response.data
                 self.thread = response.data[0],
                 self.thread_id = response.data[0].id,

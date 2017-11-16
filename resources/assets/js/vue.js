@@ -1,6 +1,8 @@
 //import router from './routes';
-var VueTruncate = require('vue-truncate-filter')
-Vue.use(VueTruncate)
+//var VueTruncate = require('vue-truncate-filter')
+//Vue.use(VueTruncate)
+Vue.use(require('vue-truncate'));
+
 
 let self = ''; //set self equal to empty string to be used in axios
 var app1 = new Vue({

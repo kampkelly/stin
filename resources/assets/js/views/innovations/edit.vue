@@ -44,11 +44,26 @@
                             <input type="text" name="startup_company" id="startup_company" class="form-control" placeholder="Enter Company or Group/Team Name" v-model="group_name" required>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" v-if="auth.is_permission == 0">
                         <label for="short_desc" class="control-label"><small>Brief Description</small><span class="small text-muted"> sell your idea here (not more than 150 words)</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
                             <textarea name="short_desc" id="short_desc" class="form-control" rows="2" style="resize:none;" placeholder="Briefly descrbie your product" v-model="short_desc" required></textarea>
                         </div>
+                    </div>
+                    <div v-else>
+                        <label class="control-label"><small>Type of editor</small></label>
+                        <select v-model="type_of_editor" class="form-control">
+                            <option selected="selected">Standard</option>
+                            <option>Advanced</option>
+                        </select>
+                        <div class="form-group" v-if="type_of_editor == 'Standard'">
+                            <label for="short_desc" class="control-label"><small>Standard Description</small><span class="small text-muted"> sell your idea here (not more than 150 words)</span></label>
+                            <div class="col-sm-12 col-sm-offset-0">
+                                <textarea name="short_desc" id="short_desc" class="form-control" rows="2" style="resize:none;" placeholder="Descrbie your product" v-model="short_desc" required></textarea>
+                            </div>
+                        </div>
+                        <tinymce v-if="type_of_editor == 'Advanced'" id="editor" :content="content" :options="options" v-model="short_desc" name="short_desc"></tinymce>
+                        
                     </div>
                     <div class="form-group hide-all">
                         <label for="full_desc" class="control-label"><small>Full Description</small><span class="small text-muted"> - discuss your idea</span></label>
@@ -122,6 +137,7 @@
 <script>
 import moment from 'moment';
 var csr;
+var thecontent;
     export default {
         data() {
             return {
@@ -145,7 +161,87 @@ var csr;
                 updateloading: false,
                 message: '',
                 status: false,
-                 csrf: ''
+                 csrf: '',
+                 auth: '',
+                 type_of_editor: '',
+                 content: '',
+                  options: {
+                        style_formats: [
+                            {title: 'Headers', items: [
+                              {title: 'Header 1', format: 'h1'},
+                              {title: 'Header 2', format: 'h2'},
+                              {title: 'Header 3', format: 'h3'},
+                              {title: 'Header 4', format: 'h4'},
+                              {title: 'Header 5', format: 'h5'},
+                              {title: 'Header 6', format: 'h6'}
+                            ]},
+                            {title: 'Classes', items: [
+                              {title: 'innovationparagraph', inline: 'span', classes: 'innovation_description'},
+                              {title: 'remove classes', inline: 'span', classes: 'none'}
+                            ]},
+                            {title: 'CustomCss', items: [
+                              {title: 'Lineheight 35px', inline: 'span', styles: {lineHeight: '35px'}}
+                            ]},
+                            {title: 'Inline', items: [
+                              {title: 'Bold', icon: 'bold', format: 'bold'},
+                              {title: 'Italic', icon: 'italic', format: 'italic'},
+                              {title: 'Underline', icon: 'underline', format: 'underline'},
+                              {title: 'Strikethrough', icon: 'strikethrough', format: 'strikethrough'},
+                              {title: 'Superscript', icon: 'superscript', format: 'superscript'},
+                              {title: 'Subscript', icon: 'subscript', format: 'subscript'},
+                              {title: 'span', inline: 'span'},
+                              {title: 'Code', icon: 'code', format: 'code'}
+                            ]},
+                            {title: 'Blocks', items: [
+                              {title: 'Paragraph', format: 'p'},
+                              {title: 'Blockquote', format: 'blockquote'},
+                              {title: 'Div', format: 'div'},
+                              {title: 'Pre', format: 'pre'}
+                            ]},
+                            {title: 'Alignment', items: [
+                              {title: 'Left', icon: 'alignleft', format: 'alignleft'},
+                              {title: 'Center', icon: 'aligncenter', format: 'aligncenter'},
+                              {title: 'Right', icon: 'alignright', format: 'alignright'},
+                              {title: 'Justify', icon: 'alignjustify', format: 'alignjustify'}
+                            ]}
+                          ],
+                            file_browser_callback_types: 'file image media',
+                            plugins: [
+                                "advlist autoresize autosave autolink link image lists charmap print preview hr anchor pagebreak",
+                                "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
+                                "table contextmenu directionality emoticons paste imagetools textcolor responsivefilemanager",
+                            ],
+
+                            toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect fontselect quicklink",
+                               toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+                               image_advtab: true ,
+                               
+                               external_filemanager_path:"/tinymce/js/tinymce/filemanager/",
+                               filemanager_title:"Responsive Filemanager" ,
+                               external_plugins: { "filemanager" : "/tinymce/js/tinymce/filemanager/plugin.min.js"},
+                            //   external_plugins: { "filemanager" : "tinymce/js/tinymce/filemanager/plugin.min.js"},
+                          //     external_plugins: { "filemanager" : "public/tinymce/js/tinymce/plugins/filemanager/plugin.min.js"},
+                            // external_plugins: {
+                            //'filemanager': 'https://cloud.tinymce.com/stable/plugins/filemanager/plugin.min.js'
+                         // },
+                            autosave_interval: "10s",
+                            autosave_restore_when_empty: true,
+                            autosave_retention: "30m",
+                            imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions",
+                            image_caption: true,
+                            image_advtab: true,
+                            image_title: true,
+                            media_live_embeds: true,
+                            image_list: [{
+                                    title: 'My image 1',
+                                    value: 'http://www.tinymce.com/my1.gif'
+                                },
+                                {
+                                    title: 'My image 2',
+                                    value: 'http://www.moxiecode.com/my2.gif'
+                                }
+                            ]
+                  } //
             }
         },
         created() {  //fire off ajax request]
@@ -158,9 +254,12 @@ var csr;
                 self.loaded = true,
                 self.categories = response.data[0],
                 self.startup = response.data[1],
+                self.auth = response.data[2],
                 self.title = self.startup.title,
                 self.group_name = self.startup.group_name,
                 self.short_desc = self.startup.short_desc,
+                thecontent = self.startup.short_desc,
+                self.content = thecontent,
                 self.full_desc = self.startup.full_desc,
                 self.aim = self.startup.aim,
                 self.importance = self.startup.importance,

@@ -49,6 +49,7 @@ import moment from 'moment';
             self = this,
             axios.post('/getposts')
              .then(function(response) {
+              $(document).scrollTop(1);
                 self.posts = response.data,
                 self.loading = false,
                 self.loaded = true

@@ -109,9 +109,10 @@ class StartupController extends Controller
     {
         $startup = Startup::where('slug', $slug)->first();
         if(Auth::user()->id == $startup->user_id){
+            $auth = Auth::user();
           $categories = Category::all();
           $startups = Startup::where('status', 'pending')->orderBy('id', 'desc')->simplePaginate(1); 
-         $thedata = [$categories, $startup];
+         $thedata = [$categories, $startup, $auth];
             return $thedata;
        }else{
             $thedata = [];
