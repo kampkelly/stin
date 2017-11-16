@@ -88,6 +88,7 @@ class LoginController extends Controller
             $random_no = (rand(100,999));
           //  $random_no = "$random_no";
             $generated_username = substr($provideduser->name,0,6) . $random_no;
+            $generated_username = strtr($generated_username, ' ', '');
             return User::create([
               //  'name' => $githubUser->nickname,  for github
                 'fullname' => $provideduser->name,
