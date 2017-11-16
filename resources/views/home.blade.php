@@ -10,14 +10,14 @@
     <div class="row containe">
         <div style="height: 70px;"></div>
         <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
-                <h2 class="text-center" style="color: white; text-shadow: 1.2px 1.2px #000000; font-size: 36px;"><b>Hello, Have an Idea? Pitch it. Get Invested!</b></h2>
+                <h2 class="text-center" style="color: white; text-shadow: 1.6px 1.6px #000000; font-size: 35px;"><b>Hello, Have an Idea? Pitch it. Get Invested!</b></h2>
             <div class="text-ceter" style="padding: 0px 0px 0px 40px;">
-                <h3 style="color: white; text-shadow: 1.2px 1.2px #000000;" class="text-center"> <span style="font-size: 18px; color: white; text-shadow: 0.8px 0.8px #000000; font-size: 24px;"><b> Connecting Creative Minds With Investors</b></span></h3>
+                <h3 style="color: white; text-shadow: 1.2px 1.2px #000000;" class="text-center"> <span style="font-size: 18px; color: white; text-shadow: 1.2px 1.2px #000000; font-size: 20px;"><b> Connecting Creative Minds With Investors</b></span></h3>
                 <div style="height: 20px;"></div>
                 <ul class="list-unstyled list-inlne text-center">
-                    <li><a href="/innovations" class="btn btn-success btn-lg" style="background-color: #227FBB; font-size: 28px;">See Innovations</a></li> <br>
+                    <li><a href="/innovations" class="btn btn-success btn-lg" style="background-color: #227FBB; font-size: 26px;">See Innovations</a></li> <br>
                     <li class="hidden-xs hidden-sm hidden-md"><a href="/request_team" class="btn btn-default btn-lg" style="font-size: 14px;">Request to teamup</a>
-                    <span title="snnsls" style="color: white; cursor: pointer; text-decoration: underline;" onclick="requestpartner_info()">What is this?</span></li>
+                    <span title="snnsls" style="color: white; cursor: pointer; text-decoration: underline; text-shadow: 0.8px 0.8px #000000;" onclick="requestpartner_info()">What is this?</span></li>
                     <li class="hidden-lg">
                         <a href="/request_team" class="btn btn-default btn-lg" style="font-size: 17px;">Request to teamup</a>
                         <p class="small" style="color: white; text-shadow: 0.7px 0.7px #000000;">What is this?</p>

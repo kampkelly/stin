@@ -49,13 +49,13 @@
         </li>
       @else
         <li class="mobilehide">
-          <a href="/team_requests" class="link">Team Requests</a>
+          <a href="/team_requests" class="link" style="font-size: 102%">Team Requests</a>
         </li>
         <li class="mobilehide">
-          <a href="/contact" class="link">Contact</a>
+          <a href="/contact" class="link" style="font-size: 102%">Contact</a>
         </li>
         <li class="mobilehide">
-          <a href="/about" class="link">About</a>
+          <a href="/about" class="link" style="font-size: 102%">About</a>
         </li>
         <li class="mobilehide pull-right">
           <a href="/innovator/register" class="link" style="font-size: 102%">Register</a>
