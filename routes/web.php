@@ -209,9 +209,10 @@ Route::get('/dashboardold', 'StartupController@index');
 Route::get('/startups', 'StartupController@startups');
 Route::get('/show', 'StartupController@start');
 Route::get('/startup/new', 'StartupController@create');
-Route::post('/create_startups', 'StartupController@store');
+
 Route::get('/startup/{slug}', 'StartupController@show');
 Route::get('/startup/edit/{slug}', 'StartupController@edit'); */
+Route::post('/create_startups', 'StartupController@store');
 Route::post('/startup/{slug}', 'StartupController@update'); 
 Route::post('/startup/{slug}/photo_added', 'StartupController@startupsphotoupdate');
 Route::post('/startup/{id}/image-deleted', 'StartupsPhotoController@destroy');

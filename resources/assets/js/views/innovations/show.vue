@@ -37,7 +37,7 @@
                 <li class="text-center">{{startup.feature}}</li> 
             </ul>
             <hr>
-            <h4 class="text-center" style="text-decoration: underline;">Explanatory Images</h4>
+            <h4 class="text-center" style="text-decoration: underline;">More Images</h4>
                 <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 more-images" v-if="startupsphotoslen >= 1" v-for="startupsphoto in startupsphotos">
                              <img :src="'uploads/startup_photos/' + startupsphoto.filename" class="img-responsive" width="100%">

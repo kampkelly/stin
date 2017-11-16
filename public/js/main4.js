@@ -26871,7 +26871,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "text-decoration": "underline"
     }
-  }, [_vm._v("Explanatory Images")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("More Images")]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, [_vm._l((_vm.startupsphotos), function(startupsphoto) {
     return (_vm.startupsphotoslen >= 1) ? _c('div', {
@@ -30949,7 +30949,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "for": "featured0"
     }
-  }, [_vm._v("Uploaded")]), _vm._v("    \n               "), _c('div', {
+  }, [_vm._v("Pitched")]), _vm._v("    \n               "), _c('div', {
     attrs: {
       "id": "shownewinnovation"
     }

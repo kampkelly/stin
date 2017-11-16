@@ -15,7 +15,7 @@
                <!--suggestions-->
                  &nbsp; &nbsp; <input type="radio" name="featured" value="all" v-model="featured" id="featuredall"> <label for="featuredall" style="cursor:pointer;">All</label> &nbsp; &nbsp;
     <input type="radio" name="featured" value="1" v-model="featured" id="featured1"> <label for="featured1" style="cursor:pointer;">Featured</label> &nbsp; &nbsp;
-    <input type="radio" name="featured" value="0" v-model="featured" id="featured0"> <label for="featured0" style="cursor:pointer;">Uploaded</label> &nbsp; &nbsp;
+    <input type="radio" name="featured" value="0" v-model="featured" id="featured0"> <label for="featured0" style="cursor:pointer;">Pitched</label> &nbsp; &nbsp;
                <div id="shownewinnovation"></div>
                 <p v-if="countstartups < 1">There are no innovations here. Be the first,
                 <router-link tag="a" to="/innovation/create">
