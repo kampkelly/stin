@@ -19,9 +19,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h4 class="text-ceter">
                                   <a href="/dashboard#/innovation/{{$innovation->slug}}">{{ $innovation->title }}</a>
-                                <span class="small"> by {{ $innovation->group_name }} </span>
-                                    <br><span class="smallest-font">Uploaded by: 
-                                    <a href="/dashboard#/innovator/profile/{{$innovation->user->username}}">{{$innovation->user->fullname}}</a>
+                                <span class="small"> by TheInnovestors </span>
+                                    <br><span class="smallest-font">Uploaded by: TheInnovestors
                                     </span>
                                 <span class="small pull-right"> <span style="color:#27AD60;">Featured</span> {{$innovation->created_at->diffForHumans()}}</span><br><span class="small pull-right"><div class="rw-ui-container" data-title="{{$innovation->id}}"></div></span></h4>
                                 <div class="row cntainer-fluid">
@@ -76,9 +75,8 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h4 class="text-ceter">
                                   <a href="/dashboard#/innovation/{{$innovation->slug}}">{{ $innovation->title }}</a>
-                                <span class="small"> by {{ $innovation->group_name }} </span>
-                                    <br><span class="smallest-font">Uploaded by: 
-                                    <a href="/dashboard#/innovator/profile/{{$innovation->user->username}}">{{$innovation->user->fullname}}</a>
+                                <span class="small"> by TheInnovestors </span>
+                                    <br><span class="smallest-font">Uploaded by: TheInnovestors
                                     </span>
                                 <span class="small pull-right"> <span style="color:#27AD60;">Featured</span> {{$innovation->created_at->diffForHumans()}}</span><br><span class="small pull-right"><div class="rw-ui-container" data-title="{{$innovation->id}}"></div></span></h4>
                                 <div class="row cntainer-fluid">

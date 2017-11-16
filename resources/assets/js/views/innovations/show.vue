@@ -10,11 +10,8 @@
             <div class="row">
                 <div class="container-fluid">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h4 class="text-ceter">{{startup.title}}<span class="small"> by {{startup.group_name}}</span>
-                        <br><span class="smallest-font">Uploaded by: 
-                         <router-link tag="a" :to="'/innovator/profile/' + startup.user.username" style="color: #227FBB;">
-                              <a>{{startup.user.fullname}}</a>
-                            </router-link> 
+                        <h4 class="text-ceter">{{startup.title}}<span class="small"> by TheInnovestors</span>
+                        <br><span class="smallest-font">Uploaded by: TheInnovestors
                         </span>
                         <a :href="'/startup/edit/' + startup.slug" class="pull-right small" style="color: #139DFD; display: none;">Edit</a><br><span class="small pull-right"> <span style="color:#27AD60; font-size:15px;" v-if="startup.featured == 'yes'">Featured</span> {{ postedOn(startup) }}</span><span class="small pull-right"><div class="rw-ui-container" :data-title="startup.id"></div></span></h4>
                         <div id="startup_img" class="panel panel-body">

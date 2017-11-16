@@ -33,11 +33,8 @@
                                 <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                     <a>{{ startup.title }}</a>
                                   </router-link>
-                                <span class="small"> by {{ startup.group_name }} </span>
-                                    <br><span class="smallest-font">Uploaded by: 
-                                     <router-link tag="a" :to="'/innovator/profile/' + startup.user.username">
-                                      <a>{{startup.user.fullname}}</a>
-                                    </router-link> 
+                                <span class="small"> by TheInnovestors </span> 
+                                    <br><span class="smallest-font">Uploaded by: TheInnovestors
                                     </span>
                                 <span class="small pull-right"> <span style="color:#27AD60;">Featured</span> {{ postedOn(startup) }}</span><br><span class="small pull-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
                                 
@@ -102,11 +99,8 @@
                                 <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                     <a>{{ startup.title }}</a>
                                   </router-link>
-                                <span class="small"> by {{ startup.group_name }} </span>
-                                    <br><span class="smallest-font">Uploaded by: 
-                                     <router-link tag="a" :to="'/innovator/profile/' + startup.user.username">
-                                      <a>{{startup.user.fullname}}</a>
-                                    </router-link> 
+                                <span class="small"> by TheInnovestors </span>
+                                    <br><span class="smallest-font">Uploaded by: TheInnovestors
                                     </span>
                                 <span class="small pull-right"> <span style="color:#27AD60;">Featured</span> {{ postedOn(startup) }}</span><br><span class="small pull-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
                                 

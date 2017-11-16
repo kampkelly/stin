@@ -22391,12 +22391,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -22487,9 +22481,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -26801,17 +26792,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "text-ceter"
   }, [_vm._v(_vm._s(_vm.startup.title)), _c('span', {
     staticClass: "small"
-  }, [_vm._v(" by " + _vm._s(_vm.startup.group_name))]), _vm._v(" "), _c('br'), _c('span', {
+  }, [_vm._v(" by TheInnovestors")]), _vm._v(" "), _c('br'), _c('span', {
     staticClass: "smallest-font"
-  }, [_vm._v("Uploaded by: \n                         "), _c('router-link', {
-    staticStyle: {
-      "color": "#227FBB"
-    },
-    attrs: {
-      "tag": "a",
-      "to": '/innovator/profile/' + _vm.startup.user.username
-    }
-  }, [_c('a', [_vm._v(_vm._s(_vm.startup.user.fullname))])])], 1), _vm._v(" "), _c('a', {
+  }, [_vm._v("Uploaded by: TheInnovestors\n                        ")]), _vm._v(" "), _c('a', {
     staticClass: "pull-right small",
     staticStyle: {
       "color": "#139DFD",
@@ -30993,14 +30976,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
       staticClass: "small"
-    }, [_vm._v(" by " + _vm._s(startup.group_name) + " ")]), _vm._v(" "), _c('br'), _c('span', {
+    }, [_vm._v(" by TheInnovestors ")]), _vm._v(" "), _c('br'), _c('span', {
       staticClass: "smallest-font"
-    }, [_vm._v("Uploaded by: \n                                     "), _c('router-link', {
-      attrs: {
-        "tag": "a",
-        "to": '/innovator/profile/' + startup.user.username
-      }
-    }, [_c('a', [_vm._v(_vm._s(startup.user.fullname))])])], 1), _vm._v(" "), _c('span', {
+    }, [_vm._v("Uploaded by: TheInnovestors\n                                    ")]), _vm._v(" "), _c('span', {
       staticClass: "small pull-right"
     }, [_c('span', {
       staticStyle: {
@@ -31119,14 +31097,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
       staticClass: "small"
-    }, [_vm._v(" by " + _vm._s(startup.group_name) + " ")]), _vm._v(" "), _c('br'), _c('span', {
+    }, [_vm._v(" by TheInnovestors ")]), _vm._v(" "), _c('br'), _c('span', {
       staticClass: "smallest-font"
-    }, [_vm._v("Uploaded by: \n                                     "), _c('router-link', {
-      attrs: {
-        "tag": "a",
-        "to": '/innovator/profile/' + startup.user.username
-      }
-    }, [_c('a', [_vm._v(_vm._s(startup.user.fullname))])])], 1), _vm._v(" "), _c('span', {
+    }, [_vm._v("Uploaded by: TheInnovestors\n                                    ")]), _vm._v(" "), _c('span', {
       staticClass: "small pull-right"
     }, [_c('span', {
       staticStyle: {
