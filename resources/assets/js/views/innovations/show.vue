@@ -31,15 +31,15 @@
             <hr>
             <h4 class="text-center" style="text-decoration: underline;">Description On {{startup.title}}</h4>
             <p style="color: #525252 !important;" v-html="startup.short_desc"></p>
-            <hr>
-            <h4 class="text-center" style="text-decoration: underline;">Aim:</h4>
-            <p class="text-justify">{{startup.aim}}</p>
-            <hr>
-            <h4 class="text-center" style="text-decoration: underline;">Why It's Important:</h4>
-            <p class="text-justify">{{startup.importance}}</p>
-            <hr>
-            <h4 class="text-center" style="text-decoration: underline;">Features</h4>
-            <ul class="text-center list-unstyled">
+            <hr v-if="startup.featured == 'no'">
+            <h4 class="text-center" style="text-decoration: underline;" v-if="startup.featured == 'no'">Aim:</h4>
+            <p class="text-justify" v-if="startup.featured == 'no'">{{startup.aim}}</p>
+            <hr v-if="startup.featured == 'no'">
+            <h4 class="text-center" style="text-decoration: underline;" v-if="startup.featured == 'no'">Why It's Important:</h4>
+            <p class="text-justify" v-if="startup.featured == 'no'">{{startup.importance}}</p>
+            <hr v-if="startup.featured == 'no'">
+            <h4 class="text-center" style="text-decoration: underline;" v-if="startup.featured == 'no'">Features</h4>
+            <ul class="text-center list-unstyled" v-if="startup.featured == 'no'">
                 <li class="text-center">{{startup.features}}</li> 
             </ul>
             <hr>
@@ -115,11 +115,11 @@
                             </div>
                         </form>
                 <hr>
-                <h4 class="text-center" style="text-decoration: underline;">Notable Achievements</h4>
-                <ul class="text-center list-unstyled">
+                <h4 class="text-center" style="text-decoration: underline;" v-if="startup.featured == 'no'">Notable Achievements</h4>
+                <ul class="text-center list-unstyled" v-if="startup.featured == 'no'">
                        <li>{{startup.achievements}}</li>
                 </ul>
-                <hr>
+                <hr v-if="startup.featured == 'no'">
                 <h4 class="text-center" v-if="startup.featured == 'n'">Share
                     <div class="text-center">
                         <div class="addthis_inline_share_toolbox"></div>

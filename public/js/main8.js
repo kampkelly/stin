@@ -26856,30 +26856,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "innerHTML": _vm._s(_vm.startup.short_desc)
     }
-  }), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
+  }), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('hr') : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('h4', {
     staticClass: "text-center",
     staticStyle: {
       "text-decoration": "underline"
     }
-  }, [_vm._v("Aim:")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("Aim:")]) : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('p', {
     staticClass: "text-justify"
-  }, [_vm._v(_vm._s(_vm.startup.aim))]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
+  }, [_vm._v(_vm._s(_vm.startup.aim))]) : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('hr') : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('h4', {
     staticClass: "text-center",
     staticStyle: {
       "text-decoration": "underline"
     }
-  }, [_vm._v("Why It's Important:")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("Why It's Important:")]) : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('p', {
     staticClass: "text-justify"
-  }, [_vm._v(_vm._s(_vm.startup.importance))]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
+  }, [_vm._v(_vm._s(_vm.startup.importance))]) : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('hr') : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('h4', {
     staticClass: "text-center",
     staticStyle: {
       "text-decoration": "underline"
     }
-  }, [_vm._v("Features")]), _vm._v(" "), _c('ul', {
+  }, [_vm._v("Features")]) : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('ul', {
     staticClass: "text-center list-unstyled"
   }, [_c('li', {
     staticClass: "text-center"
-  }, [_vm._v(_vm._s(_vm.startup.features))])]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
+  }, [_vm._v(_vm._s(_vm.startup.features))])]) : _vm._e(), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
     staticClass: "text-center",
     staticStyle: {
       "text-decoration": "underline"
@@ -27078,14 +27078,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.startup.id
     }
-  })])])]), _vm._v(" "), _vm._m(2)]) : _vm._e(), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
+  })])])]), _vm._v(" "), _vm._m(2)]) : _vm._e(), _vm._v(" "), _c('hr'), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('h4', {
     staticClass: "text-center",
     staticStyle: {
       "text-decoration": "underline"
     }
-  }, [_vm._v("Notable Achievements")]), _vm._v(" "), _c('ul', {
+  }, [_vm._v("Notable Achievements")]) : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('ul', {
     staticClass: "text-center list-unstyled"
-  }, [_c('li', [_vm._v(_vm._s(_vm.startup.achievements))])]), _vm._v(" "), _c('hr'), _vm._v(" "), (_vm.startup.featured == 'n') ? _c('h4', {
+  }, [_c('li', [_vm._v(_vm._s(_vm.startup.achievements))])]) : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'no') ? _c('hr') : _vm._e(), _vm._v(" "), (_vm.startup.featured == 'n') ? _c('h4', {
     staticClass: "text-center"
   }, [_vm._v("Share\n                    "), _vm._m(3), _vm._v(" "), _c('span', {
     staticClass: "small"
