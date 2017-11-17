@@ -22653,6 +22653,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /*var csr;
@@ -26790,11 +26796,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
   }, [_c('h4', {
     staticClass: "text-ceter"
-  }, [_vm._v(_vm._s(_vm.startup.title)), _c('span', {
+  }, [_vm._v(_vm._s(_vm.startup.title) + "\n                            "), (_vm.startup.featured == 'yes') ? _c('span', {
     staticClass: "small"
-  }, [_vm._v(" by TheInnovestors")]), _vm._v(" "), _c('br'), _c('span', {
+  }, [_vm._v(" by TheInnovestors")]) : _c('span', {
+    staticClass: "small"
+  }, [_vm._v(" by " + _vm._s(_vm.startup.group_name))]), _vm._v(" "), _c('br'), _c('span', {
     staticClass: "smallest-font"
-  }, [_vm._v("Uploaded by: TheInnovestors\n                        ")]), _vm._v(" "), _c('a', {
+  }, [_vm._v("Uploaded by: \n                            "), (_vm.startup.featured == 'yes') ? _c('b', [_vm._v("TheInnovestors")]) : _c('router-link', {
+    attrs: {
+      "tag": "a",
+      "to": '/innovator/profile/' + _vm.startup.user.username
+    }
+  }, [_c('a', [_vm._v(_vm._s(_vm.startup.user.fullname))])])], 1), _vm._v(" "), _c('a', {
     staticClass: "pull-right small",
     staticStyle: {
       "color": "#139DFD",
