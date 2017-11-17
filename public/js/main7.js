@@ -26879,7 +26879,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "text-center list-unstyled"
   }, [_c('li', {
     staticClass: "text-center"
-  }, [_vm._v(_vm._s(_vm.startup.feature))])]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
+  }, [_vm._v(_vm._s(_vm.startup.features))])]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
     staticClass: "text-center",
     staticStyle: {
       "text-decoration": "underline"
@@ -27085,7 +27085,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Notable Achievements")]), _vm._v(" "), _c('ul', {
     staticClass: "text-center list-unstyled"
-  }, [_c('li', [_vm._v(_vm._s(_vm.startup.achievement))])]), _vm._v(" "), _c('hr'), _vm._v(" "), _c('h4', {
+  }, [_c('li', [_vm._v(_vm._s(_vm.startup.achievements))])]), _vm._v(" "), _c('hr'), _vm._v(" "), (_vm.startup.featured == 'n') ? _c('h4', {
     staticClass: "text-center"
   }, [_vm._v("Share\n                    "), _vm._m(3), _vm._v(" "), _c('span', {
     staticClass: "small"
@@ -27093,9 +27093,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": '/connect/' + _vm.startup.user.username
     }
-  }, [_vm._v("Connect")]), _vm._v(" with this innovator.")])]), _vm._v(" "), _c('div', [_c('h6', {
+  }, [_vm._v("Connect")]), _vm._v(" with this innovator.")])]) : _vm._e(), _vm._v(" "), _c('div', [(_vm.startup.featured == 'n') ? _c('h6', {
     staticClass: "text-center"
-  }, [_vm._v("Rate this:")]), _c('div', {
+  }, [_vm._v("Rate this:")]) : _vm._e(), _c('div', {
     staticClass: "col-xs-8 col-sm-7 col-md-7 col-lg-7 col-xs-offset-4 col-sm-offset-5 col-md-offset-5 col-lg-offset-5"
   }, [_c('div', {
     staticClass: "rw-ui-container",

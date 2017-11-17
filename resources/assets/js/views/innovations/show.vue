@@ -40,7 +40,7 @@
             <hr>
             <h4 class="text-center" style="text-decoration: underline;">Features</h4>
             <ul class="text-center list-unstyled">
-                <li class="text-center">{{startup.feature}}</li> 
+                <li class="text-center">{{startup.features}}</li> 
             </ul>
             <hr>
             <h4 class="text-center" style="text-decoration: underline;">More Images</h4>
@@ -117,16 +117,16 @@
                 <hr>
                 <h4 class="text-center" style="text-decoration: underline;">Notable Achievements</h4>
                 <ul class="text-center list-unstyled">
-                       <li>{{startup.achievement}}</li>
+                       <li>{{startup.achievements}}</li>
                 </ul>
                 <hr>
-                <h4 class="text-center">Share
+                <h4 class="text-center" v-if="startup.featured == 'n'">Share
                     <div class="text-center">
                         <div class="addthis_inline_share_toolbox"></div>
                     </div>
                 <span class="small"><a :href="'/connect/' + startup.user.username">Connect</a> with this innovator.</span></h4>
                 <div>            
-                    <h6 class="text-center">Rate this:</h6><div class="col-xs-8 col-sm-7 col-md-7 col-lg-7 col-xs-offset-4 col-sm-offset-5 col-md-offset-5 col-lg-offset-5"> <div class="rw-ui-container" :data-title="startup.id"></div></div>
+                    <h6 class="text-center" v-if="startup.featured == 'n'">Rate this:</h6><div class="col-xs-8 col-sm-7 col-md-7 col-lg-7 col-xs-offset-4 col-sm-offset-5 col-md-offset-5 col-lg-offset-5"> <div class="rw-ui-container" :data-title="startup.id"></div></div>
                     <div>
                         <h4 class="text-center" style="text-decoration: underline;">Reviews</h4>
                             <div class="col-xs-12 col-sm-8 col-sm-offset-4 comments" style="margin-left: 10px;" v-for="comment in comments">
