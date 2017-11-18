@@ -21275,6 +21275,114 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -21285,7 +21393,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             loading: '',
             loaded: '',
             category: '',
-            countstartups: ''
+            countstartups: '',
+            featured: 'all'
         };
     },
     created: function created() {
@@ -26230,7 +26339,91 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "text-center"
   }, [_vm._v(_vm._s(_vm.category.name))]), _vm._v(" "), _c('h4', {
     staticClass: "text-center"
-  }, [_c('small', [_vm._v(_vm._s(_vm.category.description))])]), _vm._v(" "), (_vm.countstartups < 1) ? _c('div', {
+  }, [_c('small', [_vm._v(_vm._s(_vm.category.description))])]), _vm._v("\n                        "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.featured),
+      expression: "featured"
+    }],
+    attrs: {
+      "type": "radio",
+      "name": "featured",
+      "value": "all",
+      "id": "featuredall"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.featured, "all")
+    },
+    on: {
+      "change": function($event) {
+        _vm.featured = "all"
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    staticStyle: {
+      "cursor": "pointer"
+    },
+    attrs: {
+      "for": "featuredall"
+    }
+  }, [_vm._v("All")]), _vm._v("    \n                    "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.featured),
+      expression: "featured"
+    }],
+    attrs: {
+      "type": "radio",
+      "name": "featured",
+      "value": "1",
+      "id": "featured1"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.featured, "1")
+    },
+    on: {
+      "change": function($event) {
+        _vm.featured = "1"
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    staticStyle: {
+      "cursor": "pointer"
+    },
+    attrs: {
+      "for": "featured1"
+    }
+  }, [_vm._v("Featured")]), _vm._v("    \n                    "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.featured),
+      expression: "featured"
+    }],
+    attrs: {
+      "type": "radio",
+      "name": "featured",
+      "value": "0",
+      "id": "featured0"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.featured, "0")
+    },
+    on: {
+      "change": function($event) {
+        _vm.featured = "0"
+      }
+    }
+  }), _vm._v(" "), _c('label', {
+    staticStyle: {
+      "cursor": "pointer"
+    },
+    attrs: {
+      "for": "featured0"
+    }
+  }, [_vm._v("Pitched")]), _vm._v("    \n                    "), (_vm.countstartups < 1) ? _c('div', {
     staticStyle: {
       "height": "90vh"
     }
@@ -26242,7 +26435,69 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('a', [_vm._v("Add one noww")])])], 1)]) : _vm._l((_vm.startups), function(startup, index) {
     return _c('div', {
       staticClass: "row"
+    }, [(_vm.featured == 'all') ? _c('div', [(startup.featured == 'yes') ? _c('div', [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
     }, [_c('div', {
+      staticClass: "row pan pan-success"
+    }, [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('h4', {
+      staticClass: "text-ceter"
+    }, [_c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
+      staticClass: "small"
+    }, [_vm._v(" by TheInnovestors ")]), _vm._v(" "), _c('br'), _c('span', {
+      staticClass: "smallest-font"
+    }, [_vm._v("Uploaded by: TheInnovestors\n                                    ")]), _vm._v(" "), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('span', {
+      staticStyle: {
+        "color": "#27AD60"
+      }
+    }, [_vm._v("Featured")]), _vm._v(" " + _vm._s(_vm.postedOn(startup)))]), _c('br'), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('div', {
+      staticClass: "rw-ui-container",
+      attrs: {
+        "data-title": startup.id
+      }
+    })])], 1), _vm._v(" "), _c('div', {
+      staticClass: "row cntainer-fluid"
+    }, [_c('router-link', {
+      staticClass: "col-xs-12 col-sm-4 col-md-4 col-lg-5",
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('img', {
+      staticClass: "img-responsive",
+      attrs: {
+        "src": 'uploads/startup_photos/' + startup.image,
+        "width": "100%"
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-12 col-sm-8 col-md-8 col-lg-7"
+    }, [_c('p', {
+      staticClass: "text-center text-justify lead"
+    }, [_c('span', {
+      staticStyle: {
+        "text-decoration": "underline",
+        "colr": "gray !important"
+      }
+    }, [_vm._v(" Brief description:")]), _vm._v(" "), _c('span', {
+      domProps: {
+        "innerHTML": _vm._s(_vm.$options.filters.truncate(startup.short_desc, 150))
+      }
+    }), _c('br'), _vm._v(" "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e(), _vm._v(" "), (startup.featured == 'no') ? _c('div', [_c('div', {
       staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
     }, [_c('div', {
       staticClass: "row pan pan-success"
@@ -26259,11 +26514,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "small"
     }, [_vm._v(" by " + _vm._s(startup.group_name) + " ")]), _vm._v(" "), _c('br'), _c('span', {
       staticClass: "smallest-font"
-    }, [_vm._v("Uploaded by: "), _c('a', {
+    }, [_vm._v("Uploaded by: \n                                     "), _c('router-link', {
       attrs: {
-        "href": '/innovator/profile/' + startup.user.username
+        "tag": "a",
+        "to": '/innovator/profile/' + startup.user.username
       }
-    }, [_vm._v(" " + _vm._s(startup.user.fullname))])]), _vm._v(" "), _c('span', {
+    }, [_c('a', [_vm._v(_vm._s(startup.user.fullname))])])], 1), _vm._v(" "), _c('span', {
       staticClass: "small pull-right"
     }, [_vm._v(_vm._s(_vm.postedOn(startup)))]), _c('br'), _c('span', {
       staticClass: "small pull-right"
@@ -26283,7 +26539,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'uploads/' + startup.image,
+        "src": 'uploads/startup_photos/' + startup.image,
         "width": "100%"
       }
     })]), _vm._v(" "), _c('div', {
@@ -26300,7 +26556,128 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "tag": "a",
         "to": '/innovation/' + startup.slug
       }
-    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])])
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e()]) : _vm._e(), _vm._v(" "), (_vm.featured == 1 && startup.featured == 'yes') ? _c('div', [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('div', {
+      staticClass: "row pan pan-success"
+    }, [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('h4', {
+      staticClass: "text-ceter"
+    }, [_c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
+      staticClass: "small"
+    }, [_vm._v(" by TheInnovestors ")]), _vm._v(" "), _c('br'), _c('span', {
+      staticClass: "smallest-font"
+    }, [_vm._v("Uploaded by: TheInnovestors\n                                    ")]), _vm._v(" "), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('span', {
+      staticStyle: {
+        "color": "#27AD60"
+      }
+    }, [_vm._v("Featured")]), _vm._v(" " + _vm._s(_vm.postedOn(startup)))]), _c('br'), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('div', {
+      staticClass: "rw-ui-container",
+      attrs: {
+        "data-title": startup.id
+      }
+    })])], 1), _vm._v(" "), _c('div', {
+      staticClass: "row cntainer-fluid"
+    }, [_c('router-link', {
+      staticClass: "col-xs-12 col-sm-4 col-md-4 col-lg-5",
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('img', {
+      staticClass: "img-responsive",
+      attrs: {
+        "src": 'uploads/startup_photos/' + startup.image,
+        "width": "100%"
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-12 col-sm-8 col-md-8 col-lg-7"
+    }, [_c('p', {
+      staticClass: "text-center text-justify lead"
+    }, [_c('span', {
+      staticStyle: {
+        "text-decoration": "underline",
+        "colr": "gray !important"
+      }
+    }, [_vm._v(" Brief description:")]), _vm._v(" "), _c('span', {
+      domProps: {
+        "innerHTML": _vm._s(_vm.$options.filters.truncate(startup.short_desc, 150))
+      }
+    }), _vm._v(" "), _c('br'), _vm._v(" "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e(), _vm._v(" "), (_vm.featured == 0 && startup.featured == 'no') ? _c('div', [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('div', {
+      staticClass: "row pan pan-success"
+    }, [_c('div', {
+      staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    }, [_c('h4', {
+      staticClass: "text-ceter"
+    }, [_c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.title))])]), _vm._v(" "), _c('span', {
+      staticClass: "small"
+    }, [_vm._v(" by " + _vm._s(startup.group_name) + " ")]), _vm._v(" "), _c('br'), _c('span', {
+      staticClass: "smallest-font"
+    }, [_vm._v("Uploaded by: \n                                     "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovator/profile/' + startup.user.username
+      }
+    }, [_c('a', [_vm._v(_vm._s(startup.user.fullname))])])], 1), _vm._v(" "), _c('span', {
+      staticClass: "small pull-right"
+    }, [_vm._v(_vm._s(_vm.postedOn(startup)))]), _c('br'), _c('span', {
+      staticClass: "small pull-right"
+    }, [_c('div', {
+      staticClass: "rw-ui-container",
+      attrs: {
+        "data-title": startup.id
+      }
+    })])], 1), _vm._v(" "), _c('div', {
+      staticClass: "row cntainer-fluid"
+    }, [_c('router-link', {
+      staticClass: "col-xs-12 col-sm-4 col-md-4 col-lg-5",
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('img', {
+      staticClass: "img-responsive",
+      attrs: {
+        "src": 'uploads/startup_photos/' + startup.image,
+        "width": "100%"
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-12 col-sm-8 col-md-8 col-lg-7"
+    }, [_c('p', {
+      staticClass: "text-center text-justify lead"
+    }, [_c('span', {
+      staticStyle: {
+        "text-decoration": "underline",
+        "colr": "gray !important"
+      }
+    }, [_vm._v(" Brief description:")]), _vm._v(" " + _vm._s(startup.short_desc) + " "), _c('br'), _vm._v(" "), _c('router-link', {
+      attrs: {
+        "tag": "a",
+        "to": '/innovation/' + startup.slug
+      }
+    }, [_c('a', [_vm._v("More...")])])], 1)])], 1)])])])]) : _vm._e()])
   }), _vm._v(" "), _c('hr'), _vm._v(" "), _c('div', {
     staticClass: "col-xs-12 col-sm-12 col-md-12 col-lg-12"
   }), _vm._v(" "), _c('div', {
