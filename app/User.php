@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
@@ -44,6 +45,15 @@ class User extends Authenticatable
 
     public function findpartners(){
         return $this->hasMany(FindPartner::class);
+    }
+
+      public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+     public function getJWTCustomClaims()
+    {
+        return [];
     }
     /**
      * The attributes that should be hidden for arrays.

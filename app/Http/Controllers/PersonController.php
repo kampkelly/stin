@@ -10,6 +10,8 @@ use App\Startup;
 use App\Category;
 use App\StartupsPhoto;
 use App\YoutubeVideo;
+use App\Thread;
+use App\Message;
 use App\Mail\Welcome;
 use Dawson\Youtube\Facades\Youtube;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +36,7 @@ class PersonController extends Controller
         $auth = Auth::user();
         $user = User::where('username', $username)->with('startups')->first();
      //   $threads = Startup::where( ('user_id', Auth::user()->id) )->orWhere('status', 'approved')->orderBy('id', 'desc')->paginate(6);
-        $threads = DB::select("SELECT * FROM threads WHERE (user_id = '".Auth::user()->id."' AND receiver_id = '".$user->id."') OR (user_id = '".$user->id."' AND receiver_id = '".Auth::user()->id."') Order BY id desc");
+        
         $authfriends = Auth::user()->getFriends();
          $users = User::all();
          $userfriends = $user->getFriends();
@@ -42,7 +44,16 @@ class PersonController extends Controller
          //requests logic
          if($auth->isFriendWith($user)){
             $isfriend = true;
-        }else {$isfriend = false;}
+            $slug1 =  Auth::user()->username.'_messages_with_'.$username;
+            $slug2 =  $username.'_messages_with_'.Auth::user()->username;
+           // $thread = DB::select("SELECT * FROM threads WHERE (user_id = '".Auth::user()->id."' AND receiver_id = '".$user->id."') OR (user_id = '".$user->id."' AND receiver_id = '".Auth::user()->id."') Order BY id desc");
+             $thread = Thread::where('slug', $slug1)->orWhere('slug', $slug2)->first();
+            $messages = $thread->messages()->orderBy('id', 'asc')->get();
+        }else {
+            $isfriend = false;
+            $thread = '';
+            $messages = '';
+        }
         if($auth->hasFriendRequestFrom($user)){
             $friendrequestfrom = true;
         }else {$friendrequestfrom = false;}
@@ -57,7 +68,7 @@ class PersonController extends Controller
          $requests = $auth->getFriendRequests();
       //   \Mail::to($user)->send(new Welcome($user));
      //  return view('users.innovator_profile', compact('user', 'startups', 'youtubevideos', 'users', 'userfriends', 'mutual_friends', 'friends', 'threads'));
-            $thedata = [$auth, $user, $users, $authfriends, $userfriends, $mutual_friends, $startups, $youtubevideos, $threads, $requests, $isfriend, $friendrequestfrom, $sentfriendrequest];
+            $thedata = [$auth, $user, $users, $authfriends, $userfriends, $mutual_friends, $startups, $youtubevideos, $thread, $requests, $isfriend, $friendrequestfrom, $sentfriendrequest, $messages];
             return $thedata;
        }else{
         $thedata = [];

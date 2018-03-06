@@ -86,6 +86,7 @@ class AdminController extends Controller
     	$user = User::where('username', $username)->first();
     	$user->status = 'hold';
     	$user->save();
+        session()->flash('message', 'Innovator on hold'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
     	return redirect()->back();
     } 
 
@@ -94,6 +95,7 @@ class AdminController extends Controller
     	$user = User::where('username', $username)->first();
     	$user->status = 'blocked';
     	$user->save();
+        session()->flash('message', 'Innovator blocked'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
     	return redirect()->back();
     } 
 
@@ -102,6 +104,7 @@ class AdminController extends Controller
     	$user = User::where('username', $username)->first();
     	$user->status = 'approved';
     	$user->save();
+        session()->flash('message', 'Innovator Approved'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
     	return redirect()->back();
     } 
 
@@ -110,6 +113,7 @@ class AdminController extends Controller
     	$innovation = Startup::where('slug', $slug)->first();
     	$innovation->status = 'approved';
     	$innovation->save();
+        session()->flash('message', 'Innovation Approved'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
     	return redirect()->back();
     }
 
@@ -118,6 +122,7 @@ class AdminController extends Controller
     	$innovation = Startup::where('slug', $slug)->first();
     	$innovation->status = 'declined';
     	$innovation->save();
+         session()->flash('message', 'Innovation Declined'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
     	return redirect()->back();
     }
 

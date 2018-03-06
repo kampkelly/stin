@@ -4,9 +4,10 @@
 @section('content')
 
 <div class="container docs">
-	<div style="height:45px;"></div>
-     <h4 class="text-center">Contact Us by sending a message below!<br><span class="small">or send an email to support@theinnovestors.com</span> </h4><br><br>
-            <form action="/contact" method="POST" class="form-horizontal first-form" role="form" files="true" enctype="multipart/form-data">
+	<div style="height:55px;"></div>
+     <h4 class="text-center">Contact us below!<br> </h4>
+     <p class="text-center"><span class="small">or send an email to support@theinnovestors.com</span></p><br><br>
+            <form action="/contact" method="POST" class="form-horizontal first-form offset-sm-2 offset-md-3 offset-lg-4" role="form" files="true" enctype="multipart/form-data">
             {{ csrf_field() }}
                     <div class="form-group">
                         <label for="contact_name" class="col-xs-12 col-sm-2 col-md-2 col-lg-2 control-label">Name <span class="asterisks">*</span></label>

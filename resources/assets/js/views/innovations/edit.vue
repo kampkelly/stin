@@ -1,6 +1,6 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
@@ -22,20 +22,13 @@
                     <div class="form-group">
                         <label for="fileupload" class="control-label"><small>Cover Photo</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                        <input type="file" name="startup_image" id="fileupload" placeholder="Enter Title" class="btn btn-success">
-                        </div>
-                    </div>
-                    <div style="display: none;">
-                        <b>Live Preview</b>
-                        <br />
-                        <br />
-                        <div id="dPreview">
+                        <input type="file" name="startup_image" id="fileupload" placeholder="Enter Title" class="btn btn-success btn-sm">
                         </div>
                     </div>
                      <div class="form-group">
                         <label for="fileupload" class="control-label"><small>More photos (can attach more than one):</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                         <input type="file" name="photos[]" class="btn btn-success" multiple />
+                         <input type="file" name="photos[]" class="btn btn-success btn-sm" multiple />
                         </div>
                     </div>
                     <div class="form-group">
@@ -65,7 +58,7 @@
                         <tinymce v-if="type_of_editor == 'Advanced'" id="editor" :content="content" :options="options" v-model="short_desc" name="short_desc"></tinymce>
                         
                     </div>
-                    <div class="form-group hide-all">
+                    <div class="form-group d-none">
                         <label for="full_desc" class="control-label"><small>Full Description</small><span class="small text-muted"> - discuss your idea</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
                             <textarea name="full_desc" id="full_desc" class="form-control" rows="5" style="resize:none;" placeholder="Describe Fully" v-model="full_desc" required></textarea>
@@ -116,10 +109,10 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12 col-sm-offset-0">
-                            <button type="submit" class="btn btn-success btn-block" v-show="updatesave">
+                            <button type="submit" class="btn btn-success btn-block btn-sm" v-show="updatesave">
                                 Update
                             </button>
-                            <button class="btn btn-success btn-block" v-show="updateloading">
+                            <button class="btn btn-success btn-block btn-sm" v-show="updateloading">
                                 Updating <img src="Ellipsis.svg">
                             </button>
                         </div>

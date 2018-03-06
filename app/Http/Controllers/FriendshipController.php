@@ -9,6 +9,7 @@ use App\User;
 use App\Startup;
 use App\Category;
 use App\StartupsPhoto;
+use App\Thread;
 //use App\Friendship;
 use Hootlex\Friendships\Models\Friendship;
 use App\FriendFriendshipGroups;
@@ -55,6 +56,16 @@ class FriendshipController extends Controller
         $auth = Auth::user();
         if($user->id != Auth::user()->id){
         Auth::user()->acceptFriendRequest($user, $auth);
+        ///create thread
+        $slug = Auth::user()->username.'_messages_with_'.$username;
+        $thread = Thread::create([
+            'title' => 'Connected',
+            'user_id' => Auth::user()->id,
+            'sender_id' => Auth::user()->id,
+            'receiver_id' => $user->id,
+            'slug' => $slug
+        ]);
+        //create thread
         event(new AcceptConnection($user, $auth));
         return 'Connection request accepted!';
         }else{

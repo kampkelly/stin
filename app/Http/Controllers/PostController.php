@@ -31,7 +31,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-           'post_title' => 'required|min:8',
+           'post_title' => 'required',
             'body' => 'required'
         ]); 
 
@@ -48,7 +48,9 @@ class PostController extends Controller
             'user_id' => Auth::user()->id,
             'slug' => $slug
         ]);
-        return redirect('/news');
+       session()->flash('message', 'News Created'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
+     //   return redirect('/news');
     }
 
     public function edit($slug)
@@ -78,14 +80,16 @@ class PostController extends Controller
         $news->username = Auth::user()->username;
         $news->user_id = Auth::user()->id;
         $news->save();
-        return redirect('/news');
+       // return redirect('/news');
+        session()->flash('message', 'News Updated'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+        return redirect()->back();
     }
 
     public function destroy($slug)
     {
         $deleted = Post::where('slug', $slug)->first();
         $deleted->delete();
-        session()->flash('message', 'Post Deleted!');
+        session()->flash('message', 'News Deleted!');
         return redirect()->back();
     }
 }

@@ -40,7 +40,8 @@ class CategoryController extends Controller
             'description' => request('description'),
             'image' => $newfilename
         ]);
-        return redirect('/');
+         session()->flash('message', 'Category Created'); //THEN INCLUDE IN THE REDIRECTED FUNCTION, HERE ITS "SHOW"
+         return redirect()->back();
     }
 
     public function edit($id)

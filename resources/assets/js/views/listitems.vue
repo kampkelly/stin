@@ -1,11 +1,11 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row stop-scrolling" id="secondDiv" style="padding-top: 0px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
-        <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
+        <section class="middle-coumn background-primary" style="padding-bottom: 0px;">
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div> 
-             <div class="container-fluid row listitems" v-show="loaded">
-              <ul class="list-group" style="height:80vh;">
+             <div class="listitems" v-show="loaded">
+              <ul class="list-group pt-5" style="height:100vh;">
                   <router-link tag="a" to="/" class="list-group-item small" exact>
                     <a>Home</a>
                   </router-link>
@@ -73,14 +73,14 @@ var csr;
             this.loading = true,
             this.loaded = false,
             self = this,
-            hashchange();
+           // hashchange();
             axios.post('/list-items')
             .then(function(response) { 
                $(document).scrollTop(1);
                 self.auth = response.data,
                 self.loading = false,
                 self.loaded = true,
-              //  hashchange();
+                hashchange();
                 csr = document.getElementById('csrf').innerHTML;
                 document.getElementById('logout_csrf').innerHTML= csr;
                 }); 

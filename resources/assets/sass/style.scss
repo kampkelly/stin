@@ -5,7 +5,7 @@
 .show-only-smartphone {
 	@media (min-width: 468px) {
 		display: none;
-	}
+	} 
 }
 .hide-smartphone {
 	@media (min-width: 0px) and (max-width: 467px) {
@@ -1403,3 +1403,4 @@ h4 {
 		line-height: 25px + 3;
 	}
 }
+

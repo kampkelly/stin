@@ -1,6 +1,6 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
@@ -15,10 +15,10 @@
                 <div class="panel-heading text-center">Update Profile Details</div>
                 <div id="user" style="display: none;">{{user}}</div><br>
                 <div class="panel-body">  <!--panel body-->
-                    <form class="form-horizontal" role="form" method="POST" v-bind:action="'/innovator/update/' + id">
+                    <form class="form-horizontal offset-lg-2 col-lg-10" role="form" method="POST" v-bind:action="'/innovator/update/' + id">
                           <!--csrf input-->
 
-                        <div class="form-group">
+                        <div class="form-group row">
                          <label for="firstname" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
@@ -26,7 +26,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
@@ -37,23 +37,23 @@
                     <!--EDITED FIELDS START HERE-->
                         <hr>
                         <h4 class="text-center">Location</h4>
-                    <form class="form-horizontal" role="form" method="post" value="PUT" v-bind:action="'/innovator/update/' + id" v-on:submit.prevent="savelocation('/innovator/update/' + id)">
+                    <form class="form-horizontal offset-lg-2 col-lg-10" role="form" method="post" value="PUT" v-bind:action="'/innovator/update/' + id" v-on:submit.prevent="savelocation('/innovator/update/' + id)">
                         
-                        <div class="form-group"> <!--address-->
+                        <div class="form-group row"> <!--address-->
                             <label for="address" class="col-md-4 control-label">Address <span id="asterisks">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="address" v-model="address">
                             </div>
                         </div>
-                          <div class="form-group">  <!--state-->
+                          <div class="form-group row">  <!--state-->
                             <label for="state" class="col-md-4 control-label">State <span id="asterisks">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="state" v-model="state">
                             </div>
                         </div>
-                        <div class="form-group"> <!--country-->
+                        <div class="form-group row"> <!--country-->
                             <label for="country" class="col-md-4 control-label">Country <span id="asterisks">*</span></label>
                             <div class="col-md-6">
                                 <select name="country" class="form-control" id="country" required v-model="country">
@@ -64,8 +64,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-block" v-show="locationsave">
                                     Save
                                 </button>
@@ -78,9 +78,9 @@
                         <hr>     
                     <div v-if="user.is_permission == 0">
                         <h4 class="text-center">Social</h4>
-                        <form class="form-horizontal" role="form" method="POST" v-bind:action="'/innovator/update/' + id" v-on:submit.prevent="savesocial('/innovator/update/' + id)">
+                        <form class="form-horizontal offset-lg-2 col-lg-10" role="form" method="POST" v-bind:action="'/innovator/update/' + id" v-on:submit.prevent="savesocial('/innovator/update/' + id)">
                         <!--csrf-->
-                        <div class="form-group">  <!--age-->
+                        <div class="form-group row">  <!--age-->
                             <label for="age" class="col-md-4 control-label">Age</label>
 
                             <div class="col-md-6">
@@ -92,43 +92,43 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">  <!--twitter-->
+                        <div class="form-group row">  <!--twitter-->
                             <label for="phone" class="col-md-4 control-label">Phone no. <span id="asterisks">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="text" class="form-control" name="phone" placeholder="Enter phone number" v-model="contacts">
                             </div>
                         </div>
-                        <div class="form-group">  <!--website-->
+                        <div class="form-group row">  <!--website-->
                             <label for="website" class="col-md-4 control-label">Website</label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="website" v-model="website">
                             </div>
                         </div>
-                        <div class="form-group">  <!--facebook-->
+                        <div class="form-group row">  <!--facebook-->
                             <label for="facebook" class="col-md-4 control-label">Facebook</label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="facebook" v-model="facebook">
                             </div>
                         </div> 
-                        <div class="form-group">  <!--linkedin-->
+                        <div class="form-group row">  <!--linkedin-->
                             <label for="linkedin" class="col-md-4 control-label">Linkedin</label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="linkedin" v-model="linkedin">
                             </div>
                         </div> 
-                        <div class="form-group">  <!--twitter-->
+                        <div class="form-group row">  <!--twitter-->
                             <label for="twitter" class="col-md-4 control-label">Twitter</label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="twitter" v-model="twitter">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-block" v-show="socialsave">
                                     Save
                                 </button>
@@ -142,16 +142,16 @@
                     </div>
                     <div v-if="user.is_permission == 0">
                         <h4 class="text-center">Other</h4>
-                        <form class="form-horizontal" role="form" method="POST" v-bind:action="'/innovator/update/' + id" v-on:submit.prevent="saveother('/innovator/update/' + id)">
+                        <form class="form-horizontal offset-lg-2 col-lg-10" role="form" method="POST" v-bind:action="'/innovator/update/' + id" v-on:submit.prevent="saveother('/innovator/update/' + id)">
                          <!--csrf input-->
-                        <div class="form-group">  <!--bio-->
+                        <div class="form-group row">  <!--bio-->
                             <label for="bio" class="col-md-4 control-label">About Me <span id="asterisks">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="bio" v-model="bio">
                             </div>
                         </div>
-                        <div class="form-group">  <!--education-->
+                        <div class="form-group row">  <!--education-->
                             <label for="education" class="col-md-4 control-label">Highest Education <span id="asterisks">*</span></label>
                             <div class="col-md-6">
                                 <select name="education" for="education" class="form-control" required v-model="education">
@@ -163,14 +163,14 @@
                                 </select>
                             </div>
                         </div> 
-                        <div class="form-group">  <!--profession-->
+                        <div class="form-group row">  <!--profession-->
                             <label for="profession" class="col-md-4 control-label">Profession</label>
 
                             <div class="col-md-6">
                                 <input id="text" type="text" class="form-control" name="profession" v-model="profession">
                             </div>
                         </div> 
-                        <div class="form-group">  <!--interests-->
+                        <div class="form-group row">  <!--interests-->
                             <label for="interests" class="col-md-4 control-label">Interests</label>
 
                             <div class="col-md-6">
@@ -179,8 +179,8 @@
                         </div>                       
                         <!--EDITED FIELDS END HERE-->
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-block" v-show="othersave">
                                     Save
                                 </button>

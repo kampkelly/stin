@@ -1,6 +1,6 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
@@ -8,7 +8,7 @@
             <div class="alert alert-success notifications_panel" role="alert" v-show="status" style="position: fixed; top: 80px; width: 30%; z-index: 60;">
                 {{message}}
             </div>
-            <h4 class="text-center">Add Your Innovation</h4>  
+            <h4 class="text-center">Pitch Innovation</h4>  
               <!--include partials errors--> 
           <form action="/create_startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data">
             <!--<form action="/startups" method="POST" class="form-horizontal" role="form" files="true" enctype="multipart/form-data" v-on:submit.prevent="savestartup()"> -->
@@ -24,20 +24,13 @@
                     <div class="form-group">
                         <label for="fileupload" class="control-label"><small>Cover Photo</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                        <input type="file" name="startup_image" id="fileupload" placeholder="Enter Title" class="btn btn-success" required>
-                        </div>
-                    </div>
-                    <div style="display: none;">
-                        <b>Live Preview</b>
-                        <br />
-                        <br />
-                        <div id="dPreview">
+                        <input type="file" name="startup_image" id="fileupload" placeholder="Enter Title" class="btn btn-success btn-sm" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="fileupload" class="control-label"><small>More photos (can attach more than one):</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                         <input type="file" name="photos[]" class="btn btn-success" multiple />
+                         <input type="file" name="photos[]" class="btn btn-success btn-sm" multiple />
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,9 +40,9 @@
                         </div>
                     </div>
                     <div class="form-group" v-if="auth.is_permission == 0">
-                        <label for="short_desc" class="control-label"><small>Brief Description</small><span class="small text-muted"> sell your idea here (not more than 250 characters)</span></label>
+                        <label for="short_desc" class="control-label"><small>Brief Description</small><span class="small text-muted"> - sell your idea here (not more than 250 characters)</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                            <textarea name="short_desc" id="short_desc" class="form-control" rows="2" style="resize:none;" placeholder="Briefly descrbie your product" v-model="short_desc" required maxlength="300" minlength="50"></textarea>
+                            <textarea name="short_desc" id="short_desc" class="form-control" rows="2" style="resize:none;" placeholder="Brief description" v-model="short_desc" required maxlength="300" minlength="50"></textarea>
                         </div>
                     </div>
                     <div v-else>
@@ -66,7 +59,7 @@
                         </div>
                          <tinymce v-if="type_of_editor == 'Advanced'" id="editor" :options="options" v-model="short_desc" name="short_desc"></tinymce>
                     </div>
-                    <div class="form-group hide-all">
+                    <div class="form-group d-none">
                         <label for="full_desc" class="control-label"><small>Full Description</small><span class="small text-muted"> - discuss your idea</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
                             <textarea name="full_desc" id="full_desc" class="form-control" rows="5" style="resize:none;" placeholder="Describe Fully" v-model="title" required></textarea>
@@ -75,17 +68,17 @@
                     <div class="form-group">
                         <label for="startup_aim" class="control-label"><small>Aim</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                            <input type="text" name="startup_aim" id="startup_aim" class="form-control" placeholder="State What You intend to achieve" v-model="aim" required>
+                            <input type="text" name="startup_aim" id="startup_aim" class="form-control" placeholder="Aim" v-model="aim" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="startup_imp" class="control-label"><small>Why Its Important</small><span class="small text-muted"> (not more than 100 words)</span></label>
+                        <label for="startup_imp" class="control-label"><small>Why Its Important</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
                             <input type="text" name="startup_imp" id="startup_imp" class="form-control" placeholder="What are its benefits?" v-model="importance" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="startup_achievements" class="control-label"><small>Notable Achievements</small><span class="small text-muted"> - seperate each with a comma</span></label>
+                        <label for="startup_achievements" class="control-label"><small>Achievements</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
                             <input type="text" name="startup_achievements" id="startup_achievements" class="form-control" placeholder="Previous Achievements" v-model="achievements" required>
                         </div>
@@ -93,7 +86,7 @@
                     <div class="form-group">
                         <label for="startup_features" class="control-label"><small>Features</small><span class="small text-muted"> - seperate each with a comma</span></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                            <input type="text" name="startup_features" id="startup_features" class="form-control" placeholder="Product Features" v-model="features" required>
+                            <input type="text" name="startup_features" id="startup_features" class="form-control" placeholder="Features" v-model="features" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -107,24 +100,24 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="startup_contacts" class="control-label"><small>Contacts</small></label>
+                        <label for="startup_contacts" class="control-label"><small>Phone no.</small></label>
                         <div class="col-sm-12 col-sm-offset-0">
-                            <input type="text" name="startup_contacts" id="startup_contacts" class="form-control" placeholder="Group/Company/Team Contacts" v-model="contacts" required>
+                            <input type="text" name="startup_contacts" id="startup_contacts" class="form-control" placeholder="Phone no." v-model="contacts" required>
                         </div>
                     </div>
                      <div class="form-group">
-                         <label for="consent" class="control-label"><small>By checking the box below, you agree to the <a href="/terms" target="blank" style="color:#2980B8;">terms and conditions</a></small></label>
+                         <input type="checkbox" name="consent" id="consent" required title="I agree to the terms and conditions" class="form-contrl"> &nbsp; 
+                         <label for="consent" class="control-label"><small>By checking the box below, you agree to the <a href="/terms" target="blank" style="color:#2980B8;">terms and conditions</a></small></label> 
                          <div class="col-sm-12 col-sm-offset-0">
-                            <input type="checkbox" name="consent" id="consent" required title="I agree to the terms and conditions" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12 col-sm-offset-0">
-                            <button type="submit" class="btn btn-success btn-block" v-show="updatesave">
-                                Create
+                            <button type="submit" class="btn btn-success btn-block btn-sm" v-show="updatesave">
+                                Pitch
                             </button>
-                            <button class="btn btn-success btn-block" v-show="updateloading">
-                                Creating <img src="Ellipsis.svg">
+                            <button class="btn btn-success btn-block btn-sm" v-show="updateloading">
+                                Pitching <img src="Ellipsis.svg">
                             </button>
                             
                         </div>

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container docs">
-	<div style="height:35px;"></div>
+	<div style="height:75px;"></div>
     <h3 class="text-center">TheInnovestors Terms of Use</h3>
     <p style="word-wrap: break-word; line-height: 2em;" class="text-justify">
 		These are the terms of use for theinnovestors.com web site and service (the “Service”) which is operated teamin  (“Company”).</br></br>

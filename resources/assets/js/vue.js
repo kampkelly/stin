@@ -65,6 +65,7 @@ Vue.component('startup', require('./components/Request-startup.vue'));
 Vue.component('startup-auth', require('./components/Request-startup-auth.vue'));
 Vue.component('idea', require('./components/Request-idea.vue'));
 Vue.component('idea-auth', require('./components/Request-idea-auth.vue'));
+Vue.component('messenger', require('./components/messenger.vue'));
 
 
 

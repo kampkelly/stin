@@ -1,20 +1,24 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
-        <div class="container-fluid" v-show="loaded">
-            <h4>Hi, {{auth.fullname}}, here are the list of your innovations</h4>
+        <div class="container-fluid startups" v-show="loaded">
+            <h4 class="pt-2">Hi, 
+                <router-link tag="a" :to="'/innovator/profile/' + auth.username">
+                  <a class="text-muted">{{auth.fullname}}</a>
+                </router-link>, 
+            here are the list of your innovations</h4>
                 <h3 class="text-center" style="text-decoration: underline;">Innovations</h3>       <!--innovations-->
                  <div v-if="countstartups >= 1">
                     <div class="row" v-for="startup in startups">
-                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 oe">
+                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
                             <div class="row pan panel-success">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <h4 class="text-ceter">
                                     <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
-                                    <a>{{ startup.title }}</a>
+                                    <a class="text-muted">{{ startup.title }}</a>
                                   </router-link>
                                     <span class="small"> by {{startup.group_name}}</span>
                                     <span class="small pull-right">{{ postedOn(startup) }}</span><br><span class="small pull-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
@@ -24,11 +28,11 @@
                                             <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                         </div>
                                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                                             <p class="text-center text-justify"><span style="text-decoration: underline;"> Brief description:</span> <span v-html="$options.filters.truncate(startup.short_desc, 100)"></span><br>
+                                             <p class="text-justify"><span style="text-decoration: underline;"> Brief description:</span> <span v-html="$options.filters.truncate(startup.short_desc, 100)"></span><br>
                                              <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                                 <a>More...</a>
                                               </router-link>
-                                              <router-link tag="a" v-bind:to="'/innovation/edit/' + startup.slug" class="btn btn-info btn-xs">
+                                              <router-link tag="a" v-bind:to="'/innovation/edit/' + startup.slug" class="btn btn-info btn-sm">
                                                 <a style="color:white;">Update</a>
                                               </router-link>
 

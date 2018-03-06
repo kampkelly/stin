@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container docs">
-    <div style="height:35px;"></div>
+    <div style="height:75px;"></div>
     <h3 class="text-center">About Us</h3>
     <p style="word-wrap: break-word; line-height: 2em;" class="text-justify">
 		Theinnovestors is an online social network site that connects prospective innovators/creators and investors in a network of community. theinnovestors offers you simple and convenient access information and to connect with fellow innovators/creators and prospective investors. We are here to provide you with the assistance, and services you need. You will learn and also share ideas with the whole world and have the opportunity to showcase your passion, love and dream to the whole world to know.</br></br>

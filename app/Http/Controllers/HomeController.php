@@ -8,20 +8,22 @@ use App\Http\Controllers\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
 use App\Startup;
 use App\Post;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class HomeController extends Controller
 {
  
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['home','sendcontact']]);
+        $this->middleware('auth', ['except' => ['home','sendcontact', 'jwauth', 'jw']]);
     }
 
     public function home()
     {
      $startups =  Startup::where('status', 'pending')->orWhere('status', 'approved')->orderBy('id', 'desc')->take(5);
      $posts = Post::orderBy('id', 'desc')->simplePaginate(1);
-      return view('home', compact('startups', 'posts'));
+      return view('new_home', compact('startups', 'posts'));
     }
 
     public function authenticate()
@@ -81,6 +83,25 @@ class HomeController extends Controller
     }
 
     public function request_partner(Request $request) {
+      
+    }
+
+    public function jwauth(Request $request, $tok) {
+      // this will set the token on the object
+  //    $token = JWTAuth::setToken($tok);
+//      $token = JWTAuth::getToken();
+      $user = JWTAuth::parseToken()->authenticate();
+      return $user;
+ //   JWTAuth::parseToken();
+
+    // and you can continue to chain methods
+   // $user = JWTAuth::parseToken()->authenticate();
+    //$user = $tok->authenticate();
+   // return $user;
+  //  return response()->json(compact('user'));
+    }
+
+    public function jw() {
       
     }
 

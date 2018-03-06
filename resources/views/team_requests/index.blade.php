@@ -10,9 +10,9 @@
          @foreach($request_teams as $request)
          <div class="row" style="margin-bottom: 20px; background: #f2f2f2;">
             <h5>{{$request->type}} request</h5>
-             <span class="pull-right">{{$request->created_at->diffForHumans()}}</span> <span class="pull-right">on {{$request->category}}; &nbsp;</span>
-              <a style="color:#133c57 !important; text-decoration: none;" href="/request_team/{{$request->slug}}">{{$request->user->fullname}} working on "{{$request->title}}" needs <span style="color:green;"> {{count($request->requestmembers)}} innovators</span> :<br>
-                . <span style="color: grey;">Description: {{str_limit($request->description, $limit = 80)}}</span> Read more... </a>
+             <span class="float-right">{{$request->created_at->diffForHumans()}}</span> <span class="pull-right">on {{$request->category}}; &nbsp;</span>
+              <a style="color:#133c57 !important; text-decoration: none;" href="/request_team/{{$request->slug}}">{{$request->user->fullname}} needs <span style="color:green;"> {{count($request->requestmembers)}} innovators</span> to assist on "{{$request->title}}":<br>
+                 <span class="d-none" style="color: grey;">Description: {{str_limit($request->description, $limit = 80)}}</span> Read more... </a>
               @if(Auth::check())
                 @if($request->username == Auth::user()->username)
                     <span> <a href="#">By me</a> </span>

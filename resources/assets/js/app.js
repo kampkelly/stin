@@ -17,9 +17,7 @@ window.Vue = require('vue');
 
 //Vue.component('example', require('./components/Example.vue'));  //i commented this out due to error compiling
 
-const app = new Vue({
-    el: '#app'
-});
+
 /*
 import Pusher from 'pusher-js'
 import Echo from "laravel-echo"

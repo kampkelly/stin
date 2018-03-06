@@ -9,17 +9,17 @@
 <section id="firstview">
     <div class="row containe">
         <div style="height: 70px;"></div>
-        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
                 <h2 class="text-center" style="color: white; text-shadow: 1.6px 1.6px #000000; font-size: 35px;"><b>Hello, Have an Idea? Pitch it. Get Invested!</b></h2>
             <div class="text-ceter" style="padding: 0px 0px 0px 40px;">
                 <h3 style="color: white; text-shadow: 1.2px 1.2px #000000;" class="text-center"> <span style="font-size: 18px; color: white; text-shadow: 1.2px 1.2px #000000; font-size: 20px;"><b> Connecting Creative Minds With Investors</b></span></h3>
                 <div style="height: 20px;"></div>
                 <ul class="list-unstyled list-inlne text-center">
                     <li><a href="/innovations" class="btn btn-success btn-lg" style="background-color: #227FBB; font-size: 26px;">See Innovations</a></li> <br>
-                    <li class="hidden-xs hidden-sm hidden-md"><a href="/request_team" class="btn btn-default btn-lg" style="font-size: 14px;">Request to teamup</a>
+                    <li class="d-none d-lg-block"><a href="/request_team" class="btn btn-light btn-lg" style="font-size: 14px;">Request to teamup1</a>
                     <span title="snnsls" style="color: white; cursor: pointer; text-decoration: underline; text-shadow: 0.8px 0.8px #000000;" onclick="requestpartner_info()">What is this?</span></li>
-                    <li class="hidden-lg">
-                        <a href="/request_team" class="btn btn-default btn-lg" style="font-size: 17px;">Request to teamup</a>
+                    <li class="d-lg-none">
+                        <a href="/request_team" class="btn btn-light btn-lg" style="font-size: 17px;">Request to teamup</a>
                         <p class="small" style="color: white; text-shadow: 0.7px 0.7px #000000;">What is this?</p>
 
                     </li>
@@ -32,32 +32,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
             <div class="text-center">
-                <a href="/dashboard#/innovation/create" class="btn btn-success btn-md">Pitch Your Innovation</a>
+                <a href="/dashboard#/innovation/create" class="btn btn-success btn-sm">Pitch Your Innovation</a>
                 <hr>
                 <div  style="padding: 0px 40px 0px 40px;" class="hide-smartphone">
                     <div class="pael panel-default">
                         <div class="panel-heading">
                              @if(count($startups) >= 10)
-                            <h3 class="panel-title">Latest Innovations</h3>
+                            <h3 class="card-header">Latest Innovations</h3>
                             @else
-                            <h3 class="panel-title">News Updates</h3>
+                            <h6 class="card-header bg-light">News Updates</h6>
                             @endif
                         </div>
-                        <div class="panel-body" style="background-color: rgba(255, 255, 255, 0);">
-                            @if(count($startups) >= 5)
-                            @foreach($startups as $startup)
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">{{str_limit($startup->title, $limit = 30)}}</a>
-                                </div>
-                            @endforeach
-                            @else
-                                @foreach($posts as $post)
-                                    <p style="color: white;" class="text-justify">{{str_limit($post->body, $limit = 600)}}</p>
-                                @endforeach
-                            @endif 
-                    </div>
                 </div>
             </div>
         </div>
@@ -68,7 +55,7 @@
 
 <!--insert-->
 <section id="secondview"  style="background-color: white; height: 60vh;">
-    <div class="" style="background-color: #227FBB; height: 60vh;">
+    <div class="hmm" style="background-color: #227FBB; height: 60vh;">
         <div class="text-center container" style="padding-top: 50px;">
             <h1>Our Mission</h1>
             <h3>The plug that connects innovators/startups to secure investments.</h3>
@@ -78,32 +65,14 @@
             <a href="/about" class="btn btn-success btn-lg">Learn More</a>
         </div>
     </div>
-    <div style="height: 40vh; display: none; backgound-color: #2589c9;">
-        <div class="text-center">
-            <h3 style="color: #242525; padding-top: 7px;">Partners</h3>
-            <div class="row" style="padding: 0px 30px 0px 30px;">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                     <img src="{{ asset('static-pics/partners/enspire.jpg') }}" class="img-responsive img-circle" style="filter: blur(0px) brightness(1) grayscale(0%); widt: 70%; height: 100px;">
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                     <img src="{{ asset('static-pics/partners/salesnaija.png') }}" class="img-responsive img-circle" style="filter: blur(0px) brightness(1) grayscale(0%); wdth: 70%; height: 100px;">
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                     <img src="{{ asset('static-pics/partners/abstracthoughts.jpeg') }}" class="img-responsive img-circle" style="filter: blur(0px) brightness(1) grayscale(0%); width: 60%; height: 100px;">
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                     <img src="{{ asset('static-pics/partners/elis.svg') }}" class="img-responsive img-circle" style="filter: blur(0px) brightness(1) grayscale(0%); widt: 70%; height: 100px;">
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 <div style="height: 10px;"></div>
+
 <section id="thirdview" style="height: 100vh; background-color: white;">
 <div class="container">
     <h2 class="text-center">The Process</h2>
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 howitworks">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 howitworks">
             <ol>
                 <li>
                     <h4 style="coor: white;">An Innovator registers on Theinnovestors.</h4>
@@ -119,87 +88,33 @@
                 </li>
             </ol>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{ asset('/homepage/illustration1.png') }}" class="img-responsive" style="filter: blur(0px) brightness(1) grayscale(0%); hight: 80vh; width: ; padding-eft: 50px;">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <img src="{{ asset('/homepage/illustration1.png') }}" class="img-fluid" style="filter: blur(0px) brightness(1) grayscale(0%); hight: 80vh; width: ; padding-eft: 50px;">
         </div>
     </div>
 </div>
 </section>
-<section class="inbetween" style="display: none;">
-    <img src="{{ asset('/homepage/steve.jpg') }}" class="img-reponsive" style="filter: blur(0px) brightness(1) grayscale(0%); height: 50vh; paddng-left: 25%;">
-</section>
-<section id="fourthview" style="backgrund-color: #227FBB; height: 100vh; display: none;">
-    <h3 class="text-center">What You Benefit from Theinnovestors</h3>
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div>
-                <div class="pael panel-default">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading" style="background-color: #1AAF5D; color: white; border-bottom: none;">Innovator</div>
-                    <div class="panel-body">
-                        <p style="clor: black;">When you register as an innovator, startup, you will have access to the following:</p>
-                    </div>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>Access to innovative ideas that will trigger the mind</td>
-                            </tr>
-                            <tr>
-                                <td>Showcase your invention</td>
-                            </tr><tr>
-                                <td>Get seen by investors</td>
-                            </tr><tr>
-                                <td>Connect and partner with other innovators</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <div>
-                <div class="pael panel-default">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading" style="background-color: #227FBB; color: white; border-bottom: none;">Investor</div>
-                    <div class="panel-body">
-                        <p style="clor: black;">When you register as an investor, startup, you will have access to the following:</p>
-                    </div>
-                    <table class="table">
-                        
-                        <tbody>
-                            <tr>
-                                <td>Access to all innovations</td>
-                            </tr>
-                            <tr>
-                                <td><h5>Tailored innovations for your needs</h5></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <div style="height: 20px;"></div>
+
 <section id="fifthview" class="container">
     <h4 class="text-center">Contact us below</h4>
-    <form action="/contact" method="POST" class="form-horizontal" role="form">
+    <form action="/contact" method="POST" class="form-horizontal justify-content-center" role="form">
          {{ csrf_field() }}
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                 <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Name</label>
-                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4">
+                 <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 offset-lg-4 offset-md-2 offset-sm-2 control-label">Name</label>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4 offset-lg-4 offset-md-2 offset-sm-2">
                     <input id="username" type="text" class="form-control" name="contact_name" value="{{ old('lastname') }}" placeholder="Enter Full Name" required autofocus ng-model="username">
                 </div>
             </div>
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                 <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Email</label>
-                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4">
+                 <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 offset-lg-4 offset-md-2 offset-sm-2 control-label">Email</label>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4 offset-lg-4 offset-md-2 offset-sm-2">
                     <input id="username" type="email" class="form-control" name="contact_email" value="{{ old('lastname') }}" placeholder="Enter Email Address" required autofocus ng-model="username">
                 </div>
             </div>
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                 <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Message</label>
-                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4">
+                 <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 offset-lg-4 offset-md-2 offset-sm-2 control-label">Message</label>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4 offset-lg-4 offset-md-2 offset-sm-2">
                     <textarea name="contact_msg" placeholder="Enter Message" class="form-control" rows="3"></textarea>
                 </div>
             </div>
@@ -207,7 +122,7 @@
             
     
             <div class="form-group">
-                <div class="col-sm-10 col-lg-4 col-sm-offset-4">
+                <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4 offset-lg-4 offset-md-2 offset-sm-2">
                     <button type="submit" class="btn btn-success btn-block">Send</button>
                 </div>
             </div>

@@ -170,6 +170,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
       //  app\Providers\DropboxFilesystemServiceProvider::class,
         
         /*
@@ -246,6 +247,8 @@ return [
         'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Pusher' => Pusher\Pusher::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 

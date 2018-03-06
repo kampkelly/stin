@@ -143,7 +143,7 @@ class StartupController extends Controller
                 unlink(public_path('uploads/startup_photos/'. $startup->image));
             }
           //  File::delete();
-        }
+        } 
         
          
          //slug

@@ -33,8 +33,16 @@ class TeamRequestController extends Controller
 
     public function mine()
     {
+        $email = "kampcool@gmail.com";
+        $default = "https://4.bp.blogspot.com/-r-lW7wVfyHA/WYhwQpd_O1I/AAAAAAAAArY/VyElqDYNNucjGpF8cnKfg66nT0IWHFRrQCLcBGAs/s320/whatsapp%2Bgroup%2B%25281%2529.jpg";
+      //  $default = Auth::user()->image;
+        $size = 40;
+
+        $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+        $grav_url = "https://api.adorable.io/avatars/181/" . $email .".png";
+
         $requests = TeamRequest::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->take(15)->get();
-            return view('team_requests/mine', compact('requests'));
+            return view('team_requests/mine', compact('requests', 'grav_url'));
     }
 
     public function create()

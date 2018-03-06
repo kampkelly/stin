@@ -1,6 +1,6 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 singlethread" style="padding-left:0px;" >
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
              <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
                 <div class="container-fluid" v-show="loaded">
                  <div class="alert alert-success notifications_panel" role="alert" v-show="status" style="position: fixed; top: 80px; width: 30%; z-index: 60;">
@@ -65,7 +65,6 @@
                                   </button>
                                 </span>
                             </div>
-
                           </div>
                       </form>
                     <input type="text" name="myid" :value="thread.id" id="myid" hidden="true" />

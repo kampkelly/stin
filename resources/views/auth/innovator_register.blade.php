@@ -4,7 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <!--<div style="height: 40px;"></div> -->
 <div id="in_reg" ng-app="">
-<div style="height: 70px;"></div>
+<div style="height: 90px;"></div>
 <div class="container">
     <div class="text-center">
         <h2>Hi, Register to get access to all our innovations!</h2>
@@ -19,7 +19,7 @@
         <p class="small" style="display: none;">Signup as an investor instead, <a href="/investor/register">click here</a></p>
           <form class="form-horizontal panel panel-footer" role="form" method="POST" action="/innovator/register" name="myForm" >
                 {{ csrf_field() }}
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}"> 
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} row"> 
                     <label for="fullname" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Full Name <span id="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
                         <input id="fullname" type="text" class="form-control" name="fullname" value="{{ old('fullname') }}" placeholder="Enter Full Name" required autofocus ng-model="firstname">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} row">
                  <label for="username" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Username <span id="asterisks">*</span></label>
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
                         <input id="username" type="text" class="form-control" name="username" value="{{ old('lastname') }}" placeholder="Enter Username" required autofocus ng-model="username">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} row">
                     <label for="email" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">E-Mail Address <span id="asterisks">*</span></label>
 
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} row">
                     <label for="password" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 control-label">Password <span id="asterisks">*</span></label>
 
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
@@ -77,8 +77,8 @@
                  
                 <!--EDITED FIELDS END HERE-->
 
-                <div class="form-group">
-                    <div class="col-md-8 col-md-offset-2">
+                <div class="form-group row">
+                    <div class="col-sm-8 col-lg-6 offset-lg-4 offset-sm-4">
                         <button type="submit" class="btn btn-success btn-block">
                             Register Now
                         </button>

@@ -6,8 +6,12 @@ use Illuminate\Support\ServiceProvider;
 use Braintree_Configuration;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Thread;
+use App\Message;
 use App\Post;
+use App\Category;
 use App\Friendship;
+//use Hootlex\Friendships\Models\Friendship;
 use App\FriendFriendshipGroups;
 use App\TeamRequest;
 use Laravel\Dusk\DuskServiceProvider;
@@ -53,6 +57,33 @@ class AppServiceProvider extends ServiceProvider
             $suggestions = User::where('is_permission', '!=', 4)->where('id', '!=', Auth::user()->id)->inRandomOrder()->take(15)->get();
             $view->with(compact('suggestions'));
             });    
+
+        view()->composer('/partials/_messenger', function ($view) {
+            $users = User::all();
+            $userfriends = Auth::user()->getFriends();
+            $allthreads = \App\Thread::where('user_id', Auth::user()->id)->orWhere('receiver_id', Auth::user()->id)->get();
+            $threads = [];
+            foreach ($allthreads as $tr) {
+                $mess = $tr->messages()->orderBy('id', 'asc')->get();
+                if(count($mess) >= 1) {
+                    array_push($threads, $tr);
+                }
+            }
+           // $messages = $threads->messages()->orderBy('id', 'asc')->get();
+            $view->with(compact('userfriends', 'threads')); 
+            });  
+
+//////for admin begins
+          view()->composer('lte_admin/partials/_left_sidebar', function ($view) {
+            $countusers = User::count();
+            $countnews = Post::count();
+            $countcategories = Category::count();
+            $countinnovations = \App\Startup::orderBy('id', 'asc')->count();
+            $count_teamrequests = \App\TeamRequest::orderBy('id', 'asc')->count();
+            $view->with(compact('countusers', 'countinnovations', 'count_teamrequests', 'countnews', 'countcategories')); 
+            });    
+
+//////for admin ends
         
         //BRAINTREE
         Braintree_Configuration::environment(env('BRAINTREE_ENV'));

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 Auth::routes();
 
+  Route::get('/token/{token}', 'HomeController@jwauth');
   Route::get('/in', 'HomeController@authenticate');
   Route::post('/getnotified', 'HomeController@getnotified');
 
@@ -20,6 +21,10 @@ Route::get('/sitemap', function () {
 
 Route::get('/contact', function () {
     return view('contact');
+}); 
+
+Route::get('/log', function () {
+    return view('log');
 }); 
 
 /*Route::get('/', function () {
@@ -67,10 +72,26 @@ Route::group(['middleware'=>'auth'], function () {
   });
 
   Route::post('/innovations', function(){
-    $innovations = App\Startup::where('status', 'pending')->orWhere('status', 'approved')->with('user')->orderBy('id', 'desc')->get();
+    $innovations = App\Startup::where('status', 'pending')->orWhere('status', 'approved')->with('user')->orderBy('id', 'desc')->take(2)->get();
+    $taken = 2;
+     $total = App\Startup::where('status', 'pending')->orWhere('status', 'approved')->with('user')->orderBy('id', 'desc')->count();
+     if($taken >= $total) {
+        $not_finished = false;
+    }else{$not_finished = true;}
     $suggestions = App\User::where('is_permission', '!=', 4)->where('id', '!=', Auth::user()->id)->inRandomOrder()->take(15)->get();
-    $thedata = [$innovations, $suggestions];
+    $thedata = [$innovations, $suggestions, $not_finished];
     return $thedata;
+  });
+
+Route::post('/moreinnovations/{x}/{y}', function($x, $y){
+    $innovations = App\Startup::where('status', 'pending')->orWhere('status', 'approved')->with('user')->orderBy('id', 'desc')->skip($x)->take($y)->get();
+    $total = App\Startup::where('status', 'pending')->orWhere('status', 'approved')->with('user')->orderBy('id', 'desc')->count();
+    $taken = $x + $y;
+    if($taken >= $total) {
+        $not_finished = false;
+    }else{$not_finished = true;}
+        $thedata = [$innovations, $not_finished];
+        return $thedata;
   });
 
   Route::post('/showcategory/{id}', function($id){
@@ -93,14 +114,54 @@ Route::group(['middleware'=>'auth'], function () {
   Route::post('/showconnections', function(){
    // $this_user = User::where('username', $username)->first();
     $this_user = Auth::user();
-    $user_for_friends = User::where('is_permission', '!=', 4)->where('is_permission', '!=', 5)->where('id', '!=', Auth::user()->id)->inRandomOrder()->get();
+    $user_for_friends = User::where('is_permission', '=', 0)->where('id', '!=', Auth::user()->id)->inRandomOrder()->take(7)->get();
+    $suggested_friends = [];
     $friends = $this_user->getFriends();
+    $count_f = count($friends);
+    $decider = 1;
+        foreach ($user_for_friends as $index=>$thisuser) {
+            foreach ($friends as $index=>$thisfriend) {
+                if($thisfriend->id == $thisuser->id) {
+                    $decider = 1;
+                    break;
+                }else{ //if user is my friend do nothing else
+                    $decider = 0; 
+                }
+            }
+            if($decider == 0){ array_push($suggested_friends, $thisuser); } //push to suggested friends
+        }
+    $frn = [];
+    foreach ($friends as $index=>$friend) {
+        $index = $index + 1;
+        if($index <= 1) {
+            array_push($frn, $friend);
+        } 
+    }
     $requests = $this_user->getFriendRequests();
     $all_users = User::all();
-    $thedata = [$friends, $user_for_friends, $requests, $all_users];
+  //  $thedata = [$friends, $user_for_friends, $requests, $all_users];
+    $thedata = [$frn, $suggested_friends, $requests, $all_users, $friends];
    // $thedata = list($min, $max);
     return $thedata;
   });
+
+  Route::post('/moreconnections/{x}/{y}', function($x, $y){
+    $this_user = Auth::user();
+     $friends = $this_user->getFriends();
+     $count_f = count($friends);
+     $frn = [];
+    foreach ($friends as $index=>$friend) {
+        $index = $index + 1; //= 1
+        if($index >$x && $index <=$y) {
+            array_push($frn, $friend);
+        } 
+        if($y >= $count_f) {
+            $not_finished = false;
+        }else{$not_finished = true;}
+    }
+        $thedata = [$frn, $not_finished];
+        return $thedata;
+    });
 
   Route::post('/my-feeds/username', function(){
     $friends = Auth::user()->getFriends();
@@ -162,6 +223,8 @@ Route::group(['middleware'=>'auth'], function () {
     return $auth;
   });
   
+  Route::post('/messeng', 'ThreadController@messenger');
+
   Route::post('/myprofile/{username}', 'PersonController@myprofile');
   Route::post('/person/{username}', 'PersonController@myinnovations');
   Route::post('/innovation/edit/{slug}', 'StartupController@edit');
@@ -218,10 +281,10 @@ Route::post('/startup/{slug}/photo_added', 'StartupController@startupsphotoupdat
 Route::post('/startup/{id}/image-deleted', 'StartupsPhotoController@destroy');
 
 
-Route::post('/categories', 'CategoryController@store');
+
 Route::get('/category/{show}', 'CategoryController@show');
 
-Route::post('/category/{id}', 'CategoryController@update');
+
 Route::post('/category', function(){
    $id = Input::get('category_id');    
   # return Redirect::action('FrontController@buscarPrd', array('nom'=>$bsqd));
@@ -333,7 +396,9 @@ Route::post('login', array(
        // 'Auth\LoginController@Login'
 )); */
 
-$this->post('login', 'Auth\LoginController@login');
+$this->post('newlogin', 'Auth\LoginController@authenticate');
+
+$this->post('login', 'Auth\LoginController@custom_login_for_remember');
 $this->post('/test_ajax', 'Auth\LoginController@test_ajax');
 //$this->post('login', 'LognController@autheicate');
 $this->post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -392,6 +457,19 @@ Route::group(['middleware' => 'check-permission:admin|superadmin'], function () 
   Route::post('/create_categories', 'CategoryController@create');
   Route::get('/category/remove/{remove}', 'CategoryController@destroy');
   Route::get('/category/edit/{edit}', 'CategoryController@edit');
+  Route::post('/categories', 'CategoryController@store');
+  Route::post('/category/{id}', 'CategoryController@update');
+
+  ///////lte admin routes
+  Route::get('/cancel', function () {
+      return view('lte_admin/index2');
+  });
+  Route::get('/lte-admin', 'LteAdminController@index');
+  Route::get('/lte-admin/innovations', 'LteAdminController@innovations');
+  Route::get('/lte-admin/categories', 'LteAdminController@categories');
+  Route::get('/lte-admin/users', 'LteAdminController@users');
+  Route::get('/lte-admin/news', 'LteAdminController@news');
+  ///////lte admin routes
 });
 //message
 Route::post('/messages', 'ThreadController@store');
@@ -419,6 +497,5 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 //connect google
 Route::get('connect/{provider}', 'Auth\LoginController@redirectToProvider');
 //Route::get('connect/{provider}/callback', 'VerificationController@handleProviderCallback');
-
 
 

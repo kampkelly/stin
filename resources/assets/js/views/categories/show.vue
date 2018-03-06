@@ -1,6 +1,6 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
@@ -13,14 +13,14 @@
                     <div v-if="countstartups < 1" style="height:90vh;">
                         <p >There are no innovations here. Be the first, 
                             <router-link tag="a" to="/innovation/create">
-                                <a>Add one noww</a>
+                                <a>Add one now</a>
                               </router-link>
                         </p>
                      </div>
                 <div class="row" v-else v-for="(startup, index) in startups">
                   <div v-if="featured == 'all'">  <!--begins here-->
                     <div v-if="startup.featured == 'yes'">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
                         <div class="row pan pan-success">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h4 class="text-ceter">
@@ -30,7 +30,7 @@
                                 <span class="small"> by TheInnovestors </span> 
                                     <br><span class="smallest-font">Uploaded by: TheInnovestors
                                     </span>
-                                <span class="small pull-right"> <span style="color:#27AD60;">Featured</span> {{ postedOn(startup) }}</span><br><span class="small pull-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
+                                <span class="small float-right"> <span style="color:#27AD60;">Featured</span> {{ postedOn(startup) }}</span><br><span class="small float-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
                                 
                                 <div class="row cntainer-fluid">
                                    
@@ -38,7 +38,7 @@
                                         <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                     </router-link>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> <span v-html="$options.filters.truncate(startup.short_desc, 150)"></span><br>
+                                         <p class="text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> <span v-html="$options.filters.truncate(startup.short_desc, 150)"></span><br>
                                           <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                             <a>More...</a>
                                           </router-link>
@@ -50,7 +50,7 @@
                     </div> 
                 </div>
                 <div v-if="startup.featured == 'no'">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
                         <div class="row pan pan-success">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h4 class="text-ceter">
@@ -63,7 +63,7 @@
                                       <a>{{startup.user.fullname}}</a>
                                     </router-link> 
                                     </span>
-                                <span class="small pull-right">{{ postedOn(startup) }}</span><br><span class="small pull-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
+                                <span class="small float-right">{{ postedOn(startup) }}</span><br><span class="small float-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
                                 
                                 <div class="row cntainer-fluid">
                                    
@@ -71,7 +71,7 @@
                                         <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                     </router-link>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ startup.short_desc }} <br>
+                                         <p class="text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ startup.short_desc }} <br>
                                           <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                             <a>More...</a>
                                           </router-link>
@@ -86,7 +86,7 @@
         
  
                     <div v-if="featured == 1 && startup.featured == 'yes'"> <!--begins here-->
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
                         <div class="row pan pan-success">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h4 class="text-ceter">
@@ -96,7 +96,7 @@
                                 <span class="small"> by TheInnovestors </span>
                                     <br><span class="smallest-font">Uploaded by: TheInnovestors
                                     </span>
-                                <span class="small pull-right"> <span style="color:#27AD60;">Featured</span> {{ postedOn(startup) }}</span><br><span class="small pull-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
+                                <span class="small float-right"> <span style="color:#27AD60;">Featured</span> {{ postedOn(startup) }}</span><br><span class="small float-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
                                 
                                 <div class="row cntainer-fluid">
                                    
@@ -104,7 +104,7 @@
                                         <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                     </router-link>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span>  <span v-html="$options.filters.truncate(startup.short_desc, 150)"></span> <br>
+                                         <p class="text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span>  <span v-html="$options.filters.truncate(startup.short_desc, 150)"></span> <br>
                                           <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                             <a>More...</a>
                                           </router-link>
@@ -118,7 +118,7 @@
 
  
                     <div v-if="featured == 0 && startup.featured == 'no'"> <!--begins here-->
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-3">
                         <div class="row pan pan-success">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h4 class="text-ceter">
@@ -131,7 +131,7 @@
                                       <a>{{startup.user.fullname}}</a>
                                     </router-link> 
                                     </span>
-                                <span class="small pull-right">{{ postedOn(startup) }}</span><br><span class="small pull-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
+                                <span class="small float-right">{{ postedOn(startup) }}</span><br><span class="small float-right"><div class="rw-ui-container" v-bind:data-title="startup.id"></div></span></h4>
                                 
                                 <div class="row cntainer-fluid">
                                    
@@ -139,7 +139,7 @@
                                         <img v-bind:src="'uploads/startup_photos/' + startup.image" width="100%" class="img-responsive">
                                     </router-link>
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                                         <p class="text-center text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ startup.short_desc }} <br>
+                                         <p class="text-justify lead"><span style="text-decoration: underline; colr: gray !important;"> Brief description:</span> {{ startup.short_desc }} <br>
                                           <router-link tag="a" v-bind:to="'/innovation/' + startup.slug">
                                             <a>More...</a>
                                           </router-link>

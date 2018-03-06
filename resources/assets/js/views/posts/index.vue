@@ -1,25 +1,25 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
             <h4 class="text-center">News Updates</h4>
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div> 
         <div class="container-fluid all_innovations" style="padding-left: 30px" v-show="loaded">
-                <div class="panel panel-inf" v-for="post in posts">
-                    <div class="panel-heading" style="background:grey;">
-                        <h3 class="panel-title">
+                <div v-for="post in posts">
+                    <div class="panel-heading">
+                        <h4 class="card-title bg-secondary p-1">
                         <router-link tag="a" :to="'/post/' + post.slug">
                             <a style="color:white;">{{post.title}}</a>
                           </router-link>
-                        <span class="small pull-right" style="color:white;">{{ postedOn(post) }}</span></h3>
+                        <span class="small pull-right" style="color:white;">{{ postedOn(post) }}</span></h4>
                     </div>
-                    <div class="panel-body">
-                       <p> {{post.body}} 
-                       <router-link tag="a" :to="'/post/' + post.slug" class="btn btn-xs btn-info">
+                    <div class="card-body">
+                       <p class="small" style="line-height:28px;"> {{post.body}} 
+                       <router-link tag="a" :to="'/post/' + post.slug" class="btn btn-sm btn-info">
                             <a style="color:white;">Read More...</a>
                           </router-link>
-                       <a :href="'/admin/post/edit/' + post.slug" class="btn btn-xs btn-warning hide-all">Edit</a> </p>
+                       <a :href="'/admin/post/edit/' + post.slug" class="btn btn-sm btn-warning hide-all">Edit</a> </p>
                     </div>
                 </div>
             

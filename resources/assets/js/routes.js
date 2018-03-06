@@ -1,10 +1,34 @@
 //import VueRouter from 'vue-router';
-
+//const foo = { template: '<div><h1>new router view</h1></div>' }
+const foo = require('./components/tst.vue');
+Vue.component('abk', require('./components/messenger.vue'));
 let routes = [
 	{
-	//	path: '/panel',
 		path: '/',
-		component: require('./views/dashboard')
+	//	component: require('./views/dashboard')
+		components: {
+			default: require('./views/dashboard')
+	      },
+	     /* children: [
+	        {
+	          // UserProfile will be rendered inside User's <router-view>
+	          path: '/msk',
+	        //  component: require('./components/tst.vue')
+	          component: {
+		        gh: foo
+		      //  b: require('./views/listitems')
+		      } 
+	        }
+	      ]  */
+	      children: [
+	        {
+	          path: '/mskk',
+	         // component: require('./components/tst.vue')
+	          components: {
+		        gh: foo
+		      } 
+	        }
+	      ]
 	},
 	{
 		path: '/category/:id',
@@ -77,15 +101,14 @@ let routes = [
 	{
 		path: '/search',
 		component: require('./views/search')
-	},
-	{
-		path: '/findpartners',
-		component: require('./views/findpartners')
-	},
-	{
-		path: '/find/:slug',
-		component: require('./views/showfindpartner')
 	}
+/*	 { path: '/messengs',
+      // a single route can define multiple named components
+      // which will be rendered into <router-view>s with corresponding names.
+      components: {
+        a: Bar
+      }
+    }, */
 	/*{
 		path: '/plans',
 		component: require('./views/plans/index')

@@ -1,10 +1,10 @@
 import router from './routes';
 import VueTinymce from 'vue-tinymce';
+
 Vue.use(VueTinymce)
 
 
-var globalauthid = document.getElementById('globalauthid').value;
-let	globalauth = jQuery.parseJSON(globalauthid);
+var globalauth_id = window.Laravel.globa;
 
 var parent = new Vue({
   el: '#app',
@@ -20,6 +20,8 @@ var parent = new Vue({
 });
 
 
+
+
 import Pusher from 'pusher-js'
 import Echo from "laravel-echo"
 window.Echo = new Echo({
@@ -31,7 +33,7 @@ window.Echo = new Echo({
 
  window.Echo.channel('threadmessage')
     .listen('NewThreadMessage', (e) => {
-    if(e.message.user_id == globalauth.id){
+    if(e.message.user_id == globalauth_id){
     	document.getElementById('notifymessage').style.display = 'block';
     	document.getElementById('notifymessage').innerHTML = '<h5 class="alert alert-info">You have a new message, <a href="#">see messages</a></h5>';
     	setTimeout(function(){   
@@ -47,7 +49,7 @@ window.Echo = new Echo({
     		console.log('this connection has been accepted');
     		console.log(e.user.fullname);
     		console.log(e.auth.fullname);
-    		if(e.user.id == globalauth.id){
+    		if(e.user.id == globalauth_id){
     			document.getElementById('notifyconnection').style.display = 'block';
 		    	document.getElementById('notifyconnection').innerHTML = '<h5 class="alert alert-info">You are now connected with '+e.auth.fullname+', <a href="#">view connections</a></h5>';
 		    	setTimeout(function(){   
@@ -61,7 +63,7 @@ window.Echo = new Echo({
     .listen('SendConnection', (e) => {
     		console.log('this connection has been sent');
     		console.log(e.user.fullname);
-    		if(e.user.id == globalauth.id){
+    		if(e.user.id == globalauth_id){
     			document.getElementById('notifyconnection').style.display = 'block';
 		    	document.getElementById('notifyconnection').innerHTML = '<h5 class="alert alert-info">You just have a new connection request, <a href="#">view connections</a></h5>';
 		    	setTimeout(function(){   
@@ -73,7 +75,7 @@ window.Echo = new Echo({
 
        window.Echo.channel('sendconnection')
         .listen('SendConnection', (e) => {
-          if(e.user.id == globalauth.id){
+          if(e.user.id == globalauth_id){
               //  document.getElementById('newconnect_container').style.display = 'block';
               $('#notifynewconnection').fadeIn();
                 $( "#notifynewconnection" ).append(
@@ -95,7 +97,7 @@ window.Echo = new Echo({
 
         window.Echo.channel('innovationadded')
         .listen('InnovationCreated', (e) => {
-          if(e.user.id != globalauth.id){
+          if(e.user.id != globalauth_id){
              document.getElementById('notifyinnovation').style.display = 'block';
 		    	document.getElementById('notifyinnovation').innerHTML = '<h5 class="alert alert-info">New Innovation by'+ e.user.fullname+', <a href="#">view it</a></h5>';
 		    	setTimeout(function(){   
@@ -105,4 +107,6 @@ window.Echo = new Echo({
           }
 
          });
+
+
    

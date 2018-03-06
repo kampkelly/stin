@@ -5,6 +5,8 @@
 <div class="container docs">
 	<div style="height:45px;"></div>
      <h4 class="text-center">My Team Requests! </h4><br><br>
+     {{$grav_url}}
+     <img src="{{$grav_url}}" class=""> 
      @if(count($requests) >= 1)
          @foreach($requests as $request)
         <div class="row" style="margin-bottom: 20px; background: #FAFAFA;">

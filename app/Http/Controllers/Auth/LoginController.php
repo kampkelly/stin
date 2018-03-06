@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Socialite;
 use App\User;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\WelcomeToTheinnovestors;
 use App\Http\Controllers\Mail\Mailer;
 use Illuminate\Support\Facades\Mail;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class LoginController extends Controller
 {
@@ -150,6 +153,19 @@ class LoginController extends Controller
         return ['Name', 'Email', 'Password', "Username"];
     }
 
+    public function custom_login_for_remember(Request $request)
+    {
+        if($authUser = User::where('email', $request->email)->orWhere('username', $request->email)->first()) {
+            if (Hash::check($request->password, $authUser->password)) {
+                $hashed = Hash::make('plain-text');
+                        Auth::login($authUser);
+                        return Redirect::to('/');
+            }else{ }
+        }else{ }
+
+        return ['Name', 'Email', 'Password', "Username"];
+    }
+
     protected function credentials(Request $request)
     {
         $field = filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL)
@@ -157,8 +173,29 @@ class LoginController extends Controller
             : 'username';
 
         return [
-            $field => $request->get($this->username()),
+            $field => $request->getallheaders()($this->username()),
             'password' => $request->password,
         ];
+    }
+
+    public function authenticate(Request $request)
+    {
+        // grab credentials from the request
+        $credentials = $request->only('email', 'password');
+
+        try {
+            // attempt to verify the credentials and create a token for the user
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid_credentials'], 401);
+            }
+        } catch (JWTException $e) {
+            // something went wrong whilst attempting to encode the token
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
+        // all good so return the token
+        $ar = [ response()->json(compact('token')) ];
+      //  return $ar;
+        return response()->json(compact('token'));
     }
 }

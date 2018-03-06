@@ -1,4 +1,4 @@
-<footer style=" position: relative; padding-top: 2em; padding-bottom: 2em; max-height: 15em; z-index: 20 !important;">
+<footer style=" position: relative; padding-top: 2em; padding-bottom: 2em; max-height: 15em; z-index: 20 !important;" class="d-none">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-3 col-sm-6 col-md-6 col-lg-6">

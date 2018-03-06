@@ -71,7 +71,7 @@ class ThreadController extends Controller
             'user_id' => request('user_id'),
             'thread_id' => request('thread_id')
         ]);
-        $data = ['auth_id' => Auth::user()->id, 'user_id' => $user->id, 'body' => request('message'), 'thread_id' => request('thread_id'), 'created_at' => $message->created_at, 'username' => Auth::user()->username];
+        $data = ['auth_id' => Auth::user()->id, 'user_id' => $user->id, 'body' => request('message'), 'thread_id' => request('thread_id'), 'created_at' => $message->created_at, 'username' => Auth::user()->username, 'fullname' => Auth::user()->fullname];
         $message = 'gameboy';
         event(new NewThreadMessage($data));
         if(Auth::user()->id == $thread->sender_id) { //1 == 1
@@ -83,6 +83,30 @@ class ThreadController extends Controller
         }
         \Mail::to($receiver)->send(new NewMessage($sender, $receiver)); 
         return 'Message Sent';
+    }
+
+    public function messenger()
+    {
+     //   $thread = DB::select("SELECT * FROM threads WHERE (user_id = '".Auth::user()->id."' AND receiver_id = '".$user->id."') OR (user_id = '".$user->id."' AND receiver_id = '".Auth::user()->id."') Order BY id desc");
+        $auth = Auth::user();
+         $users = User::all();
+        $userfriends = Auth::user()->getFriends();
+        $allthreads = \App\Thread::where('user_id', Auth::user()->id)->orWhere('receiver_id', Auth::user()->id)->get();
+        $threads = [];
+        $messages = [];
+            foreach ($allthreads as $tr) {
+                $mess = $tr->messages()->orderBy('id', 'asc')->get();
+                if(count($mess) >= 1) {
+                    array_push($threads, $tr);
+                    foreach ($mess as $msg) {
+                         array_push($messages, $msg);
+                    }
+                }
+            }
+           // $messages = $threads->messages()->orderBy('id', 'asc')->get();
+            $data = [$userfriends, $threads, $auth, $messages];
+            return $data;
+          //  $view->with(compact('userfriends', 'threads')); 
     }
 
     public function destroy($id)

@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'twitter' => 'max:255',
             'bio' => 'required|max:255',
             'contacts' => 'required|max:255',
-            'specialization_id' => 'required|max:255',
+            'specialization_id' => 'required|max:255', 
         ]);
     }
 

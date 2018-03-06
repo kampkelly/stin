@@ -1,28 +1,28 @@
 <template>
-<div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7 second-row" id="secondDiv" style="padding-top: 60px;">
+<div class="col-xs-2 col-sm-12 col-md-8 col-lg-8 col-xl-7 second-row" id="secondDiv" style="padding-top: 70px; margin-right: 0px !important;">
+        <div>
       <!--search form-->
         <section class="middle-coumn background-primary" style="padding-bottom: 60px;">
         <div v-show="loading" style="height:100vh;"><img src="loading-circle.svg" style="position: fixed; top:35%; left:42%;"></div>
-        <div class="container-fluid create-startup" style="padding-left: 0px" v-show="loaded">
+        <div class="container-fluid create-startup" style="padding-left: 0px; padding-right: 0px;" v-show="loaded">
                  <div class="container-fluid show-startups">
         <!--STARTUP FIRST-BOX STARTS-->
             <div class="row">
-                <div class="container-fluid">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="container">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <h4 class="text-ceter">{{startup.title}}
-                            <span class="small" v-if="startup.featured == 'yes'"> by TheInnovestors</span>
-                            <span class="small" v-else> by {{ startup.group_name }}</span>
+                            <span class="small text-muted" v-if="startup.featured == 'yes'"> by TheInnovestors</span>
+                            <span class="small text-muted" v-else> by {{ startup.group_name }}</span>
                         <br><span class="smallest-font">Uploaded by: 
                             <b v-if="startup.featured == 'yes'">TheInnovestors</b>
                              <router-link tag="a" :to="'/innovator/profile/' + startup.user.username" v-else>
-                              <a>{{startup.user.fullname}}</a>
+                              <a class="text-info">{{startup.user.fullname}}</a>
                             </router-link>
                         </span>
-                        <a :href="'/startup/edit/' + startup.slug" class="pull-right small" style="color: #139DFD; display: none;">Edit</a><br><span class="small pull-right"> <span style="color:#27AD60; font-size:15px;" v-if="startup.featured == 'yes'">Featured</span> {{ postedOn(startup) }}</span><span class="small pull-right"><div class="rw-ui-container" :data-title="startup.id"></div></span></h4>
+                        <a :href="'/startup/edit/' + startup.slug" class="float-right small" style="color: #139DFD; display: none;">Edit</a><br><span class="small float-right text-muted"> <span style="color:#27AD60; font-size:15px;" v-if="startup.featured == 'yes'">Featured</span> {{ postedOn(startup) }}</span><span class="small pull-right"><div class="rw-ui-container" :data-title="startup.id"></div></span></h4>
                         <div id="startup_img" class="panel panel-body">
                             
-                            <img :src="'uploads/startup_photos/' + startup.image" class="img-responsive" width="100%" style="height:300px;">
+                            <img :src="'uploads/startup_photos/' + startup.image" class="img-fluid" width="100%" style="height:300px;">
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             <h4 class="text-center" style="text-decoration: underline;">More Images</h4>
                 <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 more-images" v-if="startupsphotoslen >= 1" v-for="startupsphoto in startupsphotos">
-                             <img :src="'uploads/startup_photos/' + startupsphoto.filename" class="img-responsive" width="100%">
+                             <img :src="'uploads/startup_photos/' + startupsphoto.filename" class="img-fluid" width="100%">
                                  <form :action="'/startup/' + startup.id + '/image-deleted'" method="post" value="DELETE" role="form" v-if="auth.id == startup.user_id">
                                  <!--csrf field-->
                                  <input type="hidden" name="_token" :value="csrf">
@@ -69,7 +69,7 @@
                         </div>
                         <div class="for-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <button type="submit" class="btn btn-primary btn-xs btn-block">Upload</button>
+                                <button type="submit" class="btn btn-primary btn-sm btn-block">Upload</button>
                             </div>
                         </div>
                     </form>
@@ -78,7 +78,7 @@
                 <hr>
                 <h4 class="text-center" style="text-decoration: underline;">Explanatory Videos</h4>
                             <div class="row" v-if="youtubevideoslen >= 1" v-for="youtubevideo in youtubevideos">
-                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                                     <iframe width="100%" height="205" :src="'https://www.youtube.com/embed/' + youtubevideo.video_id" frameborder="0" allowfullscreen></iframe>
                                   <p class="sm-medium-font"> <span style="text-decoration: underline;">Title:</span> {{youtubevideo.title}}<br>
                                     <span style="text-decoration: underline;">Description:</span> {{youtubevideo.description}}</p>
@@ -99,8 +99,8 @@
                         <input type="hidden" name="_token" :value="csrf">
                             <div class="form-group">
                                 <div class="form-group">
-                                    <label for="video" class="col-xs-12 col-sm-4 col-md-10 col-lg-2 control-label">Upload video:</label>
-                                    <div class="col-xs-12 col-sm-4 col-md-10 col-lg-4">
+                                    <label for="video" class="col-12 col-sm-4 col-md-10 col-lg-2 control-label">Upload video:</label>
+                                    <div class="col-12 col-sm-4 col-md-10 col-lg-4">
                                          <input type="text" name="title" placeholder="title" class="form-control">
                                         <input type="text" name="description" placeholder="video description" class="form-control">
                                          <input type="file" name="video" accept="video/*" class="btn btn-success btn-xs">
@@ -110,7 +110,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-md-10 col-lg-4 col-lg-offset-2">
-                                    <button type="submit" class="btn btn-primary btn-xs btn-block">Upload</button>
+                                    <button type="submit" class="btn btn-primary btn-sm btn-block">Upload</button>
                                 </div>
                             </div>
                         </form>
@@ -131,7 +131,7 @@
                         <h4 class="text-center" style="text-decoration: underline;">Reviews</h4>
                             <div class="col-xs-12 col-sm-8 col-sm-offset-4 comments" style="margin-left: 10px;" v-for="comment in comments">
                                     <ul class="list-unstyled">
-                                        <li><h4>{{comment.name}}</h4> <span class="pull-right text-muted small-font">{{ postedOn(comment) }}</span></li>
+                                        <li><h4 class="text-gray-dark">{{comment.name}}</h4> <span class="pull-right text-muted small-font">{{ postedOn(comment) }}</span></li>
                                          <li><p class="sm-medium-font">{{comment.comment}}</p></li>
                                     </ul>
                                     
@@ -144,7 +144,7 @@
                         <!--csrf field--> 
                         <input type="hidden" name="_token" :value="csrf">
                              <div class="form-group">
-                                <label for="comment_name" class="col-sm-2 control-label">Name:</label>
+                                <label for="comment_name" class="col-sm-2 control-label"><b>Name</b>:</label>
                                 <div class="col-sm-5">
                                     <input name="comment_name" id="comment_name" class="form-control" placeholder="Name" style="width: 60%;" required>
                                 </div>
@@ -152,14 +152,14 @@
                             <div class="form-group">
                                 <label for="comment" class="col-sm-2 control-label">Review:</label>
                                 <div class="col-sm-10">
-                                    <textarea name="comment" id="comment" class="form-control" placeholder="Type review" required rows="4" style="width: 90%;"></textarea>
+                                    <textarea name="comment" id="comment" class="form-control" placeholder="Type review" required rows="2" style="width: 90%;"></textarea>
                                 </div>
                             </div>
                             <input type="text" name="startup_id" :value="startup.id" hidden="true">
                             <div class="form-group">
                                 <label for="input" class="col-sm-2 control-label"></label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary btn-block" style="width: 90%;">Leave Review</button>
+                                    <button type="submit" class="btn btn-primary btn-block btn-sm" style="width: 90%;">Leave Review</button>
                                 </div>
                             </div>
                         </form>

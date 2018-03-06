@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container docs">
-    <div style="height:35px;"></div>
+    <div style="height:75px;"></div>
     <h3 class="text-center">Privacy</h3>
     <p style="word-wrap: break-word; line-height: 2em;" class="text-justify">
 		Thank you for visiting theinnovestors.com, an online innovation social platform service managed by teamin. We respect and protect the privacy of our users. This privacy policy tells you how we collect and use information.

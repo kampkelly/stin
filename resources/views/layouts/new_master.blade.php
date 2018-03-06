@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="d7gBnkn0v6wNn7JAf3526WxiqQQdDXr8q0w7VGwRXUU" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/slide.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style2.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="{{ asset('css/newstyle.css') }}" rel="stylesheet">
     <link href="{{ asset('css/headmobilee.css') }}" rel="stylesheet">
     <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
     <link href="{{ asset('css/loading-btn.css') }}" rel="stylesheet">
@@ -126,24 +125,14 @@
    @include('/partials/_rating_widget')
 
     <!-- Include jQuery Mobile stylesheets -->
-     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+     <script type="text/javascript" src="/js/app.js"></script>
     <script src="{{ asset('js/headscript.js') }}"></script>
     <script src="https://use.fontawesome.com/fa2b05ef33.js"></script>  
      
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.5/sweetalert2.all.js"></script>
-<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
  <script type="text/javascript" src="/js/vue10.js"></script>
     <!--  <script type="text/javascript" src="/js/main.js"></script> -->
-      <!--for mobileheader slide in when logged in-->
-      <script src="{{ asset('js/slide.js') }}"></script>
       <script src="{{ asset('js/bundle1.js') }}"></script>
-      <!--for mobileheader slide in when logged in-->
 </body>
 </html>
