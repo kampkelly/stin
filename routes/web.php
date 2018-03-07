@@ -5,6 +5,10 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
+
 Auth::routes();
 
   Route::get('/token/{token}', 'HomeController@jwauth');
