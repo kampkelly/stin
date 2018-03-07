@@ -16,6 +16,7 @@ use App\FriendFriendshipGroups;
 use App\TeamRequest;
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
