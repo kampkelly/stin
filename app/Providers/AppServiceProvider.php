@@ -15,6 +15,7 @@ use App\Friendship;
 use App\FriendFriendshipGroups;
 use App\TeamRequest;
 use Laravel\Dusk\DuskServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+      Schema::defaultStringLength(191);
         //'status', '=', 'pending'
         //FOR GLOBAL VIEW EVERYWHERE
         view()->composer('/partials/sidebar', function ($view) {
