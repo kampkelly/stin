@@ -18,9 +18,3 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
-
-
-AuthUserFile /home/forge/testanalysis.tk/.htpasswd
-AuthType Basic
-AuthName "Super Secret Site"
-Require valid-user
