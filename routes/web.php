@@ -401,7 +401,7 @@ Route::post('login', array(
        // 'Auth\LoginController@Login'
 )); */
 
-$this->post('newlogin', 'Auth\LoginController@authenticate');
+$this->post('newlogin', 'Auth\LoginController@authenticate'); 
 
 $this->post('login', 'Auth\LoginController@custom_login_for_remember');
 $this->post('/test_ajax', 'Auth\LoginController@test_ajax');

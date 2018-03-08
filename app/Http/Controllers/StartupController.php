@@ -33,7 +33,8 @@ class StartupController extends Controller
 
     public function briefing() {
         $innovations = Startup::where('status', 'pending')->orWhere('status', 'approved')->with('user')->orderBy('id', 'desc')->get();
-        return view('briefing', compact('innovations'));
+        dd($innovations);
+      //  return view('briefing', compact('innovations'));
     }
 
     public function store(Request $request)
