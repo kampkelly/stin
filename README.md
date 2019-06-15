@@ -2,5 +2,5 @@
 
 This is the innovestors project.
 
-Closed support for now.
+Closed support
 
