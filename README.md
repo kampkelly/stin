@@ -1,6 +1,3 @@
 # TheInnovestors
-
-This is the innovestors project.
-
-Closed support
+An platform to connect investors with innnovators.
 
